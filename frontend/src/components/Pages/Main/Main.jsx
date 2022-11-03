@@ -1,11 +1,20 @@
-import Header from "../../Parts/Header/Header";
-import Footer from "../../Parts/Footer/Footer";
+import { Box} from "@mui/material";
+import React from "react";
+
+import mainStyles from "../../../styles/main.scss";
+import DownloadCV from "./DownloadCV/DownloadCV";
+import MySkills from "./MySkills/MySkills";
 
 function MainPage() {
   return (
-    <>
-      Main Page
-    </>
+    <Box sx={{
+       display: "flex",
+       flexDirection: "column",
+       alignItems: "center"
+     }}>
+      <DownloadCV />
+      <MySkills />
+    </Box>
   )
 }
 

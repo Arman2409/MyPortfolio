@@ -1,0 +1,22 @@
+$textColor1: rgb(175, 79, 79);
+$textColor2: rgb(119, 175, 119);
+$borderColor1: rgb(114, 114, 173);
+$borderColor2: rgb(240, 116, 116);
+$backgroundColor1: rgb(179, 179, 226);
+$backgroundColor2: rgb(247, 205, 157);
+$mainShadow:px 0px 9px 4px rgba(0,0,0,0.75);
+
+
+body {
+    background-color: $backgroundColor1;
+}
+
+:export {
+    textColor1: $textColor1;
+    textColor2: $textColor2;
+    backgroundColor1: $backgroundColor1;
+    backgroundColor2: $backgroundColor2;
+    borderColor1: $borderColor1;
+    borderColor2: $borderColor2;
+    mainShadow: $mainShadow;
+}

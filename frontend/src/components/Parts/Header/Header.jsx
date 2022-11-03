@@ -12,7 +12,9 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
 
-const pages = ['Portfolio', 'About'];
+import mainStyles from "../../../styles/main.scss";
+
+const pages = ['Main', 'Portfolio', 'About', 'Contacts' ];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -28,7 +30,8 @@ const ResponsiveAppBar = () => {
   return (
     <AppBar position="static" 
       sx={{
-        marginBottom: '25px'
+        marginBottom: '25px',
+        backgroundColor: mainStyles.backgroundColor2
       }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -113,7 +116,7 @@ const ResponsiveAppBar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, px: 2, color: 'white', display: 'block' }}
               >
-                <Link to={`/${page.toLowerCase()}`}>
+                <Link to={page == "Main" ? "/" : `/${page.toLowerCase()}`}>
                   {page}
                 </Link>
               </Button>
