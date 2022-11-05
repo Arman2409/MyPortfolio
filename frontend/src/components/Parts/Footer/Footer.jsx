@@ -1,6 +1,7 @@
-import { BottomNavigation, IconButton} from '@mui/material';
+import { BottomNavigation, IconButton, Typography, Box, Link} from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookIcon from '@mui/icons-material/Facebook';
+import CopyrightIcon from '@mui/icons-material/Copyright';
 
 import mainStyles from "../../../styles/main.scss";
 
@@ -10,14 +11,55 @@ function Footer() {
         <BottomNavigation 
           sx={{
             marginTop: '25px',
+            justifyContent: "flex-start",
+            flexDirection: "column",
+            alignItems: "center",
+            height: "auto",
             backgroundColor: mainStyles.backgroundColor2
           }}>
-            <IconButton href="https://linkedin.com" target="_blank">
-                <LinkedInIcon />
-            </IconButton>
-              <IconButton href="https://facebook.com" target="_blank">
-                <FacebookIcon />
-            </IconButton>
+            <Box>
+              <IconButton 
+                href="https://linkedin.com" 
+                target="_blank">
+                  <LinkedInIcon sx={{
+                    color: mainStyles.textColor2,
+                    fontSize: "30px",
+                  }} />
+              </IconButton>
+                <IconButton 
+                  href="https://facebook.com" 
+                  target="_blank">
+                  <FacebookIcon sx={{
+                    color: mainStyles.textColor2,
+                    fontSize: "30px",
+                  }} />
+              </IconButton>
+            </Box>
+            <Box>
+              <Link 
+                href="malto:armanghazaryan2409@gmail.com"
+                underline="none">
+                <Typography
+                  variant="h6"
+                  color={mainStyles.textColor1}>
+                  armanghazaryan2409@gmail.com
+                </Typography>
+              </Link>
+            </Box>
+            <Box
+             sx={{
+              display: "flex",
+              color: mainStyles.textColor2,
+              mb: "15px"
+             }}>
+                <Typography >
+                Copyright
+                </Typography>
+                  <CopyrightIcon sx={{m: "0 7px"}}/>
+                  <Typography>
+                Ghazaryan Arman 2022 All rights reserved
+                </Typography>
+            </Box>
         </BottomNavigation>
     )
 }

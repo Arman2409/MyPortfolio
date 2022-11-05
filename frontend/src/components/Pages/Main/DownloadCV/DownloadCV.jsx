@@ -10,8 +10,9 @@ function DownloadCV() {
         container 
         className="download-cv-container"
         sx={{
-         height: "200px",
+         height: "160px",
          width: "40%",
+         margin: "50px 0",
          backgroundColor: mainStyles.backgroundColor2,
          border: "1px solid",
          borderColor: mainStyles.borderColor1,
@@ -33,20 +34,29 @@ function DownloadCV() {
            width: "40%",
            display: "flex",
            justifyContent: "center",
-           alignItems: "center"
+           alignItems: "center",
+           transition: "1s",
+           "&:hover": {
+              transform: "rotate(360deg)",
+           }
          }}>
            <Link
             href="./CV.pdf" 
             download="CV.pdf"
             underline="hover"
             sx={{
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
               color: mainStyles.textColor2
             }} >
-             Download    
-           </Link>
-           <SimCardDownloadIcon sx={{
+             Download   
+             <SimCardDownloadIcon sx={{
               color: mainStyles.textColor2
-            }}/>
+            }}/> 
+           </Link>
          </Grid>
       </Grid>
     )

@@ -9,6 +9,8 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { Container, Grid, Link } from '@mui/material';
 import { useEffect } from 'react';
 
+import mainStyles from "../../../styles/main.scss";
+
 function Portfolio() {
 
   function clickInfo(item) {
@@ -34,10 +36,23 @@ function Portfolio() {
   }, [])
 
   return (
-    <Container >
+    <Container sx={{
+      backgroundColor: mainStyles.backgroundColor2,
+      boxShadow: mainStyles.mainShadow,
+      padding: "20px"
+    }}>
       <ImageList sx={{ width: 'auto', height: 'auto' }}>
         <ImageListItem key="Subheader" cols={2}>
-          <ListSubheader component="div" sx={{fontSize: '35px'}}>My Portfolio</ListSubheader>
+          <ListSubheader 
+           component="div" 
+
+           sx={{fontSize: '35px',
+                marginBottom: "15px",
+                textAlign: "center",
+                backgroundColor: mainStyles.backgroundColor2,
+                color: mainStyles.textColor1}}>
+            My Portfolio
+          </ListSubheader>
         </ImageListItem>
         {itemData.map((item) => (
           <ImageListItem

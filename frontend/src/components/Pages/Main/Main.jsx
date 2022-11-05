@@ -1,9 +1,10 @@
 import { Box} from "@mui/material";
 import React from "react";
 
-import mainStyles from "../../../styles/main.scss";
+// import mainStyles from "../../../styles/main.scss";
 import DownloadCV from "./DownloadCV/DownloadCV";
 import MySkills from "./MySkills/MySkills";
+import LanguageSkills from "./LanguageSkills/LanguageSkills";
 
 function MainPage() {
   return (
@@ -14,6 +15,7 @@ function MainPage() {
      }}>
       <DownloadCV />
       <MySkills />
+      <LanguageSkills />
     </Box>
   )
 }

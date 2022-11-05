@@ -4,7 +4,7 @@ $borderColor1: rgb(114, 114, 173);
 $borderColor2: rgb(240, 116, 116);
 $backgroundColor1: rgb(179, 179, 226);
 $backgroundColor2: rgb(247, 205, 157);
-$mainShadow:px 0px 9px 4px rgba(0,0,0,0.75);
+$mainShadow:0px 0px 12px 3px $borderColor2;
 
 
 body {
