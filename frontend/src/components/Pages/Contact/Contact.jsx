@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState , useRef} from "react";
 import { Box, TextField , Container, Typography, Button} from "@mui/material";
 import axios from "axios";
 
 import mainStyles from "../../../styles/main.scss";
+import { useEffect } from "react";
 
 function Contacts() {
    const [message,setMessage] = useState("");
+   const mainBox = useRef();
 
    function submitMessage(e) {
       e.preventDefault();
@@ -19,16 +21,26 @@ function Contacts() {
       })
    }
 
+   useEffect(() => {
+      setTimeout(() => {
+         mainBox.current.style.top = "0px";
+      }, 1000);
+   }, []);
+
     return (
-        <Box>
            <Container
              component="form"
              onSubmit={submitMessage}
+             ref={mainBox}
              sx={{
                 border: `1px solid ${mainStyles.borderColor1}`,
                 padding: "20px",
                 display: "flex",
                 height: "500px",
+                width: "80%",
+                transition: "0.5s",
+                position: "relative",
+                top: "-2500px",
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "space-evenly",
@@ -37,6 +49,7 @@ function Contacts() {
              }}>
                 <Typography 
                   variant="h3"
+                  fontFamily={"'Pacifico', cursive;"}
                   color={mainStyles.textColor1}
                 >
                     Contact me
@@ -47,9 +60,13 @@ function Contacts() {
                  placeholder="Your name" 
                  sx={{
                     width: "80%",
-                    backgroundColor: mainStyles.textColor2,
+                    backgroundColor: mainStyles.backgroundColor1,
                     border: `1px solid ${mainStyles.borderColor2}`,
-                 }}/>
+                    input: {
+                     color: true ? mainStyles.textColor1 : null,
+                    },
+                 }}
+                 />
                 <TextField 
                  required
                  type={"email"} 
@@ -57,19 +74,23 @@ function Contacts() {
                  placeholder="Your email" 
                  sx={{
                     width: "80%",
-                    backgroundColor: mainStyles.textColor2,
+                    backgroundColor: mainStyles.backgroundColor1,
                     border: `1px solid ${mainStyles.borderColor2}`,
+                    input: {
+                     color: true ? mainStyles.textColor1 : null
+                    }
                  }}/>
                 <TextField 
                  required
                  multiline
                  rows={5}
                  maxRows={10}
+                 inputProps={{ style: { color: mainStyles.textColor1 } }}
                  name="message"
                  placeholder="Your message"
                  sx={{
                     width: "80%",
-                    backgroundColor: mainStyles.textColor2,
+                    backgroundColor: mainStyles.backgroundColor1,
                     border: `1px solid ${mainStyles.borderColor2}`,
                  }}
                  />
@@ -87,6 +108,19 @@ function Contacts() {
                     variant="contained"
                     type="submit"
                     sx={{
+                        color: mainStyles.textColor2,
+                        animationName: "button",
+                        animationDuration: "1s",
+                        animationIterationCount: "infinite",
+                        animationDirection: "alternate",
+                        "@keyframes button":{
+                           from: {
+                              borderRadius: "58% 11% 47% 92% / 78% 68% 18% 32%"
+                           },
+                           to: {
+                              borderRadius: "85% 47% 85% 57% / 69% 39% 85% 15%"
+                           }
+                        },
                         position: "absolute",
                         right: 0,
                         top: 0,
@@ -97,7 +131,6 @@ function Contacts() {
                      </Button>
                  </Box>
            </Container>
-        </Box>
     )
 }
 

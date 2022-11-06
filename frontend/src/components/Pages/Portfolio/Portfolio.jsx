@@ -6,48 +6,64 @@ import ListSubheader from '@mui/material/ListSubheader';
 import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import { Container, Grid, Link } from '@mui/material';
+import { Container, Grid, Box, Link } from '@mui/material';
 import { useEffect } from 'react';
 
 import mainStyles from "../../../styles/main.scss";
+import { useRef } from 'react';
 
 function Portfolio() {
+  const mainBox = useRef(null);
 
   function clickInfo(item) {
-    const currentBar = document.querySelector(`.itemBar-${item.id}`);
     const subtitles = document.querySelectorAll('.MuiImageListItemBar-subtitle');
     const elemIndex = item.id - 1;
     if (subtitles[elemIndex].innerHTML == "") {
      subtitles[elemIndex].innerHTML = item.description;
     } 
     else {
-      console.log('here 2')
       subtitles[elemIndex].innerHTML='';
     }
   }
 
   useEffect(() => {
      const subtitles = document.querySelectorAll('.MuiImageListItemBar-subtitle');
-     console.log(subtitles);
       subtitles.forEach((elem) => {
-        console.log('loop');
         elem.innerHTML = '';
       })
+      setTimeout(() => {
+        mainBox.current.style.top = "0px";
+      }, 1000)
+     const bars = document.querySelectorAll(".MuiImageListItemBar-title");
+     const barSubtitles = document.querySelectorAll(".MuiImageListItemBar-subtitle");
+     bars.forEach((elem, index) => {
+      elem.style.color = mainStyles.textColor1;
+     })
+     barSubtitles.forEach((elem, index) => {
+      elem.style.color = mainStyles.textColor2;
+     })
   }, [])
 
   return (
-    <Container sx={{
-      backgroundColor: mainStyles.backgroundColor2,
-      boxShadow: mainStyles.mainShadow,
-      padding: "20px"
-    }}>
+    <Box 
+      ref={mainBox}
+      sx={{
+        backgroundColor: mainStyles.backgroundColor2,
+        boxShadow: mainStyles.mainShadow,
+        padding: "20px",
+        transition: "0.5s",
+        width: "80%",
+        position: "relative",
+        top: "-2500px",
+        margin: "0 auto",
+      }}>
       <ImageList sx={{ width: 'auto', height: 'auto' }}>
         <ImageListItem key="Subheader" cols={2}>
           <ListSubheader 
            component="div" 
-
            sx={{fontSize: '35px',
                 marginBottom: "15px",
+                fontFamily: "'Pacifico', cursive;",
                 textAlign: "center",
                 backgroundColor: mainStyles.backgroundColor2,
                 color: mainStyles.textColor1}}>
@@ -57,7 +73,9 @@ function Portfolio() {
         {itemData.map((item) => (
           <ImageListItem
             key={item.img}
-            sx={{'&:hover': {border: '4px solid red'}}}>
+            sx={{
+              '&:hover': {border: `7px solid ${mainStyles.borderColor2}`}
+              }}>
             <img
               src={`${item.img}?w=248&fit=crop&auto=format`}
               srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
@@ -67,11 +85,12 @@ function Portfolio() {
             <ImageListItemBar
               className={`itemBar-${item.id}`}
               title={item.title}
+              onClick={() => clickInfo(item)}
               subtitle="..."
               actionIcon={
                 <Grid container>
                   {item.description ? 
-                  <Grid item className='button-wrapper' onClick={() => clickInfo(item)}>
+                  <Grid item className='button-wrapper' >
                       <IconButton
                         sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
                         aria-label={`info about ${item.title}`}
@@ -98,7 +117,7 @@ function Portfolio() {
           </ImageListItem>
         ))}
       </ImageList>
-    </Container>
+    </Box>
   );
 }
 

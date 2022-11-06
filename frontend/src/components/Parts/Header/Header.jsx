@@ -19,7 +19,10 @@ const pages = ['Main', 'Portfolio', 'About', 'Contacts' ];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [zerosAndOnes, setZerosAndOnes] = React.useState("");
+  const [zerosAndOnes, setZerosAndOnes] = React.useState();
+  const marquee = React.useRef();
+  const zerosAndOnesRef = React.useRef([]);
+  const randomBitsInt = React.useRef(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -30,25 +33,33 @@ const ResponsiveAppBar = () => {
   };
 
   useEffect(() => {
-     const marquee = document.querySelector(".marquee");
-     console.log(marquee);
-     setInterval(() => {
+    setTimeout(() => {
+      marquee.current = document.querySelectorAll(".marquee");
+    }, 1500);
+     randomBitsInt.current =  setInterval(() => {
        const random =  Math.round(Math.random());
-       console.log(random);
-       marquee.appendChild(random);
+       if (zerosAndOnesRef.current.lenght > 160) {
+        clearInterval(randomBitsInt.current);
+        return;
+       }
+       zerosAndOnesRef.current.push(random);
+       setZerosAndOnes([...zerosAndOnesRef.current]);
      }, 1000);
   }, []);
 
   return (
+    <>
      <Box
      sx={{
       height: "120px",
+      position: "fixed",
+      width: "100%",
+      zIndex: 4
      }}>
       <AppBar 
          position="static"
         sx={{
           m: 0,
-          // marginBottom: '25px',
           backgroundColor: mainStyles.backgroundColor2,
           height: "100px"
         }}>
@@ -111,10 +122,7 @@ const ResponsiveAppBar = () => {
                     height: "100%",
                     marginLeft: '25px',
                     display: { xs: 'none', md: 'flex' },
-                    "&:hover .menu-button": {
-                      transition: "0.2s",
-                      px: "40px"
-                    } }}>
+                    }}>
               {pages.map((page) => (
                 <Link
                   to={page == "Main" ? "/" : `/${page.toLowerCase()}`}
@@ -126,9 +134,18 @@ const ResponsiveAppBar = () => {
                       key={page}
                       className="menu-button"
                       onClick={handleCloseNavMenu}
-                      sx={{ px: 2, color: 'white', height: "100%", textDecoration: "none", display: 'block', color: mainStyles.textColor2 }}
+                      sx={{
+                        fontFamily: "'Pacifico', cursive;",
+                        px: 2,
+                        color: 'white',
+                        height: "100%",
+                        textDecoration: "none",
+                        display: 'block',
+                        color: mainStyles.textColor2,
+                        textShadow: "0 0 10px #FFFFFF",
+                       }}
                     >    
-                        {page}
+                        {page == "Contacts" ? "Contact me" : page}
                     </Button>
                   </Link>
               ))}
@@ -142,18 +159,19 @@ const ResponsiveAppBar = () => {
       }}>
         <Marquee
         direction='right'
-        // className='marquee-cont'
         loop={false}
         speed={100}
+        children={zerosAndOnes}
         style={{
           backgroundColor: mainStyles.textColor1,
           color: mainStyles.textColor2,
           height: "100%"
         }}>
-          
         </Marquee>
       </Box>
    </Box>
+   <Box height="120px" sx={{mb: "25px"}}></Box>
+   </>
   );
 };
 export default ResponsiveAppBar;

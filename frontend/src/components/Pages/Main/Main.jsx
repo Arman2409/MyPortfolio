@@ -1,7 +1,6 @@
 import { Box} from "@mui/material";
 import React from "react";
 
-// import mainStyles from "../../../styles/main.scss";
 import DownloadCV from "./DownloadCV/DownloadCV";
 import MySkills from "./MySkills/MySkills";
 import LanguageSkills from "./LanguageSkills/LanguageSkills";
@@ -11,7 +10,8 @@ function MainPage() {
     <Box sx={{
        display: "flex",
        flexDirection: "column",
-       alignItems: "center"
+       alignItems: "center",
+       position: "relative",
      }}>
       <DownloadCV />
       <MySkills />

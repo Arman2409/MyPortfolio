@@ -1,6 +1,8 @@
 import React from "react";
 import { Box, LinearProgress, Typography} from "@mui/material";
 import mainStyles from "../../../../styles/main.scss";
+import { useRef } from "react";
+import { useEffect } from "react";
 
 function LinearProgressWithLabel(props) {
     return (
@@ -64,13 +66,26 @@ function Askill ({skillName, percentage}){
    );
 }
 
-const skills = [["HTML", 90], ["CSS", 80], ["JavaScript", 60], ["React", 50], ["Node.js", 40], ["MongoDb", 40]]
+const skills = [["HTML", 90], ["CSS", 80], ["SCSS", 50], ["JavaScript", 60], ["React.js", 50], ["Node.js", 40], ["Express.js", 40], ["MongoDb", 40], ["PostgreSQL", 20], ["Docker", 30]];
 
 function MySkills() {
+   const mainCont = useRef(); 
+
+   useEffect(() => {
+     setTimeout(() => {
+       mainCont.current.style.top = "0px";
+     }, 1000)
+   }, []);
+
     return(
-        <Box sx={{
+        <Box 
+         ref={mainCont}
+         sx={{
+            transition: "0.5s",
+            position: "relative",
+            top: "-2500px",
              width: "80%",
-             height: "500px",
+             height: "auto",
              padding: "20px",
              backgroundColor: mainStyles.backgroundColor2,
              boxShadow: mainStyles.mainShadow,
@@ -78,6 +93,7 @@ function MySkills() {
             <Typography
               variant="h4"
               color={mainStyles.textColor1}
+              fontFamily={"'Pacifico', cursive;"}
               sx={{
                 fontSize: "35px",
                 textAlign: "center"
@@ -93,7 +109,7 @@ function MySkills() {
               }}>
               <Askill skillName={elem[0]} percentage={elem[1]} />
             </Box>
-          ))};
+          ))}
         </Box>
     )
 }

@@ -1,8 +1,10 @@
-$textColor1: rgb(175, 79, 79);
-$textColor2: rgb(119, 175, 119);
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+$textColor1: rgb(177, 81, 81);
+$textColor2: rgb(83, 163, 83);
 $borderColor1: rgb(114, 114, 173);
 $borderColor2: rgb(240, 116, 116);
-$backgroundColor1: rgb(179, 179, 226);
+$backgroundColor1: rgb(187, 187, 221);
 $backgroundColor2: rgb(247, 205, 157);
 $mainShadow:0px 0px 12px 3px $borderColor2;
 
@@ -18,5 +20,5 @@ body {
     backgroundColor2: $backgroundColor2;
     borderColor1: $borderColor1;
     borderColor2: $borderColor2;
-    mainShadow: $mainShadow;
+    mainShadow: $mainShadow; 
 }

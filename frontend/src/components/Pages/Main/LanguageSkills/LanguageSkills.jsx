@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import mainStyles from "../../../../styles/main.scss";
 import { useEffect } from "react";
@@ -19,11 +19,26 @@ function LanguageSkill( {language,level} ) {
   }, [])
    return(
        <Grid
-        container>
+        container
+        sx={{
+          backgroundColor: mainStyles.backgroundColor1,
+          height: "50px",
+          alignItems: "center",
+          justifyContent: "space-between",
+          pl: "25px",
+          my: "20px",
+          border: `0.5px solid ${mainStyles.textColor1}`,
+          borderRadius: "5px",
+          width: "100%",
+          "&:hover .notMain":{
+                fontSize: "7px",
+          }
+        }}>
           <Grid 
            item
            width="auto">
             <Typography 
+             color={mainStyles.textColor1}
              variant="h6">
               {language}
              </Typography>
@@ -37,50 +52,56 @@ function LanguageSkill( {language,level} ) {
              alignItems: "center",
            }}>
             <Typography
+              className={levelNumber !== 1 ? "notMain": null}
               sx={{
-                color: levelNumber > 0 ? "green" : "red",
-                border: levelNumber == 1 ? `1px solid red` : null,
-                borderRadius: levelNumber == 1 ? "50%": null,
+                color: levelNumber > 0 ?  mainStyles.textColor2 : mainStyles.textColor1,
+                textDecoration: levelNumber == 1 ? "underline": null,
+                transition: "0.5s",
               }}>
               A1
             </Typography>
             <Typography
-             sx={{
-              color: levelNumber > 1 ? "green" : "red",
-              border: levelNumber == 2 ? `1px solid red` : null,
-              borderRadius: levelNumber == 2 ? "50%": null,
+             className={levelNumber !== 2 ? "notMain": null}
+              sx={{
+               color: levelNumber > 1 ?  mainStyles.textColor2 : mainStyles.textColor1,
+               textDecoration: levelNumber == 2 ? "underline": null,
+               transition: "0.5s",
              }}>
               A2
             </Typography>
             <Typography
-             sx={{
-              color: levelNumber > 2 ? "green" : "red",
-              border: levelNumber == 3 ? `1px solid red` : null,
-              borderRadius: levelNumber == 3 ? "50%": null,
-             }}>
+              className={levelNumber !== 3 ? "notMain": null}
+              sx={{
+                color: levelNumber > 2 ?   mainStyles.textColor2 : mainStyles.textColor1,
+                textDecoration: levelNumber == 3 ? "underline": null,
+                transition: "0.5s",
+              }}>
               B1
             </Typography>
             <Typography
-             sx={{
-              color: levelNumber > 3 ? "green" : "red",
-              border: levelNumber == 4 ? `1px solid red` : null,
-              borderRadius: levelNumber == 4 ? "50%": null,
-            }}>
+              className={levelNumber !== 4 ? "notMain": null}
+              sx={{
+                color: levelNumber > 3 ?  mainStyles.textColor2 : mainStyles.textColor1,
+                textDecoration: levelNumber == 4 ? "underline": null,  
+                transition: "0.5s",
+                }}>
               B2
             </Typography>
             <Typography 
-             sx={{
-              color: levelNumber > 4 ? "green" : "red",
-              border: levelNumber == 5 ? `1px solid red` : null,
-              borderRadius: levelNumber == 5 ? "50%": null,
-            }}>
+              className={levelNumber !== 5 ? "notMain": null}
+              sx={{
+                color: levelNumber > 4 ?   mainStyles.textColor2 : mainStyles.textColor1,
+                textDecoration: levelNumber == 5 ? "underline": null,
+                transition: "0.5s",
+                }}>
               C1
             </Typography>
             <Typography
-             sx={{
-              color: levelNumber > 5 ? "green" : "red",
-              border: levelNumber == 6 ? `1px solid red` : null,
-              borderRadius: levelNumber == 6 ? "50%": null,
+              className={levelNumber !== 6 ? "notMain": null}
+              sx={{
+                color: levelNumber > 5 ? mainStyles.textColor2 : mainStyles.textColor1,
+                textDecoration: levelNumber == 6 ? "underline": null,
+                transition: "0.5s",
             }}>
               C2
             </Typography>
@@ -89,26 +110,47 @@ function LanguageSkill( {language,level} ) {
    );
 };
 
+const mySkills = [{language: "English", level: "B2"}, {language: "Russian", level: "B1"}, {language: "Armenian", level: "C2"}];
+
 function LanguageSkills() {
+
+   const mainCont = useRef(null);
+
+   useEffect(() => {
+      setTimeout(() => {
+        mainCont.current.style.top = "0px";
+      }, 1000)
+   }, []);
+
     return (
-        <Box sx={{
-          padding: "20px",
-          backgroundColor: mainStyles.backgroundColor2,
-          height: "400px",
-          margin: "50px 0",
-          width: "80%",
-          boxShadow: mainStyles.mainShadow,
-        }}>
+        <Box
+          ref={mainCont}
+          sx={{
+            transition: "0.5s",
+            position: "relative",
+            top: "-2500px",
+            padding: "20px",
+            backgroundColor: mainStyles.backgroundColor2,
+            height: "auto",
+            margin: "50px 0",
+            width: "80%",
+            boxShadow: mainStyles.mainShadow,
+          }}>
             <Typography
               variant="h4"
               color={mainStyles.textColor1}
+              fontFamily={"'Pacifico', cursive;"}
               sx={{
                 fontSize: "35px",
                 textAlign: "center"
               }}>
               My Language Skills
             </Typography>
-            <LanguageSkill language={"English"} level={"B2"} />
+            {mySkills.map((elem, index) => (
+              <Box key={index}>
+              <LanguageSkill  language={elem.language} level={elem.level} />
+              </Box>
+            ))}
         </Box>
     )
 }

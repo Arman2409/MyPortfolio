@@ -1,9 +1,30 @@
-import React from "react";
-import {Container, Grid} from "@mui/material";
+import React , { useEffect, useRef} from "react";
+import {Box, Container, Grid} from "@mui/material";
+
+import mainStyles from "../../../styles/main.scss";
 
 function About() {
+    const mainBox = useRef();
+
+    useEffect(() => {
+       setTimeout(() => {
+        mainBox.current.style.top = "0px";
+       }, 1000)
+    }, []);
+
     return (
-        <Container>
+        <Box
+          ref = {mainBox}
+          sx={{
+            width: "80%",
+            margin: "0 auto",
+            justifySelf: "center",
+            boxShadow: mainStyles.mainShadow,
+            backgroundColor: mainStyles.backgroundColor2,
+            transition: "0.5s",
+            position: "relative",
+            top: "-2500px",
+          }}>
             <Grid container 
               sx={{
                 justifyContent: 'space-between'
@@ -28,7 +49,7 @@ function About() {
                     diandae quis, consectetur tempora quaerat? Nostrum.
                 </Grid>
             </Grid>
-        </Container>
+        </Box>
     )
 }
 
