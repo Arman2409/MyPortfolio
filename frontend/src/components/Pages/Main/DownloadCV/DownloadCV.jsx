@@ -54,7 +54,7 @@ function DownloadCV() {
            <Link
             href="./CV.pdf" 
             download="CV.pdf"
-            underline="hover"
+            underline="none"
             sx={{
               width: "auto",
               height: "auto",

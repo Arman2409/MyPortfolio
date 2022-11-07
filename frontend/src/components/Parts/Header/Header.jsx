@@ -51,7 +51,7 @@ const ResponsiveAppBar = () => {
     <>
      <Box
      sx={{
-      height: "120px",
+      height: "125px",
       position: "fixed",
       width: "100%",
       zIndex: 4
@@ -155,7 +155,7 @@ const ResponsiveAppBar = () => {
       </AppBar>
       <Box
       sx={{
-        height: "20px",
+        height: "25px",
       }}>
         <Marquee
         direction='right'
@@ -164,6 +164,7 @@ const ResponsiveAppBar = () => {
         children={zerosAndOnes}
         style={{
           backgroundColor: mainStyles.textColor1,
+          opacity: 0.85,
           color: mainStyles.textColor2,
           height: "100%"
         }}>
