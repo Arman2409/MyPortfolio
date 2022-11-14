@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 import mainStyles from "../../../styles/main.scss";
 import { useEffect } from 'react';
 
-const pages = ['Main', 'Portfolio', 'About', 'Contacts' ];
+const pages = ['Main', 'Portfolio', 'Contacts' ];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
