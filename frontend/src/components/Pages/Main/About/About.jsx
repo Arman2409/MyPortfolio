@@ -9,8 +9,8 @@ function About() {
 
     useEffect(() => {
        setTimeout(() => {
-        mainBox.current.style.top = "0px";
-       }, 1000)
+         mainBox.current.style.top = "0px";
+       }, 1000);
     }, []);
 
     return (
@@ -36,13 +36,14 @@ function About() {
               }}>
                 <Grid item sx={{
                    width: {xs: "100%", md: "50%"},
-                   height: {xs: "50%", md: "100%"}
+                   height: {xs: "50%", md: "100%"},
+                   paddingRight: "15px"
                 }}>
                   <Avatar
                    src="https://media.istockphoto.com/photos/hot-air-balloons-flying-over-the-botan-canyon-in-turkey-picture-id1297349747?b=1&k=20&m=1297349747&s=170667a&w=0&h=oH31fJty_4xWl_JQ4OIQWZKP8C6ji9Mz7L4XmEnbqRU=" 
                    sx={{
-                    width:{xs:"150px", md: "100%"},
-                    height: {xs: "150px" ,md: "100%"},
+                    width:{xs:"180px", md: "100%"},
+                    height: {xs: "180px" ,md: "100%"},
                     borderRadius: "0px",
                     filter: "grayscale(100%)",
                     transition: "1s",
@@ -56,6 +57,7 @@ function About() {
                    width: {xs: "100%", md: "50%"},
                    fontSize: {xs: "13px", sm: "15px", md: "18px"},
                    height: {xs: "50%", md: "100%"},
+                   pt: {xs: "15px", md: 0},
                    color: mainStyles.textColor2
                 }}>
                   <Typewriter 
@@ -65,7 +67,7 @@ function About() {
                 </Grid>
             </Grid>
         </Box>
-    )
-}
+    );
+};
 
-export default About
+export default About;

@@ -44,7 +44,7 @@ function Footer() {
                 href="malto:armanghazaryan2409@gmail.com"
                 underline="none">
                 <Typography
-                  variant="h6"
+                  variant="p"
                   color={mainStyles.textColor1}>
                   armanghazaryan2409@gmail.com
                 </Typography>
@@ -53,7 +53,8 @@ function Footer() {
                 href="tel:armanghazaryan2409@gmail.com"
                 underline="none">
                 <Typography
-                  variant="h6"
+                  variant="p"
+                  fontSize="11px"
                   color={mainStyles.textColor1}>
                   +37496503823
                 </Typography>

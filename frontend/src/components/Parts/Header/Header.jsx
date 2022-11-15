@@ -113,9 +113,10 @@ const ResponsiveAppBar = () => {
                   }
                 }}
               >
-                {pages.map((page) => (
+                {pages.map((page, index) => (
                     <Link  to={page == "Main" ? "/" : `/${page.toLowerCase()}`}
                     underline="none"
+                    key={index}
                     style={{
                       textDecoration: "none",
                     }}>
@@ -124,13 +125,24 @@ const ResponsiveAppBar = () => {
                       onClick={handleCloseNavMenu}
                       sx={{
                         backgroundColor: mainStyles.textColor2,
+                        width: "115px",
+                        "&:hover": {
+                          backgroundColor: mainStyles.backgroundColor2,
+                          transition: "0.2s",
+                          boxSizing: "border-box",
+                          border: `0.25px solid ${mainStyles.borderColor1}`,
+                          "& .MuiTouchRipple-root": {
+                            display: "none"
+                          }
+                        }
                       }}>  
                         <Typography 
                           textAlign="center"
                           sx={{
                             color: mainStyles.textColor1,
-                            width: "100%",
-                            height: "100%"
+                            // width: "100%",
+                            // height: "100%",
+                            fontSize: "17px"
                         }}>{page}</Typography>
                     </MenuItem>
                   </Link>
@@ -143,10 +155,11 @@ const ResponsiveAppBar = () => {
                     marginLeft: '25px',
                     display: { xs: 'none', md: 'flex' },
                     }}>
-              {pages.map((page) => (
+              {pages.map((page, index) => (
                 <Link
                   to={page == "Main" ? "/" : `/${page.toLowerCase()}`}
                   underline="none"
+                  key={index}
                   style={{
                     textDecoration: "none"
                   }} >

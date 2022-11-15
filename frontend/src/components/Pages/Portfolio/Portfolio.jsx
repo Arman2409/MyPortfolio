@@ -55,32 +55,32 @@ function Portfolio() {
     } 
     else {
       subtitles[elemIndex].innerHTML='';
-    }
-  }
+    };
+  };
 
   useEffect(() => {
      const subtitles = document.querySelectorAll('.MuiImageListItemBar-subtitle');
       subtitles.forEach((elem) => {
         elem.innerHTML = '';
-      })
+      });
       setTimeout(() => {
         mainBox.current.style.top = "0px";
-      }, 1000)
+      }, 1000);
      const bars = document.querySelectorAll(".MuiImageListItemBar-title");
      const barSubtitles = document.querySelectorAll(".MuiImageListItemBar-subtitle");
-     bars.forEach((elem, index) => {
+     bars.forEach((elem) => {
       elem.style.color = mainStyles.textColor1;
-     })
-     barSubtitles.forEach((elem, index) => {
+     });
+     barSubtitles.forEach((elem) => {
       elem.style.color = mainStyles.textColor2;
-      elem.style.fontSize = "16px";
-     })
+     });
+     window.scrollTo({top: 0});
   }, [])
 
   return (
     <Box
      sx={{
-      height: "1200px",
+      height: {xs: "500px", sm: "700px", md: "900px", lg: "1100px"},
      }}>
       <Box 
         ref={mainBox}
@@ -92,7 +92,8 @@ function Portfolio() {
           width: "80%",
           position: "relative",
           top: "-2500px",
-          margin: "0 auto",
+          margin: "0px auto",
+          mt: "75px",
         }}>
         <ImageList sx={{ width: 'auto', height: 'auto' }}>
           <ImageListItem key="Subheader" cols={2}>
@@ -109,9 +110,11 @@ function Portfolio() {
           </ImageListItem>
           {itemData.map((item) => (
             <ImageListItem
-              key={item.img}
+              key={item.id}
               sx={{
-                '&:hover': {border: `7px solid ${mainStyles.borderColor2}`}
+                 boxSizing: "content-box",
+                '&:hover': {border: `7px solid ${mainStyles.borderColor2}`},
+                 height: {xs: "125px", md: "auto"}
                 }}>
               <img
                 src={`${item.img}?w=248&fit=crop&auto=format`}
@@ -125,17 +128,34 @@ function Portfolio() {
                 onClick={() => clickInfo(item)}
                 subtitle="..."
                 sx={{
-                  opacity: "1"
+                  "& .MuiImageListItemBar-title": {
+                    fontSize: {xs: "13px", sm: "16px", md: "18px"}
+                  },
+                  "& .MuiImageListItemBar-subtitle": {
+                    fontSize: {xs: "9.5px", sm: "14.5px", md: "17px"},
+                    maxWidth: {xs: "95%", md: "auto"}
+                  },
+                  "& .MuiImageListItemBar-titleWrap": {
+                    width: {xs: "90%", md: "auto"}
+                  },
+                  opacity: 1,
+                  height: {xs: "100%", md: "50px" },
+                  flexDirection: {xs : "column", md: "row"}
                 }}
                 actionIcon={
-                  <Grid container>
+                  <Grid container >
                     {item.description ? 
-                    <Grid item className='button-wrapper' >
+                    <Grid 
+                      item 
+                      className='button-wrapper' >
                         <IconButton
-                          sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+                          sx={{ color: 'rgba(255, 255, 255, 0.54)',
+                              }}
                           aria-label={`info about ${item.title}`}
                         >
-                          <InfoIcon />
+                          <InfoIcon sx={{
+                             fontSize: {xs: "16px", md: "18px"}
+                          }}/>
                         </IconButton>
                       </Grid>
                       : null }
@@ -146,8 +166,10 @@ function Portfolio() {
                             sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
                             aria-label={`info about ${item.title}`}
                           >
-                            <OpenInNewIcon />
-                          </IconButton>
+                            <OpenInNewIcon sx={{
+                               fontSize: {xs: "16px", md: "18px"}
+                             }}/>
+                          </IconButton >
                         </Link>
                       </Grid>
                       : null }

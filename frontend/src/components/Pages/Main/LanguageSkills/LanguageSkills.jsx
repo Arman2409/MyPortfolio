@@ -153,7 +153,7 @@ function LanguageSkills() {
             </Typography>
             {mySkills.map((elem, index) => (
               <Box key={index}>
-              <LanguageSkill  language={elem.language} level={elem.level} />
+                <LanguageSkill  language={elem.language} level={elem.level} />
               </Box>
             ))}
         </Box>

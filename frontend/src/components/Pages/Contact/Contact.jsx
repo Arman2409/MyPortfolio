@@ -25,6 +25,7 @@ function Contacts() {
       setTimeout(() => {
          mainBox.current.style.top = "0px";
       }, 1000);
+      window.scrollTo({top: 0});
    }, []);
 
     return (

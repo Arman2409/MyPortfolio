@@ -5,8 +5,14 @@ import About from "./About/About";
 import DownloadCV from "./DownloadCV/DownloadCV";
 import MySkills from "./MySkills/MySkills";
 import LanguageSkills from "./LanguageSkills/LanguageSkills";
+import { useEffect } from "react";
 
 function MainPage() {
+
+  useEffect(() => {
+    window.scrollTo({top: 0});
+  }, []);
+
   return (
     <Box sx={{
        display: "flex",
