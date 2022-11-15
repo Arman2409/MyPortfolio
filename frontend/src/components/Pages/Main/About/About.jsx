@@ -18,6 +18,7 @@ function About() {
           ref = {mainBox}
           sx={{
             width: "80%",
+            padding: "15px",
             margin: "0 auto",
             justifySelf: "center",
             boxShadow: mainStyles.mainShadow,
@@ -30,35 +31,35 @@ function About() {
             <Grid container 
               sx={{
                 justifyContent: 'space-between',
-                height: "100%"
+                height: {xs: "auto" , md: "100%"},
+                flexDirection: {xs: "column", md: "row"}
               }}>
                 <Grid item sx={{
-                   width: '50%',
-                   padding: "15px",
-                   height: "100%"
+                   width: {xs: "100%", md: "50%"},
+                   height: {xs: "50%", md: "100%"}
                 }}>
                   <Avatar
                    src="https://media.istockphoto.com/photos/hot-air-balloons-flying-over-the-botan-canyon-in-turkey-picture-id1297349747?b=1&k=20&m=1297349747&s=170667a&w=0&h=oH31fJty_4xWl_JQ4OIQWZKP8C6ji9Mz7L4XmEnbqRU=" 
                    sx={{
-                    width:"100%",
-                    height: "100%",
+                    width:{xs:"150px", md: "100%"},
+                    height: {xs: "150px" ,md: "100%"},
                     borderRadius: "0px",
+                    filter: "grayscale(100%)",
                     transition: "1s",
                     "&:hover" : {
-                      filter: "grayscale(100%)",
+                      filter: "grayscale(0%)",
                     }
                    }}
                   />
                 </Grid>
                 <Grid item sx={{
-                   width: '50%',
-                   padding: "15px",
-                   fontSize: "18px",
-                   height: "100%",
-                   color: mainStyles.textColor2,
+                   width: {xs: "100%", md: "50%"},
+                   fontSize: {xs: "13px", sm: "15px", md: "18px"},
+                   height: {xs: "50%", md: "100%"},
+                   color: mainStyles.textColor2
                 }}>
                   <Typewriter 
-                    words={[" Hello, my name is Arman.I am twenty years old.I am a full stack JavaScript developer.I can use React.js and Node.js frameworks of JavaScript.I have about 6 months of experience.I went to a practice to Global IT for 2 months,worked as React.js developer for two months and worked as full stack developer for 3 months in OnGrid.My programming skills also include HTML, CSS, SCSS, jQuery, Material UI, Redux Toolkit, Express.js, MongoDB, PostgreSQL, Docker."]}
+                    words={[" Hello, my name is Arman.I am twenty years old.I am a full stack JavaScript developer.I can use React.js and Node.js frameworks of JavaScript.I have about 6 months of experience.I went to a practice to Global IT for 2 months,worked as React.js developer for two months and worked as full stack developer for 3 months in OnGrid.My programming skills also include HTML, CSS, SCSS, jQuery, Material UI, Redux Toolkit, Express.js, MongoDB, PostgreSQL, Docker, Docker Compose."]}
                     typeSpeed={4}
                     />
                 </Grid>

@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 $textColor1: rgb(177, 81, 81);
-$textColor2: rgb(83, 163, 83);
+$textColor2: rgb(70, 185, 70);
 $borderColor1: rgb(114, 114, 173);
 $borderColor2: rgb(240, 116, 116);
-$backgroundColor1: rgb(187, 187, 221);
-$backgroundColor2: rgb(247, 205, 157);
+$backgroundColor1: rgb(235, 208, 88);
+$backgroundColor2: rgb(190, 161, 223);
 $mainShadow:0px 0px 12px 3px $borderColor2;
 
-
-body {
-    background-color: $backgroundColor1;
+.MuiLinearProgress-bar1Determinate{
+    background-image: linear-gradient(to left, brown, violet, indigo, green, orange, red);
+    background-size: 100%;
 }
 
 :export {

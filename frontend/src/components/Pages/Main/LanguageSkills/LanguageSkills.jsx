@@ -24,6 +24,7 @@ function LanguageSkill( {language,level} ) {
           backgroundColor: mainStyles.backgroundColor1,
           height: "50px",
           alignItems: "center",
+          flexDirection: {xs: "column", md: "row"},
           justifyContent: "space-between",
           pl: "25px",
           my: "20px",
@@ -34,78 +35,82 @@ function LanguageSkill( {language,level} ) {
                 fontSize: "7px",
           }
         }}>
-          <Grid 
-           item
-           width="auto">
-            <Typography 
-             color={mainStyles.textColor1}
-             variant="h6">
-              {language}
-             </Typography>
-          </Grid>
-          <Grid 
-           item
-           container
-           width="80%"
-           sx={{
-             justifyContent: "space-evenly",
-             alignItems: "center",
-           }}>
-            <Typography
-              className={levelNumber !== 1 ? "notMain": null}
-              sx={{
-                color: levelNumber > 0 ?  mainStyles.textColor2 : mainStyles.textColor1,
-                textDecoration: levelNumber == 1 ? "underline": null,
-                transition: "0.5s",
-              }}>
-              A1
-            </Typography>
-            <Typography
-             className={levelNumber !== 2 ? "notMain": null}
-              sx={{
-               color: levelNumber > 1 ?  mainStyles.textColor2 : mainStyles.textColor1,
-               textDecoration: levelNumber == 2 ? "underline": null,
-               transition: "0.5s",
-             }}>
-              A2
-            </Typography>
-            <Typography
-              className={levelNumber !== 3 ? "notMain": null}
-              sx={{
-                color: levelNumber > 2 ?   mainStyles.textColor2 : mainStyles.textColor1,
-                textDecoration: levelNumber == 3 ? "underline": null,
-                transition: "0.5s",
-              }}>
-              B1
-            </Typography>
-            <Typography
-              className={levelNumber !== 4 ? "notMain": null}
-              sx={{
-                color: levelNumber > 3 ?  mainStyles.textColor2 : mainStyles.textColor1,
-                textDecoration: levelNumber == 4 ? "underline": null,  
-                transition: "0.5s",
-                }}>
-              B2
-            </Typography>
-            <Typography 
-              className={levelNumber !== 5 ? "notMain": null}
-              sx={{
-                color: levelNumber > 4 ?   mainStyles.textColor2 : mainStyles.textColor1,
-                textDecoration: levelNumber == 5 ? "underline": null,
-                transition: "0.5s",
-                }}>
-              C1
-            </Typography>
-            <Typography
-              className={levelNumber !== 6 ? "notMain": null}
-              sx={{
-                color: levelNumber > 5 ? mainStyles.textColor2 : mainStyles.textColor1,
-                textDecoration: levelNumber == 6 ? "underline": null,
-                transition: "0.5s",
+            <Grid 
+            item
+            width="auto"
+            sx={{
+              height: {xs: "50%", md: "100%"}
             }}>
-              C2
-            </Typography>
-          </Grid>
+              <Typography 
+              color={mainStyles.textColor1}
+              variant="h6">
+                {language}
+              </Typography>
+            </Grid>
+            <Grid 
+            item
+            container
+            width="80%"
+            sx={{
+              justifyContent: "space-evenly",
+              alignItems: "center",
+              height: {xs: "50%", md: "100%"}
+            }}>
+              <Typography
+                className={levelNumber !== 1 ? "notMain": null}
+                sx={{
+                  color: levelNumber > 0 ?  mainStyles.textColor2 : mainStyles.textColor1,
+                  textDecoration: levelNumber == 1 ? "underline": null,
+                  transition: "0.5s",
+                }}>
+                A1
+              </Typography>
+              <Typography
+              className={levelNumber !== 2 ? "notMain": null}
+                sx={{
+                color: levelNumber > 1 ?  mainStyles.textColor2 : mainStyles.textColor1,
+                textDecoration: levelNumber == 2 ? "underline": null,
+                transition: "0.5s",
+              }}>
+                A2
+              </Typography>
+              <Typography
+                className={levelNumber !== 3 ? "notMain": null}
+                sx={{
+                  color: levelNumber > 2 ?   mainStyles.textColor2 : mainStyles.textColor1,
+                  textDecoration: levelNumber == 3 ? "underline": null,
+                  transition: "0.5s",
+                }}>
+                B1
+              </Typography>
+              <Typography
+                className={levelNumber !== 4 ? "notMain": null}
+                sx={{
+                  color: levelNumber > 3 ?  mainStyles.textColor2 : mainStyles.textColor1,
+                  textDecoration: levelNumber == 4 ? "underline": null,  
+                  transition: "0.5s",
+                  }}>
+                B2
+              </Typography>
+              <Typography 
+                className={levelNumber !== 5 ? "notMain": null}
+                sx={{
+                  color: levelNumber > 4 ?   mainStyles.textColor2 : mainStyles.textColor1,
+                  textDecoration: levelNumber == 5 ? "underline": null,
+                  transition: "0.5s",
+                  }}>
+                C1
+              </Typography>
+              <Typography
+                className={levelNumber !== 6 ? "notMain": null}
+                sx={{
+                  color: levelNumber > 5 ? mainStyles.textColor2 : mainStyles.textColor1,
+                  textDecoration: levelNumber == 6 ? "underline": null,
+                  transition: "0.5s",
+              }}>
+                C2
+              </Typography>
+            </Grid>
        </Grid>
    );
 };

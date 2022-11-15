@@ -67,22 +67,24 @@ const ResponsiveAppBar = () => {
           height: "100%"
         }}>
           <Toolbar disableGutters sx={{
-            height: "100%"
+            height: "100%",
           }}>
             <Link to="/">
-              <img src="/LogoColor.png" style={{
+              <img src="/logo.png" style={{
                 height: "100px",
-                width: "100px"
+                width: "120px"
               }}></img>
             </Link>
-            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: "flex-end" }}>
               <IconButton
                 size="large"
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
-                color="inherit"
+                sx={{
+                  color: mainStyles.textColor2
+                }}
               >
                 <MenuIcon />
               </IconButton>
@@ -101,19 +103,37 @@ const ResponsiveAppBar = () => {
                 open={Boolean(anchorElNav)}
                 onClose={handleCloseNavMenu}
                 sx={{
+                  marginLeft: "auto",
+                  padding: 0,
                   display: { xs: 'block', md: 'none' },
                 }}
+                MenuListProps={{
+                  sx: {
+                    padding: 0,
+                  }
+                }}
               >
-                <Link to="/">
-                  <img src="/LogoColor.png" style={{
-                      height: "100px",
-                      width: "100px"
-                    }}></img> 
-              </Link>
                 {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
-                  </MenuItem>
+                    <Link  to={page == "Main" ? "/" : `/${page.toLowerCase()}`}
+                    underline="none"
+                    style={{
+                      textDecoration: "none",
+                    }}>
+                    <MenuItem 
+                      key={page} 
+                      onClick={handleCloseNavMenu}
+                      sx={{
+                        backgroundColor: mainStyles.textColor2,
+                      }}>  
+                        <Typography 
+                          textAlign="center"
+                          sx={{
+                            color: mainStyles.textColor1,
+                            width: "100%",
+                            height: "100%"
+                        }}>{page}</Typography>
+                    </MenuItem>
+                  </Link>
                 ))}
               </Menu>
             </Box>

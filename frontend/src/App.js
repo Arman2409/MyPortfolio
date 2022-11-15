@@ -13,12 +13,12 @@ function App() {
     <Router>
       <Box sx={{
         height: "100vh",
-        backgroundColor: mainStyles.backgroundColor2,
       }}>
-       <Box
-        sx={{
-          backgroundColor: mainStyles.backgroundColor1,
-        }}>
+       <Box sx={{
+            backgroundImage: "url('/images/back.webp')",
+            backgroundSize: "100% 100%",
+            backgroundRepeat: "no-repeat",
+       }}>
           <Header />
           <Routes>
             <Route path="/" element={<MainPage />} /> 

@@ -35,7 +35,11 @@ function Footer() {
                   }} />
               </IconButton>
             </Box>
-            <Box>
+            <Box sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center"
+            }}>
               <Link 
                 href="malto:armanghazaryan2409@gmail.com"
                 underline="none">
@@ -43,6 +47,15 @@ function Footer() {
                   variant="h6"
                   color={mainStyles.textColor1}>
                   armanghazaryan2409@gmail.com
+                </Typography>
+              </Link>
+              <Link 
+                href="tel:armanghazaryan2409@gmail.com"
+                underline="none">
+                <Typography
+                  variant="h6"
+                  color={mainStyles.textColor1}>
+                  +37496503823
                 </Typography>
               </Link>
             </Box>

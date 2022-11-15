@@ -23,19 +23,21 @@ function DownloadCV() {
          position: "relative",
          top: "-2500px",
          height: "160px",
-         width: "40%",
+         width: {xs: "60%", md: "40%"},
          margin: "50px 0",
          backgroundColor: mainStyles.backgroundColor2,
          border: "1px solid",
+         flexDirection: {xs: "column", md: "row"},
          borderColor: mainStyles.borderColor1,
          boxShadow: mainStyles.mainShadow
         }}>
          <Grid item sx={{
-           width: "60%",
            color: mainStyles.textColor1,
            display: "flex",
            justifyContent: "center",
-           alignItems: "center"
+           alignItems: "center",
+           width: {xs: "100%", md: "60%"},
+           height:  {xs: "60%", md: "100%"}
          }}>
            <Typography 
             variant="h4"
@@ -45,11 +47,12 @@ function DownloadCV() {
             </Typography>
          </Grid>
          <Grid item sx={{
-           width: "40%",
+           width: {xs: "100%", md: "40%"},
            display: "flex",
            justifyContent: "center",
            alignItems: "center",
            transition: "1s",
+           height: {xs: "40%", md: "100%"}
          }}>
            <Link
             href="./CV.pdf" 
