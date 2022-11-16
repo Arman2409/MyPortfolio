@@ -1,7 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
 
-import getMessage from "./controllers/getMessage.js";
+import sendMessage from "./controllers/sendMessage.js";
+import getData from "./controllers/getData.js";
 
 dotenv.config();
 const app = express();
@@ -20,7 +21,9 @@ app.use((req, res, next) => {
 // controllers 
 
 app.get('/', (req, res) => res.send('Server running!'));
-app.post('/getMessage', getMessage);
+app.get('/getData:data', getData);
+app.post('/sendMessage', sendMessage);
+
 
 const port = process.env.PORT
 app.listen(port, () => console.log(`Server listening on port ${port}!`))

@@ -3,6 +3,7 @@ import { Box, Grid, Typography } from "@mui/material";
 import mainStyles from "../../../../styles/main.scss";
 import { useEffect } from "react";
 import { useState } from "react";
+import axios from "axios";
 
 
 function LanguageSkill( {language,level} ) {
@@ -115,16 +116,18 @@ function LanguageSkill( {language,level} ) {
    );
 };
 
-const mySkills = [{language: "English", level: "B2"}, {language: "Russian", level: "B1"}, {language: "Armenian", level: "C2"}];
-
 function LanguageSkills() {
 
    const mainCont = useRef(null);
+   const [mySkills, setMySkills] = useState([]);
 
    useEffect(() => {
       setTimeout(() => {
         mainCont.current.style.top = "0px";
-      }, 1000)
+      }, 1000);
+      axios.get("/getData:languages").then((res) => {
+        setMySkills(res.data);
+      });
    }, []);
 
     return (

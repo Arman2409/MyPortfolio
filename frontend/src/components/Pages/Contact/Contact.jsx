@@ -13,8 +13,7 @@ function Contacts() {
       e.preventDefault();
       const form = new FormData(e.target);
       const data = Object.fromEntries(form);
-      axios.post("/getMessage", data).then((res) => {
-         console.log(res);
+      axios.post("/sendMessage", data).then((res) => {
          if(res.data.message) {
            setMessage(res.data.message);
          }

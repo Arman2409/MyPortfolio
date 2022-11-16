@@ -22,13 +22,4 @@ export default (req, res) => {
          })
       };
    });
-   // const keys = Object.keys(haveMessage);
-   // console.log(keys)
-   // console.log(haveMessage);
-   // console.log(haveMessage.cursor);
-   // if (haveMessage.cursor) { 
-   //    res.send({ message: "You have already sent a message"})
-   //    return;
-   // };
-   // res.json({message: "Message sent!"});
 };

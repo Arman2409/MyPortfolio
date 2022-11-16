@@ -8,9 +8,10 @@ import mainStyles from "../../../styles/main.scss";
 
 function Footer() {
     return(
-        <BottomNavigation 
+        <Box
           sx={{
             marginTop: '25px',
+            display: "flex",
             justifyContent: "flex-start",
             flexDirection: "column",
             alignItems: "center",
@@ -74,7 +75,7 @@ function Footer() {
                 Ghazaryan Arman 2022 All rights reserved
                 </Typography>
             </Box>
-        </BottomNavigation>
+        </Box>
     )
 }
 

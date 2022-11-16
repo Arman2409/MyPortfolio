@@ -5,12 +5,24 @@ $textColor2: rgb(70, 185, 70);
 $borderColor1: rgb(114, 114, 173);
 $borderColor2: rgb(240, 116, 116);
 $backgroundColor1: rgb(235, 208, 88);
-$backgroundColor2: rgb(190, 161, 223);
+$backgroundColor2: rgb(199, 172, 230);
 $mainShadow:0px 0px 12px 3px $borderColor2;
 
 .MuiLinearProgress-bar1Determinate{
-    background-image: linear-gradient(to left, brown, violet, indigo, green, orange, red);
-    background-size: 100%;
+    animation: bar 1.5s infinite linear;
+    background-image: linear-gradient(to right, violet, orangered, skyblue, indigo, green, orange, red);
+    @keyframes bar {
+
+        0% {
+            background-size: 100%;
+        }
+        1% {
+            background-size: 200%;
+        }
+        100% {
+            background-size: 500%;
+        }
+    }
 }
 
 :export {

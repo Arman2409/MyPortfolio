@@ -8,64 +8,26 @@ import InfoIcon from '@mui/icons-material/Info';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { Grid, Box, Link } from '@mui/material';
 import { useEffect } from 'react';
+import axios from 'axios';
+import { useRef } from 'react';
+import { useState } from 'react';
 
 import mainStyles from "../../../styles/main.scss";
-import { useRef } from 'react';
-
-
-const itemData = [
-  {
-    id: 1,
-    img: '/images/smartClick.png',
-    title: 'SmartTouch',
-    description: "An experimental online shop.",
-    link: 'https://smarttouchapp.herokuapp.com'
-  },
-  {
-    id: 2,
-    img: '/images/NowPhotography.png',
-    title: 'NOW Photography',
-    description: "An experimental photography website.",
-    link: 'https://now-photography.netlify.app/'
-  },
-  {
-    id: 3,
-    img: '/images/Clock.png',
-    title: 'Clock animation',
-    description: "Clock animation with CSS",
-    link: 'https://comforting-semifreddo-6266c2.netlify.app/'
-  },
-  {
-    id: 4,
-    img: '/images/Neuron.png',
-    title: 'Neuron animation',
-    description: "Neuron animation with CSS",
-    link: 'https://famous-mooncake-6e542c.netlify.app/'
-  },
-];
 
 function Portfolio() {
   const mainBox = useRef(null);
+  const [itemData, setItemData] = useState([]);
 
   function clickInfo(item) {
     const subtitles = document.querySelectorAll('.MuiImageListItemBar-subtitle');
+    subtitles.forEach((elem) => {
+      elem.innerHTML = "";
+    });
     const elemIndex = item.id - 1;
-    if (subtitles[elemIndex].innerHTML == "") {
      subtitles[elemIndex].innerHTML = item.description;
-    } 
-    else {
-      subtitles[elemIndex].innerHTML='';
-    };
   };
 
   useEffect(() => {
-     const subtitles = document.querySelectorAll('.MuiImageListItemBar-subtitle');
-      subtitles.forEach((elem) => {
-        elem.innerHTML = '';
-      });
-      setTimeout(() => {
-        mainBox.current.style.top = "0px";
-      }, 1000);
      const bars = document.querySelectorAll(".MuiImageListItemBar-title");
      const barSubtitles = document.querySelectorAll(".MuiImageListItemBar-subtitle");
      bars.forEach((elem) => {
@@ -74,8 +36,17 @@ function Portfolio() {
      barSubtitles.forEach((elem) => {
       elem.style.color = mainStyles.textColor2;
      });
-     window.scrollTo({top: 0});
-  }, [])
+     axios.get("/getData:portfolio").then((res) => {
+      setItemData(res.data)
+   })
+  }, [itemData])
+
+  useEffect(() => {
+    window.scrollTo({top: 0});
+    setTimeout(() => {
+      mainBox.current.style.top = "0px";
+    }, 1000);
+  }, []);
 
   return (
     <Box
@@ -93,9 +64,10 @@ function Portfolio() {
           position: "relative",
           top: "-2500px",
           margin: "0px auto",
+          height: "auto",
           mt: "75px",
         }}>
-        <ImageList sx={{ width: 'auto', height: 'auto' }}>
+        <ImageList sx={{ width: 'auto', height: 'auto', overflow: "visible" }}>
           <ImageListItem key="Subheader" cols={2}>
             <ListSubheader 
             component="div" 

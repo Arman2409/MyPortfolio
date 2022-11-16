@@ -1,18 +1,24 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import {Button, Grid, Link, Typography} from "@mui/material";
 import SimCardDownloadIcon from '@mui/icons-material/SimCardDownload';
+import { useEffect } from "react";
+import axios from "axios";
 
 import mainStyles from "../../../../styles/main.scss";
-import { useEffect } from "react";
 
 function DownloadCV() {
     const mainCont = useRef(null);
+    const [cvLink, setCvLink] = useState("")
 
     useEffect(() => {
       setTimeout(() => {
-      mainCont.current.style.top = "0px";
+        mainCont.current.style.top = "0px";
       }, 1000)
+      axios.get("/getData:CV").then(res => {
+        setCvLink(res.data.link)
+      });
     }, []);
+
     return (
         <Grid 
         ref={mainCont}
@@ -55,7 +61,7 @@ function DownloadCV() {
            height: {xs: "40%", md: "100%"}
          }}>
            <Link
-            href="./CV.pdf" 
+            href={cvLink}
             download="CV.pdf"
             underline="none"
             sx={{

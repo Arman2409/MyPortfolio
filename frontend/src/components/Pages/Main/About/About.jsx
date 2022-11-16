@@ -1,17 +1,31 @@
-import React , { useEffect, useRef} from "react";
+import React , { useEffect, useState, useRef} from "react";
 import {Avatar, Box,  Grid} from "@mui/material";
-import { Typewriter } from 'react-simple-typewriter'
+import { Typewriter } from 'react-simple-typewriter';
+import axios from "axios";
 
 import mainStyles from "../../../../styles/main.scss";
 
 function About() {
     const mainBox = useRef();
+    const [info, setInfo] = useState("");
+    const infoRef = useRef({});
 
     useEffect(() => {
        setTimeout(() => {
          mainBox.current.style.top = "0px";
        }, 1000);
+      return setInfo(false);
     }, []);
+
+    useEffect(() => {
+      if(!info) {
+        axios.get("/getData:about").then((res) => {
+          setInfo(true);
+          infoRef.current = res.data[0];
+          console.log(res.data[0]);
+        });
+      };
+    });
 
     return (
         <Box
@@ -40,7 +54,7 @@ function About() {
                    paddingRight: "15px"
                 }}>
                   <Avatar
-                   src="https://media.istockphoto.com/photos/hot-air-balloons-flying-over-the-botan-canyon-in-turkey-picture-id1297349747?b=1&k=20&m=1297349747&s=170667a&w=0&h=oH31fJty_4xWl_JQ4OIQWZKP8C6ji9Mz7L4XmEnbqRU=" 
+                   src={infoRef.current.link} 
                    sx={{
                     width:{xs:"180px", md: "100%"},
                     height: {xs: "180px" ,md: "100%"},
@@ -55,15 +69,19 @@ function About() {
                 </Grid>
                 <Grid item sx={{
                    width: {xs: "100%", md: "50%"},
-                   fontSize: {xs: "13px", sm: "15px", md: "18px"},
+                   fontSize: {xs: "13px", sm: "16px", md: "20px"},
                    height: {xs: "50%", md: "100%"},
                    pt: {xs: "15px", md: 0},
                    color: mainStyles.textColor2
                 }}>
+                  {info ? 
                   <Typewriter 
-                    words={[" Hello, my name is Arman.I am twenty years old.I am a full stack JavaScript developer.I can use React.js and Node.js frameworks of JavaScript.I have about 6 months of experience.I went to a practice to Global IT for 2 months,worked as React.js developer for two months and worked as full stack developer for 3 months in OnGrid.My programming skills also include HTML, CSS, SCSS, jQuery, Material UI, Redux Toolkit, Express.js, MongoDB, PostgreSQL, Docker, Docker Compose."]}
+                    words={[infoRef.current.data]}
                     typeSpeed={4}
-                    />
+                    /> :  <Typewriter 
+                    words={["...."]}
+                    typeSpeed={4}
+                    /> }
                 </Grid>
             </Grid>
         </Box>
