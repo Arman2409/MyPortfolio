@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "install": "cd backend / npm install",
-    "start": "cd backend / node index.js"
+    "install": "cd backend && npm install",
+    "start": "cd backend && node index.js"
   },
   "repository": {
     "type": "git",

@@ -6,13 +6,13 @@ import getData from "./controllers/getData.js";
 
 dotenv.config();
 const app = express();
-
+app.set("trusty proxy",1);
 // middlewares 
 
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true,
-}))
+}));
 app.use((req, res, next) => {
     console.log(req.path);
     next();
