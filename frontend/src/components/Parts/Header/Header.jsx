@@ -110,6 +110,7 @@ const ResponsiveAppBar = () => {
                 MenuListProps={{
                   sx: {
                     padding: 0,
+                    backgroundColor: mainStyles.textColor2
                   }
                 }}
               >
@@ -140,8 +141,6 @@ const ResponsiveAppBar = () => {
                           textAlign="center"
                           sx={{
                             color: mainStyles.textColor1,
-                            // width: "100%",
-                            // height: "100%",
                             fontSize: "17px"
                         }}>{page}</Typography>
                     </MenuItem>

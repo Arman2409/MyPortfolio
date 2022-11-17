@@ -10,8 +10,10 @@ function Footer() {
     return(
         <Box
           sx={{
-            marginTop: '25px',
             display: "flex",
+            position: "absolute",
+            bottom: 0,
+            width: "100%",
             justifyContent: "flex-start",
             flexDirection: "column",
             alignItems: "center",

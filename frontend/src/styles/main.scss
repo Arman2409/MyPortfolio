@@ -23,6 +23,19 @@ $mainShadow:0px 0px 12px 3px $borderColor2;
             background-size: 500%;
         }
     }
+};
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#root {
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 100px;
+    box-sizing: border-box;
 }
 
 :export {

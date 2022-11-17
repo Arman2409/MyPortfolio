@@ -6,17 +6,16 @@ import Header from "./components/Parts/Header/Header.jsx";
 import Footer from "./components/Parts/Footer/Footer.jsx";
 import Portfolio from "./components/Pages/Portfolio/Portfolio";
 import Contacts from "./components/Pages/Contact/Contact";
-import mainStyles from "./styles/main.scss";
+import { useEffect } from "react";
 
 function App() {
+
+  useEffect(() => {
+     document.body.style = " background-image: url('/images/back.webp'); background-size: 100% 100%;  background-repeat: no-repeat;";
+    //  document.querySelector("#root").style= "min-height: 100vh;"
+  }, [])
   return (
     <Router>
-       <Box sx={{
-        height: "100%",
-            backgroundImage: "url('/images/back.webp')",
-            backgroundSize: "100% 100%",
-            backgroundRepeat: "no-repeat",
-       }}>
           <Header />
           <Routes>
             <Route path="/" element={<MainPage />} /> 
@@ -24,7 +23,7 @@ function App() {
             <Route path="/contacts" element={<Contacts />} />
           </Routes>
           <Footer />
-        </Box>
+        {/* </Box> */}
     </Router>
   );
 }
