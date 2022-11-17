@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import path from "path";
 
 import sendMessage from "./controllers/sendMessage.js";
 import getData from "./controllers/getData.js";
@@ -17,6 +18,7 @@ app.use((req, res, next) => {
     console.log(req.path);
     next();
 });
+app.use(express.static(path.join(path.resolve() + "../frontend/build/")))
 
 // controllers 
 
