@@ -19,9 +19,9 @@ app.use((req, res, next) => {
     console.log(req.path);
     next();
 });
-app.use(express.static(path.join(path.resolve() + "../frontend/build/")))
+app.use(express.static(path.join(path.resolve("../") + "/frontend/build/")))
 
-fs.readFile(path.join(path.resolve() + "../frontend/src/App.js"), (err,data) => {
+fs.readFile(path.join(path.resolve("../") + "/frontend/src/App.js"), (err,data) => {
     if (err) console.error(err);
     else if (data) console.log(data);
 })
