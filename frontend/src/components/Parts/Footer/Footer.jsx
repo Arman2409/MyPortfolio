@@ -69,7 +69,9 @@ function Footer() {
               color: mainStyles.textColor2,
               mb: "15px"
              }}>
-                <Typography >
+                <Typography sx={{
+                  marginLeft: "10px"
+                }}>
                 Copyright
                 </Typography>
                   <CopyrightIcon sx={{m: "0 7px"}}/>
