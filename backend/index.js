@@ -24,6 +24,12 @@ app.use(express.static(path.join(path.resolve("../") + "/frontend/build/")))
 // controllers 
 
 app.get('/', (req, res) => res.send('Server running!'));
+app.get("/portfolio", (req, res) => {
+    res.sendFile(path.join(path.resolve("../") + "/frontend/build/index.html"));
+});
+app.get("/contacts", (req, res) => {
+    res.sendFile(path.join(path.resolve("../") + "/frontend/build/index.html"));
+});
 app.get('/getData:data', getData);
 app.post('/sendMessage', sendMessage);
 
