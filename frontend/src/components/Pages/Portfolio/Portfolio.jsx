@@ -78,7 +78,7 @@ function Portfolio() {
                   textAlign: "center",
                   backgroundColor: mainStyles.backgroundColor2,
                   color: mainStyles.textColor1}}>
-              My Portfol
+              My Portfoli
             </ListSubheader>
           </ImageListItem>
           {itemData.length > 0 ? itemData.map((item) => (
