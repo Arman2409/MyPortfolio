@@ -11,10 +11,8 @@ import mainStyles from "./styles/main.scss";
 function App() {
   return (
     <Router>
-      <Box sx={{
-        height: "100vh",
-      }}>
        <Box sx={{
+        height: "100vh",
             backgroundImage: "url('/images/back.webp')",
             backgroundSize: "100% 100%",
             backgroundRepeat: "no-repeat",
@@ -27,7 +25,6 @@ function App() {
           </Routes>
           <Footer />
         </Box>
-      </Box>
     </Router>
   );
 }

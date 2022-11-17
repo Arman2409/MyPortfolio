@@ -21,10 +21,6 @@ app.use((req, res, next) => {
 });
 app.use(express.static(path.join(path.resolve("../") + "/frontend/build/")))
 
-fs.readFile(path.join(path.resolve("../") + "/frontend/src/App.js"), (err,data) => {
-    if (err) console.error(err);
-    else if (data) console.log(data);
-})
 // controllers 
 
 app.get('/', (req, res) => res.send('Server running!'));

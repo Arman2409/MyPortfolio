@@ -81,7 +81,7 @@ function Portfolio() {
               My Portfolio
             </ListSubheader>
           </ImageListItem>
-          {itemData.map((item) => (
+          {itemData.length > 0 ? itemData.map((item) => (
             <ImageListItem
               key={item.id}
               sx={{
@@ -150,7 +150,7 @@ function Portfolio() {
                 }
               />
             </ImageListItem>
-          ))}
+          )) : null}
         </ImageList>
       </Box>
     </Box>
