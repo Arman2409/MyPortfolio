@@ -19,5 +19,8 @@
     "url": "https://github.com/Arman2409/MyPortfolio/issues"
   },
   "homepage": "https://github.com/Arman2409/MyPortfolio#readme",
-  "type": "module"
+  "type": "module",
+  "engines": {
+    "node": "16.1.1"
+  }
 }
