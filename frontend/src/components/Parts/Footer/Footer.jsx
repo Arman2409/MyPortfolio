@@ -20,7 +20,7 @@ function Footer() {
           }}>
             <Box>
               <IconButton 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/in/arman-ghazaryan-889613224/" 
                 target="_blank">
                   <LinkedInIcon sx={{
                     color: mainStyles.textColor2,
@@ -28,7 +28,7 @@ function Footer() {
                   }} />
               </IconButton>
                 <IconButton 
-                  href="https://facebook.com" 
+                  href="https://www.facebook.com/arman.kazaryan.5454/" 
                   target="_blank">
                   <FacebookIcon sx={{
                     color: mainStyles.textColor2,

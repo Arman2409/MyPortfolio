@@ -75,7 +75,6 @@ function MySkills() {
        mainCont.current.style.top = "0px";
      }, 1000)
      axios.get("/getData:skills").then(resp => {
-      console.log(resp);
        setSkills(resp.data);
      });
    }, []);

@@ -40,7 +40,9 @@ function LanguageSkill( {language,level} ) {
             item
             width="auto"
             sx={{
-              height: {xs: "50%", md: "100%"}
+              height: {xs: "50%", md: "100%"},
+              display: "flex",
+              alignItems: "center"
             }}>
               <Typography 
               color={mainStyles.textColor1}

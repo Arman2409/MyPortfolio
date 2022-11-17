@@ -28,23 +28,24 @@ function Portfolio() {
   };
 
   useEffect(() => {
-     const bars = document.querySelectorAll(".MuiImageListItemBar-title");
-     const barSubtitles = document.querySelectorAll(".MuiImageListItemBar-subtitle");
-     bars.forEach((elem) => {
-      elem.style.color = mainStyles.textColor1;
-     });
-     barSubtitles.forEach((elem) => {
-      elem.style.color = mainStyles.textColor2;
-     });
-     axios.get("/getData:portfolio").then((res) => {
-      setItemData(res.data)
-   })
-  }, [itemData])
-
-  useEffect(() => {
     window.scrollTo({top: 0});
     setTimeout(() => {
       mainBox.current.style.top = "0px";
+    }, 1000);
+    axios.get("/getData:portfolio").then((res) => {
+     setItemData(res.data);
+    });
+    setTimeout(() => {
+      const bars = document.querySelectorAll(".MuiImageListItemBar-title");
+      const barSubtitles = document.querySelectorAll(".MuiImageListItemBar-subtitle");
+      bars.forEach((elem) => {
+       elem.style.color = mainStyles.textColor1;
+       elem.style.fontWeight = "900";
+       elem.style.textShadow = "1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC"
+      });
+      barSubtitles.forEach((elem) => {
+       elem.style.color = mainStyles.textColor2;
+      });
     }, 1000);
   }, []);
 
@@ -89,7 +90,7 @@ function Portfolio() {
                  height: {xs: "125px", md: "auto"}
                 }}>
               <img
-                src={`${item.img}?w=248&fit=crop&auto=format`}
+                src={`${item.img}`}
                 srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
                 loading="lazy"

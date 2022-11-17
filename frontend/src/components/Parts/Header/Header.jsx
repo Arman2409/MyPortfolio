@@ -125,7 +125,7 @@ const ResponsiveAppBar = () => {
                       onClick={handleCloseNavMenu}
                       sx={{
                         backgroundColor: mainStyles.textColor2,
-                        width: "115px",
+                        width: "150px",
                         "&:hover": {
                           backgroundColor: mainStyles.backgroundColor2,
                           transition: "0.2s",
