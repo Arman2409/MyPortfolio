@@ -21,6 +21,6 @@
   "homepage": "https://github.com/Arman2409/MyPortfolio#readme",
   "type": "module",
   "engines": {
-    "node": "16.1.1"
+    "node": "16.18.1"
   }
 }
