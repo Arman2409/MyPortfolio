@@ -91,7 +91,6 @@ function Portfolio() {
                 }}>
               <img
                 src={`${item.img}`}
-                srcSet={`${item.img}`}
                 alt={item.title}
                 loading="lazy"
               />
