@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
        <Box sx={{
-        height: "100vh",
+        height: "100%",
             backgroundImage: "url('/images/back.webp')",
             backgroundSize: "100% 100%",
             backgroundRepeat: "no-repeat",
