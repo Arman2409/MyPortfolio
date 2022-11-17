@@ -78,7 +78,7 @@ function Portfolio() {
                   textAlign: "center",
                   backgroundColor: mainStyles.backgroundColor2,
                   color: mainStyles.textColor1}}>
-              My Portfolio
+              My Portfol
             </ListSubheader>
           </ImageListItem>
           {itemData.length > 0 ? itemData.map((item) => (
@@ -90,7 +90,7 @@ function Portfolio() {
                  height: {xs: "125px", md: "auto"}
                 }}>
               <img
-                src={${item.img}}
+                src={`${item.img}`}
                 alt={item.title}
                 loading="lazy"
               />
