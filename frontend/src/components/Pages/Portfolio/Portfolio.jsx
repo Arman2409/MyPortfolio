@@ -90,7 +90,7 @@ function Portfolio() {
                  height: {xs: "125px", md: "auto"}
                 }}>
               <img
-                src={`${item.img}`}
+                src={${item.img}}
                 alt={item.title}
                 loading="lazy"
               />
