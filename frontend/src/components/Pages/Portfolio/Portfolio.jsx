@@ -23,8 +23,7 @@ function Portfolio() {
     subtitles.forEach((elem) => {
       elem.innerHTML = "";
     });
-    const elemIndex = item.id - 1;
-     subtitles[elemIndex].innerHTML = item.description;
+     subtitles[item.index].innerHTML = item.description;
   };
 
   useEffect(() => {
@@ -33,7 +32,12 @@ function Portfolio() {
       mainBox.current.style.top = "0px";
     }, 1000);
     axios.get("/getData:portfolio").then((res) => {
-     setItemData(res.data);
+    const newData = res.data.map((elem, index) => {
+      const newElem = elem;
+      newElem.index = index;
+      return newElem;
+    });
+     setItemData(newData);
     });
     setTimeout(() => {
       const bars = document.querySelectorAll(".MuiImageListItemBar-title");
