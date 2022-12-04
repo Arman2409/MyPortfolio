@@ -127,7 +127,7 @@ function LanguageSkills() {
       setTimeout(() => {
         mainCont.current.style.top = "0px";
       }, 1000);
-      axios.get("/getData:languages").then((res) => {
+      axios.get("https://myportfolio-v100.onrender.com/getData:languages").then((res) => {
         setMySkills(res.data);
       });
    }, []);

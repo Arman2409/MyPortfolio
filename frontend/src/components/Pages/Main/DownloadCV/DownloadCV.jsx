@@ -14,7 +14,7 @@ function DownloadCV() {
       setTimeout(() => {
         mainCont.current.style.top = "0px";
       }, 1000)
-      axios.get("/getData:CV").then(res => {
+      axios.get("https://myportfolio-v100.onrender.com/getData:CV").then(res => {
         setCvLink(res.data.link)
       });
     }, []);

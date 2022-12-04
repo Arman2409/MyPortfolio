@@ -31,7 +31,7 @@ function Portfolio() {
     setTimeout(() => {
       mainBox.current.style.top = "0px";
     }, 1000);
-    axios.get("/getData:portfolio").then((res) => {
+    axios.get("https://myportfolio-v100.onrender.com/getData:portfolio").then((res) => {
     const newData = res.data.map((elem, index) => {
       const newElem = elem;
       newElem.index = index;
