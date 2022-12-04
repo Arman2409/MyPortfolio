@@ -13,7 +13,7 @@ function Contacts() {
       e.preventDefault();
       const form = new FormData(e.target);
       const data = Object.fromEntries(form);
-      axios.post("/sendMessage", data).then((res) => {
+      axios.post("https://myportfolio-v100.onrender.com/sendMessage", data).then((res) => {
          if(res.data.message) {
            setMessage(res.data.message);
          }

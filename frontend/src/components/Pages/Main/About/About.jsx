@@ -22,7 +22,7 @@ function About() {
 
     useEffect(() => {
       if(!info.link) {
-        axios.get("/getData:about").then((res) => {
+        axios.get("https://myportfolio-v100.onrender.com/getData:about").then((res) => {
           console.log(res.data)
           setInfo(res.data[0]);
         });
