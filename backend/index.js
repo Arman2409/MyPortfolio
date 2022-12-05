@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import path from "path";
-import fs from "fs";
+import cors from "cors";
 
 import sendMessage from "./controllers/sendMessage.js";
 import getData from "./controllers/getData.js";
@@ -11,6 +11,9 @@ const app = express();
 app.set("trusty proxy",1);
 // middlewares 
 
+app.use(cors({
+    origin: "*"
+}))
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true,
