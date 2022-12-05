@@ -4,27 +4,27 @@ import { Typewriter } from 'react-simple-typewriter';
 import axios from "axios";
 
 import mainStyles from "../../../../styles/main.scss";
+import Demo from "../../../Parts/Demo/Demo";
 
 function About() {
     const mainBox = useRef();
     const [info, setInfo] = useState({data: "..."});
+    const [demoState, setDemoState] = useState(true);
 
     useEffect(() => {
       setInfo(false)
        setTimeout(() => {
          mainBox.current.style.top = "0px";
        }, 1000);
-      //  axios.get("/getData:about").then((res) => {
-      //   console.log(res.data)
-      //   setInfo(res.data[0]);
-      // });
     }, []);
 
     useEffect(() => {
       if(!info.link) {
+        setDemoState(true);
         axios.get("https://myportfolio-v100.onrender.com/getData:about").then((res) => {
           console.log(res.data)
           setInfo(res.data[0]);
+          setDemoState(false)
         });
       };
     });
@@ -44,6 +44,7 @@ function About() {
             top: "-2500px",
             height: {xs: "400px", md: "335px"}
           }}>
+            <Demo state={demoState} />
             <Grid container 
               sx={{
                 justifyContent: 'space-between',

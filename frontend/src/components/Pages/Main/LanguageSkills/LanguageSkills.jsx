@@ -1,10 +1,11 @@
 import React, { useRef } from "react";
 import { Box, Grid, Typography } from "@mui/material";
-import mainStyles from "../../../../styles/main.scss";
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 
+import mainStyles from "../../../../styles/main.scss";
+import Demo from "../../../Parts/Demo/Demo";
 
 function LanguageSkill( {language,level} ) {
   const [levelNumber, setLevelNumber] = useState(0);
@@ -119,7 +120,7 @@ function LanguageSkill( {language,level} ) {
 };
 
 function LanguageSkills() {
-
+  const [demoState, setDemoState] = useState(true);
    const mainCont = useRef(null);
    const [mySkills, setMySkills] = useState([]);
 
@@ -127,8 +128,10 @@ function LanguageSkills() {
       setTimeout(() => {
         mainCont.current.style.top = "0px";
       }, 1000);
+      setDemoState(true);
       axios.get("https://myportfolio-v100.onrender.com/getData:languages").then((res) => {
         setMySkills(res.data);
+        setDemoState(false);
       });
    }, []);
 
@@ -146,6 +149,7 @@ function LanguageSkills() {
             width: "80%",
             boxShadow: mainStyles.mainShadow,
           }}>
+             <Demo state={demoState} />
             <Typography
               variant="h4"
               color={mainStyles.textColor1}

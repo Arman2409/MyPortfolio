@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import axios from "axios";
 
 import mainStyles from "../../../../styles/main.scss";
+import Demo from "../../../Parts/Demo/Demo";
 
 function LinearProgressWithLabel(props) {
     return (
@@ -69,13 +70,16 @@ function Askill ({imageSource, percentage}){
 function MySkills() {
    const mainCont = useRef(); 
    const [skills, setSkills] = useState([]);
+   const [demoState, setDemoState] = useState(true);
 
    useEffect(() => {
      setTimeout(() => {
        mainCont.current.style.top = "0px";
      }, 1000)
+     setDemoState(true);
      axios.get("https://myportfolio-v100.onrender.com/getData:skills").then(resp => {
        setSkills(resp.data);
+       setDemoState(false);
      });
    }, []);
 
@@ -92,6 +96,7 @@ function MySkills() {
              backgroundColor: mainStyles.backgroundColor2,
              boxShadow: mainStyles.mainShadow,
              border: `1px solid ${mainStyles.borderColor1}`}}>
+              <Demo state={demoState}/>
             <Typography
               variant="h4"
               color={mainStyles.textColor1}
@@ -102,16 +107,16 @@ function MySkills() {
               }}>
               My Skills
             </Typography>
-          {skills.map((elem, index) => (
-            <Box 
-              key={index}
-              sx={{
-                width: "100%",
-                height: `${100 / (skills.length + 0.5)}%`,
-              }}>
-              <Askill imageSource={elem.source} percentage={elem.percentage} />
-            </Box>
-          ))}
+            {skills.map((elem, index) => (
+              <Box 
+                key={index}
+                sx={{
+                  width: "100%",
+                  height: `${100 / (skills.length + 0.5)}%`,
+                }}>
+                <Askill imageSource={elem.source} percentage={elem.percentage} />
+              </Box>
+            ))}
         </Box>
     )
 }

@@ -13,10 +13,12 @@ import { useRef } from 'react';
 import { useState } from 'react';
 
 import mainStyles from "../../../styles/main.scss";
+import Demo from '../../Parts/Demo/Demo';
 
 function Portfolio() {
   const mainBox = useRef(null);
   const [itemData, setItemData] = useState([]);
+  const [demoState, setDemoState] = useState(true);
 
   function clickInfo(item) {
     const subtitles = document.querySelectorAll('.MuiImageListItemBar-subtitle');
@@ -31,6 +33,7 @@ function Portfolio() {
     setTimeout(() => {
       mainBox.current.style.top = "0px";
     }, 1000);
+    setDemoState(true)
     axios.get("https://myportfolio-v100.onrender.com/getData:portfolio").then((res) => {
     const newData = res.data.map((elem, index) => {
       const newElem = elem;
@@ -38,6 +41,7 @@ function Portfolio() {
       return newElem;
     });
      setItemData(newData);
+     setDemoState(false);
     });
     setTimeout(() => {
       const bars = document.querySelectorAll(".MuiImageListItemBar-title");
@@ -72,6 +76,7 @@ function Portfolio() {
           height: "auto",
           mt: "75px",
         }}>
+        <Demo state={demoState} />
         <ImageList sx={{ width: 'auto', height: 'auto', overflow: "visible" }}>
           <ImageListItem key="Subheader" cols={2}>
             <ListSubheader 

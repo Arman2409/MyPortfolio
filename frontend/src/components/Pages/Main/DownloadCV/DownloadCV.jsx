@@ -4,18 +4,22 @@ import SimCardDownloadIcon from '@mui/icons-material/SimCardDownload';
 import { useEffect } from "react";
 import axios from "axios";
 
+import Demo from "../../../Parts/Demo/Demo";
 import mainStyles from "../../../../styles/main.scss";
 
 function DownloadCV() {
     const mainCont = useRef(null);
-    const [cvLink, setCvLink] = useState("")
+    const [cvLink, setCvLink] = useState("");
+    const [demoState, setDemoState] = useState(true);
 
     useEffect(() => {
       setTimeout(() => {
         mainCont.current.style.top = "0px";
       }, 1000)
+      setDemoState(true);
       axios.get("https://myportfolio-v100.onrender.com/getData:CV").then(res => {
-        setCvLink(res.data.link)
+        setCvLink(res.data.link);
+        setDemoState(false);
       });
     }, []);
 
@@ -37,6 +41,7 @@ function DownloadCV() {
          borderColor: mainStyles.borderColor1,
          boxShadow: mainStyles.mainShadow
         }}>
+         <Demo state={demoState} />
          <Grid item sx={{
            color: mainStyles.textColor1,
            display: "flex",
