@@ -21,7 +21,7 @@ function About() {
     useEffect(() => {
       if(!info.link) {
         setDemoState(true);
-        axios.get("https://myportfolio-v100.onrender.com/getData:abou").then((res) => {
+        axios.get("https://myportfolio-v100.onrender.com/getData:about").then((res) => {
           console.log(res.data)
           setInfo(res.data[0]);
           setDemoState(false)
