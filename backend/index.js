@@ -11,9 +11,7 @@ const app = express();
 app.set("trusty proxy",1);
 // middlewares 
 
-app.use(cors({
-    origin: "*"
-}))
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true,
