@@ -12,7 +12,6 @@ function App() {
 
   useEffect(() => {
      document.body.style = " background-image: url('/images/back.webp'); background-size: 100% 100%;  background-repeat: no-repeat;";
-    //  document.querySelector("#root").style= "min-height: 100vh;"
   }, [])
   return (
     <Router>
@@ -23,7 +22,6 @@ function App() {
             <Route path="/contacts" element={<Contacts />} />
           </Routes>
           <Footer />
-        {/* </Box> */}
     </Router>
   );
 }
