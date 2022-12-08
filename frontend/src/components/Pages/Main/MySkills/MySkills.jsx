@@ -77,7 +77,7 @@ function MySkills() {
        mainCont.current.style.top = "0px";
      }, 1000)
      setDemoState(true);
-     axios.get("https://myportfolio-v100.onrender.com/getData:skills").then(resp => {
+     axios.get("/getData:skills").then(resp => {
        setSkills(resp.data);
        setDemoState(false);
      });

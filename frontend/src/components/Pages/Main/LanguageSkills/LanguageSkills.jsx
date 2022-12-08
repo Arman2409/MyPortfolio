@@ -129,7 +129,7 @@ function LanguageSkills() {
         mainCont.current.style.top = "0px";
       }, 1000);
       setDemoState(true);
-      axios.get("https://myportfolio-v100.onrender.com/getData:languages").then((res) => {
+      axios.get("/getData:languages").then((res) => {
         setMySkills(res.data);
         setDemoState(false);
       });
