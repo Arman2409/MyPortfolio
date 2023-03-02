@@ -1,0 +1,15 @@
+runtime: nodejs18
+
+#manual_scaling:
+#  instances: 1
+#
+#handlers:
+#
+#  - url: /graphql
+#    static_files: backend/
+#    upload: backend
+#
+#  - url: /*
+#    static_files: "/frontend/build"
+#    upload: build/index.html
+#    secure: always

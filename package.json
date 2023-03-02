@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "deploy": "cd frontend && npm run build && cd ../ && gcloud app deploy --appyaml=app.yaml",
     "install": "cd backend && npm install",
     "build": "cd frontend && npm install && npm run build",
     "start": "cd backend && node index.js"
