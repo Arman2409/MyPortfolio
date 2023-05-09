@@ -29,7 +29,7 @@ export default function getData(req,res) {
             if (err) {
                 console.error(err);
             } else {
-                res.json({}).end();
+                res.json(result).end();
             }
         })
     };
