@@ -42,7 +42,7 @@ function About() {
             transition: "0.5s",
             position: "relative",
             top: "-2500px",
-            height: {xs: "400px", md: "335px"}
+            height: {xs: "450px", md: "335px"}
           }}>
             <Demo state={demoState} />
             <Grid container 
