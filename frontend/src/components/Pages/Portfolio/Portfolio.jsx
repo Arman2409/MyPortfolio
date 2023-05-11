@@ -60,7 +60,7 @@ function Portfolio() {
   return (
     <Box
      sx={{
-      height: {xs: "500px", sm: "700px", md: "900px", lg: "1100px", xl: "1400px"},
+      height: "auto",
      }}>
       <Box 
         ref={mainBox}
