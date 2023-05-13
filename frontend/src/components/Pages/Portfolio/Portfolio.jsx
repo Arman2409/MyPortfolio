@@ -25,7 +25,7 @@ function Portfolio() {
     subtitles.forEach((elem) => {
       elem.innerHTML = "";
     });
-     subtitles[item.index].innerHTML = item.description;
+     subtitles[item.id - 1].innerHTML = item.description;
   };
 
   useEffect(() => {
@@ -35,11 +35,13 @@ function Portfolio() {
     }, 1000);
     setDemoState(true)
     axios.get("/getData:portfolio").then((res) => {
-    const newData = res.data.map((elem, index) => {
+    let newData = res.data.map((elem, index) => {
       const newElem = elem;
       newElem.index = index;
       return newElem;
     });
+     newData = newData.sort((prev, next) => prev.id - next.id);
+
      setItemData(newData);
      setDemoState(false);
     });
@@ -60,7 +62,7 @@ function Portfolio() {
   return (
     <Box
      sx={{
-      height: "auto",
+      height: "auto !important",
      }}>
       <Box 
         ref={mainBox}
@@ -72,9 +74,8 @@ function Portfolio() {
           width: "80%",
           position: "relative",
           top: "-2500px",
-          margin: "0px auto",
-          height: "auto",
-          mt: "75px",
+          margin: "50px auto",
+          height: "auto"
         }}>
         <Demo state={demoState} />
         <ImageList sx={{ width: 'auto', height: 'auto', overflow: "visible" }}>
