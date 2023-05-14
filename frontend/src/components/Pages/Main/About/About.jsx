@@ -75,16 +75,19 @@ function About() {
                 <Grid item sx={{
                    width: {xs: "100%", md: "70%"},
                    fontSize: {xs: "13px", sm: "16px", md: "20px"},
+                   fontWeight: "900",
                    height: {xs: "50%", md: "100%"},
                    pt: {xs: "15px", md: 0},
                    color: mainStyles.textColor2,
                    display: "flex",
                    alignItems: "center",
+                   textShadow: "1px 1px 1px #CE5937"
                 }}>
                   {info.link ?
                   <Typewriter 
                     words={[info.data]}
                     typeSpeed={4}
+                    
                     /> 
                     : null}
                 </Grid>
