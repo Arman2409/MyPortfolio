@@ -14,21 +14,9 @@ function LinearProgressWithLabel(props) {
           <LinearProgress 
            className="linear-progress"
            variant="determinate" 
+           value={props.percentage}
            {...props} 
             />
-        </Box>
-        <Box minWidth={35}>
-          <Typography 
-            variant="body2" 
-            color="textSecondary"
-            className="skill-value"
-            sx={{
-              color: mainStyles.textColor2
-            }}>
-          {`${Math.round(
-            props.value
-          )}%`}
-          </Typography>
         </Box>
       </Box>
     );
@@ -62,7 +50,7 @@ function Askill ({imageSource, percentage}){
             width: {xs: "35px", md: "50px"},
            }}
            src={imageSource} />
-        <LinearProgressWithLabel value={percentage} />
+        <LinearProgressWithLabel  percentage={percentage}/>
      </Box>
    );
 }
