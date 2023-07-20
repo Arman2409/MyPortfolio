@@ -81,6 +81,7 @@ function MySkills() {
              width: "80%",
              height: "auto",
              padding: "20px",
+             marginTop: "50px",
              backgroundColor: mainStyles.backgroundColor2,
              boxShadow: mainStyles.mainShadow,
              border: `1px solid ${mainStyles.borderColor1}`}}>

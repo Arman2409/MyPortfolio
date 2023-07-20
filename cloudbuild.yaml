@@ -1,7 +1,0 @@
-steps:
-  - name: buildFrontend
-    entrypoint: "cd frontend && npm run build"
-#    args: ["run", "install"]
-  - name: runServer
-    entrypoint: " cd backend && npm run start"
-#    args: ["run", "start"]

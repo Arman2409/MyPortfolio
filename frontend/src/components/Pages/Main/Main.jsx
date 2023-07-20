@@ -21,7 +21,7 @@ function MainPage() {
        position: "relative",
      }}>
       <About />
-      <DownloadCV />
+      {/* <DownloadCV /> */}
       <MySkills />
       <LanguageSkills />
     </Box>
