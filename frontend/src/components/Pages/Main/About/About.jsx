@@ -36,6 +36,7 @@ function About() {
             width: "80%",
             padding: "15px",
             margin: "0px auto",
+            marginTop: "20px",
             justifySelf: "center",
             boxShadow: mainStyles.mainShadow,
             backgroundColor: mainStyles.backgroundColor2,
