@@ -22,7 +22,6 @@ function About() {
       if(!info.link) {
         setDemoState(true);
         axios.get("/getData:about").then((res) => {
-          console.log(res.data)
           setInfo(res.data[0]);
           setDemoState(false)
         });
@@ -87,8 +86,7 @@ function About() {
                   {info.link ?
                   <Typewriter 
                     words={[info.data]}
-                    typeSpeed={4}
-                    
+                    typeSpeed={4}          
                     /> 
                     : null}
                 </Grid>
