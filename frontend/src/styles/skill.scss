@@ -1,0 +1,81 @@
+@import "./variables";
+
+.skill_main {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: grey;
+    font-size: 3vw;
+
+
+    @media screen and (max-width: 1100px) {
+        width: 140px;
+        height: 140px;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 100px;
+        height: 100px;
+    }
+
+    @keyframes borderRotate {
+        100% {
+            --angle: 420deg;
+        }
+    }
+
+    &_image {
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        top: 45px;
+        left: 45px;
+
+        @media screen and (max-width: 1100px) {
+            width: 50px;
+            height: 50px;
+            top: 45px;
+            left: 45px;
+        }
+
+        @media screen and (max-width: 500px) {
+            width: 40px;
+            height: 40px;
+            top: 30px;
+            left: 30px;
+        }
+    }
+
+    &_circular {
+        width: 150px !important;
+        height: 150px !important;
+        border: 1px solid $borderColor2;
+        border-radius: 50%;
+        background:
+            linear-gradient(90deg, #202, #006, rgb(102, 0, 48), rgb(0, 102, 10));
+        animation: background-move 25s linear infinite;
+
+
+        @media screen and (max-width: 1100px) {
+            width: 140px !important;
+            height: 140px !important;
+        }
+
+
+        @media screen and (max-width: 500px) {
+            width: 100px !important;
+            height: 100px !important;
+        }
+    }
+
+    @keyframes background-move {
+        0% {
+            background-position: 0px 0px;
+        }
+
+        100% {
+            background-position: 100px 100px;
+        }
+    }
+}

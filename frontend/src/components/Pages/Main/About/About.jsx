@@ -1,5 +1,5 @@
 import React , { useEffect, useState, useRef} from "react";
-import {Avatar, Box,  Grid} from "@mui/material";
+import {Avatar, Box,  Grid, useMediaQuery} from "@mui/material";
 import { Typewriter } from 'react-simple-typewriter';
 import axios from "axios";
 
@@ -10,6 +10,8 @@ function About() {
     const mainBox = useRef();
     const [info, setInfo] = useState({data: "..."});
     const [demoState, setDemoState] = useState(true);
+
+  const isLarge = useMediaQuery("(max-width:1100px)");
 
     useEffect(() => {
       setInfo(false)
@@ -32,7 +34,7 @@ function About() {
         <Box
           ref = {mainBox}
           sx={{
-            width: "80%",
+            width: isLarge ? "100%" : "80%",
             padding: "15px",
             margin: "0px auto",
             marginTop: "20px",
