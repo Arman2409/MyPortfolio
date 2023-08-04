@@ -15,6 +15,7 @@ function MySkills() {
   const [demoState, setDemoState] = useState(true);
   const [dimensionsArr, setDimensionsArr] = useState([]);
 
+  const isExtraLarge = useMediaQuery("(max-width:1350px)");
   const isLarge = useMediaQuery("(max-width:1100px)");
   const isMedium = useMediaQuery("(max-width:800px)");
   const isSmall = useMediaQuery("(max-width:500px)"); 
@@ -27,14 +28,14 @@ function MySkills() {
     axios.get("/getData:skills").then(resp => {
       setSkills(resp.data);
       setDemoState(false);
-      const { width, height, radius } = getResponsiveSizes(isSmall, isMedium, isLarge);
+      const { width, height, radius } = getResponsiveSizes(isSmall, isMedium, isLarge, isExtraLarge);
       const dimsArr = getDimesions([0, width], [radius, height - 2 * radius], radius, resp.data.length);
       setDimensionsArr(dimsArr);
     });
   }, [setSkills, axios, ]);
 
   useEffect(() => {
-     const { width, height, radius } =getResponsiveSizes(isSmall, isMedium, isLarge);
+     const { width, height, radius } =getResponsiveSizes(isSmall, isMedium, isLarge, isExtraLarge);
      const dimsArr = getDimesions([0, width], [radius, height - 2 * radius], radius, skills.length);
      setDimensionsArr(dimsArr);
   }, [ isSmall, isMedium, isLarge, skills])

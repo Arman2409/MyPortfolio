@@ -64,7 +64,7 @@ export const getDimesions = (xDimesion = [0, 1000], yDimesion = [0, 500], radius
 }
 
 
-export const getResponsiveSizes = (isSmall, isMedium, isLarge) => {
+export const getResponsiveSizes = (isSmall, isMedium, isLarge, isExtraLarge) => {
   if (isSmall) {
      return ({
       width: 200,
@@ -83,9 +83,15 @@ export const getResponsiveSizes = (isSmall, isMedium, isLarge) => {
       height: 800, 
       radius: 110
      })
-  } else {
+  } else if (isExtraLarge){
     return ({
       width: 850,
+      height: 800, 
+      radius: 110
+     })
+  } else {
+    return ({
+      width: 1000,
       height: 800, 
       radius: 110
      })
