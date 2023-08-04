@@ -11,6 +11,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Marquee from "react-fast-marquee";
 import { Link } from 'react-router-dom';
+import { motion } from "framer-motion";
 
 import mainStyles from "../../../styles/main.scss";
 import { useEffect } from 'react';
@@ -54,7 +55,7 @@ const ResponsiveAppBar = () => {
       height: "125px",
       position: "fixed",
       width: "100%",
-      zIndex: 4
+      zIndex: 5
      }}>
       <AppBar 
          position="static"
@@ -71,10 +72,12 @@ const ResponsiveAppBar = () => {
             height: "100%",
           }}>
             <Link to="/">
-              <img src="/logo.png" style={{
+              <img 
+                src="/logo.png"
+                alt="My Portfolio" style={{
                 height: "100px",
                 width: "120px"
-              }}></img>
+              }} />
             </Link>
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: "flex-end" }}>
               <IconButton
@@ -116,7 +119,7 @@ const ResponsiveAppBar = () => {
                 }}
               >
                 {pages.map((page, index) => (
-                    <Link  to={page == "Main" ? "/" : `/${page.toLowerCase()}`}
+                    <Link  to={page === "Main" ? "/" : `/${page.toLowerCase()}`}
                     underline="none"
                     key={index}
                     style={{
@@ -157,7 +160,7 @@ const ResponsiveAppBar = () => {
                     }}>
               {pages.map((page, index) => (
                 <Link
-                  to={page == "Main" ? "/" : `/${page.toLowerCase()}`}
+                  to={page === "Main" ? "/" : `/${page.toLowerCase()}`}
                   underline="none"
                   key={index}
                   style={{
@@ -170,7 +173,6 @@ const ResponsiveAppBar = () => {
                       sx={{
                         fontFamily: "'Pacifico', cursive;",
                         px: 2,
-                        color: 'white',
                         height: "100%",
                         textDecoration: "none",
                         display: 'block',
@@ -178,7 +180,16 @@ const ResponsiveAppBar = () => {
                         textShadow: "0 0 10px #FFFFFF",
                        }}
                     >    
-                        {page == "Contacts" ? "Contact me" : page}
+                    <motion.p
+                     className="menu_item_text"
+                     whileHover={{
+                      transform: ["rotateZ(10deg)", "rotateZ(-10deg)", "rotateZ(10deg)"],
+                      transition: {
+                        duration: 1
+                      }
+                     }}>
+                      {page === "Contacts" ? "Contact me" : page}
+                    </motion.p>
                     </Button>
                   </Link>
               ))}

@@ -1,12 +1,20 @@
 import { CircularProgress } from "@mui/material";
+import { motion } from "framer-motion";
 
 const  Skill = ({ zIndex ,imageSource, percentage, top, left }) => (
-     <div 
+     <motion.div 
             className="skill_main"
             style={{
                 top,
                 left,
                 zIndex
+            }}
+            whileHover={{
+                scale: 1.1,
+                zIndex: 4,
+                transition: {
+                    duration: 1
+                }
             }}>
             <CircularProgress
                 className="skill_main_circular"        
@@ -14,9 +22,10 @@ const  Skill = ({ zIndex ,imageSource, percentage, top, left }) => (
                 variant="determinate"
             />
             <img 
+               alt="My skill"
                src={imageSource}
                className="skill_main_image" />
-        </div>
+        </motion.div>
 
 );
 

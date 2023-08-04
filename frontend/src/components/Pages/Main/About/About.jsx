@@ -1,4 +1,4 @@
-import React , { useEffect, useState, useRef} from "react";
+import React , { useEffect, useState, useRef, useCallback} from "react";
 import {Avatar, Box,  Grid, useMediaQuery} from "@mui/material";
 import { Typewriter } from 'react-simple-typewriter';
 import axios from "axios";
@@ -6,19 +6,38 @@ import axios from "axios";
 import mainStyles from "../../../../styles/main.scss";
 import Demo from "../../../Parts/Demo/Demo";
 
+const speeds = [
+  {
+    duration: 2,
+    speed: 100
+  },
+  {
+    duration: 2,
+    speed: 10
+  },
+  {
+    duration: 5,
+    speed: 1
+  }
+]
+
 function About() {
     const mainBox = useRef();
     const [info, setInfo] = useState({data: "..."});
     const [demoState, setDemoState] = useState(true);
+    const [speed, setSpeed] = useState(100);
 
-  const isLarge = useMediaQuery("(max-width:1100px)");
+    const isLarge = useMediaQuery("(max-width:1100px)");
 
-    useEffect(() => {
-      setInfo(false)
-       setTimeout(() => {
-         mainBox.current.style.top = "0px";
-       }, 1000);
-    }, []);
+    const startChainTimeout = useCallback((count = 0, speeds) => {
+      if(!speeds[count]) {
+        return;
+      };
+      setTimeout(() => {
+        setSpeed(speeds[count].speed);
+        return setChainTimeout(count + 1, speeds);
+      }, speeds[count].duration * 1000)
+    }, [setSpeed])
 
     useEffect(() => {
       if(!info.link) {
@@ -28,7 +47,15 @@ function About() {
           setDemoState(false)
         });
       };
-    });
+    }, [setDemoState, info])
+
+    useEffect(() => {
+       setInfo(false)
+       setTimeout(() => {
+         mainBox.current.style.top = "0px";
+       }, 1000);
+       startChainTimeout(0, speeds);
+    }, [setChainTimeout])
 
     return (
         <Box
@@ -85,10 +112,10 @@ function About() {
                    alignItems: "center",
                    textShadow: "1px 1px 1px #CE5937"
                 }}>
-                  {info.link ?
+                  {info.data ?
                   <Typewriter 
                     words={[info.data]}
-                    typeSpeed={4}          
+                    typeSpeed={speed}  
                     /> 
                     : null}
                 </Grid>

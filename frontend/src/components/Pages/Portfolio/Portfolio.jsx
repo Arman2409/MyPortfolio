@@ -3,7 +3,6 @@ import { useRef,useState, useEffect } from "react";
 import { Box, useMediaQuery } from '@mui/material';
 import axios from 'axios';
 
-import mainStyles from "../../../styles/main.scss";
 import PortfolioItem from './PortfolioItem/PortfolioItem';
 
 function Portfolio() {
@@ -29,7 +28,7 @@ function Portfolio() {
      }
      setItemData(newData);
     });
-  }, [setItemData, axios]);
+  }, [setItemData]);
 
   return (
     <Box

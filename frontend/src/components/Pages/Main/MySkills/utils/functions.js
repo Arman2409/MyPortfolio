@@ -40,7 +40,6 @@ const chechkForCollides = (x, y, radius, arr, repeated = 1) => {
 const getRandomDims = (xLimitsMin, xLimitsMax, yLimitsMin, yLimitsMax, radius, dimsArr) => {
     const dimesionX = getRandomNumber(xLimitsMin, xLimitsMax);
     const dimesionY = getRandomNumber(yLimitsMin, yLimitsMax);
-    console.log({dimesionX, dimesionY});
     const {x, y} = chechkForCollides(dimesionX, dimesionY, radius, dimsArr);
     if(x < xLimitsMin || x > xLimitsMax || y < yLimitsMin || y > yLimitsMax) {
       return getRandomDims(xLimitsMin, xLimitsMax, yLimitsMin, yLimitsMax, radius, dimsArr);
@@ -69,13 +68,13 @@ export const getResponsiveSizes = (isSmall, isMedium, isLarge, isExtraLarge) => 
      return ({
       width: 200,
       height: 1200, 
-      radius: 80
+      radius: 120
      })
   } else if (isMedium) {
     return ({
       width: 400,
       height: 1000, 
-      radius: 110
+      radius: 120
      })
   } else if (isLarge) {
     return ({

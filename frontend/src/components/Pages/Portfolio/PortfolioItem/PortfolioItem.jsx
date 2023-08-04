@@ -21,6 +21,7 @@ const PortfolioItem = ({ url, link, description, left, top}) => {
             {description}
         </p>
         <img
+          alt="Portfolio item"
           className="portfolio_item_image"
           src={url}/> 
     </div>

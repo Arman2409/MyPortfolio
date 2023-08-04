@@ -1,4 +1,4 @@
-import { BottomNavigation, IconButton, Typography, Box, Link} from '@mui/material';
+import { IconButton, Typography, Box, Link} from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import CopyrightIcon from '@mui/icons-material/Copyright';

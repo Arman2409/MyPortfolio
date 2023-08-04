@@ -1,5 +1,4 @@
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import { Box } from "@mui/material";
 
 import MainPage from "./components/Pages/Main/Main";
 import Header from "./components/Parts/Header/Header.jsx";

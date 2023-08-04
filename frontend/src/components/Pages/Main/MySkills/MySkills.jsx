@@ -32,7 +32,7 @@ function MySkills() {
       const dimsArr = getDimesions([0, width], [radius, height - 2 * radius], radius, resp.data.length);
       setDimensionsArr(dimsArr);
     });
-  }, [setSkills, axios, ]);
+  }, [setSkills, isSmall, isMedium, isLarge, isExtraLarge]);
 
   useEffect(() => {
      const { width, height, radius } =getResponsiveSizes(isSmall, isMedium, isLarge, isExtraLarge);
@@ -60,15 +60,15 @@ function MySkills() {
           fontSize: "35px",
           boxShadow: mainStyles.mainShadow,
           textAlign: "center",
-          lineHeight: "60px",
+          lineHeight: "70px",
           margin: "0 auto",
           width: isSmall ? "100%" : isMedium ? "80%" : "100%",
           backgroundColor: mainStyles.backgroundColor2,
         }}>
-        My Skills
+        My Technical Skills
       </Typography>
       {skills.map((elem, index) => {
-        const zIndex = Math.random() * 5 ;
+        const zIndex = Math.random() * 3 ;
         return <Skill key={index} zIndex={zIndex} top={dimensionsArr[index].y} left={dimensionsArr[index].x} imageSource={elem.source} percentage={elem.percentage} />
        }
       )}
