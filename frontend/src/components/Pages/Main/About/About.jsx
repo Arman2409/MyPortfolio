@@ -35,7 +35,7 @@ function About() {
       };
       setTimeout(() => {
         setSpeed(speeds[count].speed);
-        return setChainTimeout(count + 1, speeds);
+        return startChainTimeout(count + 1, speeds);
       }, speeds[count].duration * 1000)
     }, [setSpeed])
 
@@ -55,7 +55,7 @@ function About() {
          mainBox.current.style.top = "0px";
        }, 1000);
        startChainTimeout(0, speeds);
-    }, [setChainTimeout])
+    }, [startChainTimeout])
 
     return (
         <Box

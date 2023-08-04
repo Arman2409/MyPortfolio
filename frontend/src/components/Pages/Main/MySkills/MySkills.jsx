@@ -38,7 +38,7 @@ function MySkills() {
      const { width, height, radius } =getResponsiveSizes(isSmall, isMedium, isLarge, isExtraLarge);
      const dimsArr = getDimesions([0, width], [radius, height - 2 * radius], radius, skills.length);
      setDimensionsArr(dimsArr);
-  }, [ isSmall, isMedium, isLarge, skills])
+  }, [ isSmall, isMedium, isLarge, skills, isExtraLarge])
 
   return (
     <Box
