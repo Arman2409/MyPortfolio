@@ -1,13 +1,13 @@
-import * as React from 'react';
 import { useRef,useState, useEffect } from "react";
 import { Box, useMediaQuery } from '@mui/material';
 import axios from 'axios';
 
 import PortfolioItem from './PortfolioItem/PortfolioItem';
+import { PortfolioItemProps } from './PortfolioItem/PortfolioItem';
 
-function Portfolio() {
-  const mainBox = useRef(null);
-  const [itemData, setItemData] = useState([]);
+const Portfolio = () => {
+  const mainBox = useRef<any>(null);
+  const [itemData, setItemData] = useState<any[]>([]);
   const isMedium = useMediaQuery("(max-width:1100px)");
   const isSmall = useMediaQuery("(max-width:500px)");
 
@@ -17,12 +17,12 @@ function Portfolio() {
       mainBox.current.style.top = "0px";
     }, 1000);
     axios.get("/getData:portfolio").then((res) => {
-    let newData = res.data.map((elem, index) => {
+    let newData = res.data.map((elem:PortfolioItemProps, index:number) => {
       const newElem = elem;
       newElem.index = index;
       return newElem;
     });
-     newData = newData.sort((prev, next) => prev.id - next.id);
+     newData = newData.sort((prev:any, next:any) => prev.id - next.id);
      if (newData.length > 6) {
        newData = newData.splice(0, 6);
      }
@@ -49,7 +49,7 @@ function Portfolio() {
           top: "-2500px",
           margin: "50px auto",
         }}>
-           {itemData.map(({img, title, link, description}, index) => {
+           {itemData.map(({img, link, description}:PortfolioItemProps, index) => {
               let left;
                  if (isSmall) {
                     left = 0
@@ -82,9 +82,8 @@ function Portfolio() {
                   top = 145
                 }
               }
-              console.log({left15: left});
               return  <PortfolioItem 
-                         url={img} 
+                         img={img} 
                          key={index}
                          description={description} 
                          link={link} 

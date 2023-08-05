@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useRef, useState, useCallback, useEffect } from "react";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -14,24 +14,22 @@ import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 
 import mainStyles from "../../../styles/main.scss";
-import { useEffect } from 'react';
-
 const pages = ['Main', 'Portfolio', 'Contacts' ];
 
 const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [zerosAndOnes, setZerosAndOnes] = React.useState();
-  const marquee = React.useRef();
-  const zerosAndOnesRef = React.useRef([]);
-  const randomBitsInt = React.useRef(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [zerosAndOnes, setZerosAndOnes] = useState([]);
+  const marquee = useRef();
+  const zerosAndOnesRef = useRef([]);
+  const randomBitsInt = useRef(null);
 
-  const handleOpenNavMenu = (event) => {
+  const handleOpenNavMenu = useCallback((event) => {
     setAnchorElNav(event.currentTarget);
-  };
+  }, [setAnchorElNav]);
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = useCallback(() => {
     setAnchorElNav(null);
-  };
+  }, [setAnchorElNav]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -39,7 +37,7 @@ const ResponsiveAppBar = () => {
     }, 1500);
      randomBitsInt.current =  setInterval(() => {
        const random =  Math.round(Math.random());
-       if (zerosAndOnesRef.current.lenght > 160) {
+       if (zerosAndOnesRef.current.length > 160) {
         clearInterval(randomBitsInt.current);
         return;
        }
@@ -119,8 +117,9 @@ const ResponsiveAppBar = () => {
                 }}
               >
                 {pages.map((page, index) => (
-                    <Link  to={page === "Main" ? "/" : `/${page.toLowerCase()}`}
-                    underline="none"
+                    <Link 
+                    to={page === "Main" ? "/" : `/${page.toLowerCase()}`}
+                    // underline="none"
                     key={index}
                     style={{
                       textDecoration: "none",
@@ -161,7 +160,7 @@ const ResponsiveAppBar = () => {
               {pages.map((page, index) => (
                 <Link
                   to={page === "Main" ? "/" : `/${page.toLowerCase()}`}
-                  underline="none"
+                  // underline="none"
                   key={index}
                   style={{
                     textDecoration: "none"

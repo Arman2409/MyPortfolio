@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Typography, useMediaQuery } from "@mui/material";
 import { useRef, useState } from "react";
 import { useEffect } from "react";
@@ -10,10 +9,10 @@ import Skill from "./components/Skill";
 import { getDimesions, getResponsiveSizes } from "./utils/functions";
 
 function MySkills() {
-  const mainCont = useRef();
-  const [skills, setSkills] = useState([]);
-  const [demoState, setDemoState] = useState(true);
-  const [dimensionsArr, setDimensionsArr] = useState([]);
+  const mainCont = useRef<any>(null);
+  const [skills, setSkills] = useState<any[]>([]);
+  const [demoState, setDemoState] = useState<boolean>(true);
+  const [dimensionsArr, setDimensionsArr] = useState<any[]>([]);
 
   const isExtraLarge = useMediaQuery("(max-width:1350px)");
   const isLarge = useMediaQuery("(max-width:1100px)");

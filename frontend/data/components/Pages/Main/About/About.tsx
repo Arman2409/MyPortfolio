@@ -1,10 +1,10 @@
-import React , { useEffect, useState, useRef, useCallback} from "react";
+import { useEffect, useState, useRef, useCallback} from "react";
 import {Avatar, Box,  Grid, useMediaQuery} from "@mui/material";
 import { Typewriter } from 'react-simple-typewriter';
 import axios from "axios";
 
 import mainStyles from "../../../../styles/main.scss";
-import Demo from "../../../Parts/Demo/Demo";
+import Demo from "../../../Parts/Demo/Demo.js";
 
 const speeds = [
   {
@@ -22,14 +22,14 @@ const speeds = [
 ]
 
 function About() {
-    const mainBox = useRef();
-    const [info, setInfo] = useState({data: "..."});
+    const mainBox = useRef<any>(null);
+    const [info, setInfo] = useState<{data: string, link: string}>({data: "...", link: ""});
     const [demoState, setDemoState] = useState(true);
     const [speed, setSpeed] = useState(100);
 
     const isLarge = useMediaQuery("(max-width:1100px)");
 
-    const startChainTimeout = useCallback((count = 0, speeds) => {
+    const startChainTimeout = useCallback((count = 0, speeds: any[]) => {
       if(!speeds[count]) {
         return;
       };
@@ -50,7 +50,7 @@ function About() {
     }, [setDemoState, info])
 
     useEffect(() => {
-       setInfo(false)
+       setInfo({link: "", data: ""})
        setTimeout(() => {
          mainBox.current.style.top = "0px";
        }, 1000);
@@ -89,7 +89,7 @@ function About() {
                    justifyContent: "center"
                 }}>
                   <Avatar
-                   src={info.link} 
+                   src={info.link as any} 
                    sx={{
                     width:{xs:"200px", md: "250px"},
                     height: {xs: "240px" ,md: "300px"},

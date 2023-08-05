@@ -1,7 +1,16 @@
 import { CircularProgress } from "@mui/material";
 import { motion } from "framer-motion";
 
-const  Skill = ({ zIndex ,imageSource, percentage, top, left }) => (
+type skillProps = {
+  zIndex: number,
+  imageSource: string,
+  percentage: number,
+  top: number,
+  left: number
+}
+
+const Skill:React.FC<skillProps> = ({ zIndex ,imageSource, percentage, top, left }) => (
+    <>
      <motion.div 
             className="skill_main"
             style={{
@@ -25,8 +34,8 @@ const  Skill = ({ zIndex ,imageSource, percentage, top, left }) => (
                alt="My skill"
                src={imageSource}
                className="skill_main_image" />
-        </motion.div>
-
+        </motion.div> 
+      </>
 );
 
 export default Skill;

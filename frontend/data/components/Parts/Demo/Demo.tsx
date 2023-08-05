@@ -1,6 +1,10 @@
 import {Box, CircularProgress} from "@mui/material";
 
-const Demo = ({ state }) => {
+type DemoProps = {
+   state: boolean
+}
+
+const Demo:React.FC<DemoProps> = ({ state }) => {
    return (
     <Box 
     sx={{

@@ -1,10 +1,9 @@
+import { useEffect } from "react";
 import { Box} from "@mui/material";
-import React from "react";
 
 import About from "./About/About";
 import MySkills from "./MySkills/MySkills";
 import LanguageSkills from "./LanguageSkills/LanguageSkills";
-import { useEffect } from "react";
 
 function MainPage() {
 
@@ -20,7 +19,6 @@ function MainPage() {
        position: "relative",
      }}>
       <About />
-      {/* <DownloadCV /> */}
       <MySkills />
       <LanguageSkills />
     </Box>

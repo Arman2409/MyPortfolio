@@ -1,18 +1,20 @@
-import React, { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Box, Typography } from "@mui/material";
-import { useEffect } from "react";
-import { useState } from "react";
 import axios from "axios";
 
 import mainStyles from "../../../../styles/main.scss";
 import Demo from "../../../Parts/Demo/Demo";
 import LanguageSkill from "./components/LanguageSkill";
 
+type langSkill = {
+  level: string,
+  language: string
+}
 
 const LanguageSkills = () => {
-  const [demoState, setDemoState] = useState(true);
-  const [mySkills, setMySkills] = useState([]);
-  const mainCont = useRef(null);
+  const [demoState, setDemoState] = useState<boolean>(true);
+  const [mySkills, setMySkills] = useState<langSkill[]>([]);
+  const mainCont = useRef<any>(null);
 
   useEffect(() => {
     setTimeout(() => {
@@ -50,7 +52,7 @@ const LanguageSkills = () => {
         }}>
         My Language Skills
       </Typography>
-      {mySkills.map((elem, index) => (
+      {mySkills.map((elem:langSkill, index:number) => (
         <Box key={index}>
           <LanguageSkill language={elem.language} level={elem.level} />
         </Box>

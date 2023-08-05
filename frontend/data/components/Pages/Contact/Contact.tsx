@@ -1,18 +1,18 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Box, TextField, Container, Typography, Button } from "@mui/material";
 import axios from "axios";
 
 import mainStyles from "../../../styles/main.scss";
 
 function Contacts() {
-   const [message, setMessage] = useState("");
-   const [dotCount, setDotCount] = useState(0);
-   const mainBox = useRef(null);
-   const dotsInterval = useRef(null);
+   const [message, setMessage] = useState<string>("");
+   const [dotCount, setDotCount] = useState<number>(0);
+   const mainBox = useRef<any>(null);
+   const dotsInterval = useRef<any>(null);
 
-   function submitMessage(e) {
+   function submitMessage(e:Event) {
       e.preventDefault();
-      const form = new FormData(e.target);
+      const form = new FormData(e.target as HTMLFormElement);
       const data = Object.fromEntries(form);
       axios.post("/sendMessage", data).then((res) => {
          if (res.data.message) {
@@ -43,7 +43,7 @@ function Contacts() {
    return (
       <Container
          component="form"
-         onSubmit={submitMessage}
+         onSubmit={submitMessage as any}
          ref={mainBox}
          sx={{
             border: `1px solid ${mainStyles.borderColor1}`,

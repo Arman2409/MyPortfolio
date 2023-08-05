@@ -5,7 +5,12 @@ import mainStyles from "../../../../../styles/main.scss";
 
 const levelsArray = ["A1", "A2", "B1", "B2", "C1", "C2"];
 
-const LanguageSkill = ({ language, level }) => {
+type LangSkillProps = {
+  language: string,
+  level: string
+}
+
+const LanguageSkill:React.FC<LangSkillProps> = ({ language, level }) => {
   const [levelNumber, setLevelNumber] = useState(0);
   const [colorPercentage, setColorPercentage] = useState(0);
 
@@ -31,7 +36,6 @@ const LanguageSkill = ({ language, level }) => {
         border: `0.5px solid ${mainStyles.textColor1}`,
         borderRadius: "10px",
         backgroundImage: `linear-gradient(left, ${mainStyles.borderColor1}, ${mainStyles.borderColor1} ${colorPercentage}%, transparent ${colorPercentage}%, transparent 100%)`,
-        backgroundImage: `-webkit-linear-gradient(left, ${mainStyles.borderColor1}, ${mainStyles.borderColor1}  ${colorPercentage}%, transparent ${colorPercentage}%, transparent 100%)`,
         width: "100%",
       }}>
       <Grid
@@ -60,7 +64,7 @@ const LanguageSkill = ({ language, level }) => {
         }}>
         {levelsArray.map((lvl, key) => (
           <Typography
-            index={key}
+            key={key}
             fontWeight={900}
             sx={{
               color: levelNumber > levelsArray.indexOf(lvl) ? mainStyles.textColor2 : mainStyles.textColor1,

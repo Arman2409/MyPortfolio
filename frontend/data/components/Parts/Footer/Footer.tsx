@@ -5,8 +5,7 @@ import CopyrightIcon from '@mui/icons-material/Copyright';
 
 import mainStyles from "../../../styles/main.scss";
 
-
-function Footer() {
+const Footer = () => {
     return(
         <Box
           sx={{
@@ -47,7 +46,7 @@ function Footer() {
                 href="malto:armanghazaryan2409@gmail.com"
                 underline="none">
                 <Typography
-                  variant="p"
+                  variant={"p" as any}
                   color={mainStyles.textColor1}>
                   armanghazaryan2409@gmail.com
                 </Typography>
@@ -56,7 +55,7 @@ function Footer() {
                 href="tel:armanghazaryan2409@gmail.com"
                 underline="none">
                 <Typography
-                  variant="p"
+                  variant={"p" as any}
                   fontSize="11px"
                   color={mainStyles.textColor1}>
                   +37496503823

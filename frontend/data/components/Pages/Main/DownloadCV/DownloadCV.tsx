@@ -8,7 +8,7 @@ import Demo from "../../../Parts/Demo/Demo";
 import mainStyles from "../../../../styles/main.scss";
 
 function DownloadCV() {
-    const mainCont = useRef(null);
+    const mainCont = useRef<any>(null);
     const [cvLink, setCvLink] = useState("");
     const [demoState, setDemoState] = useState(true);
 
