@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response} from "express";
 import dotenv from "dotenv";
 import path from "path";
 import cors from "cors";
@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({
     extended: true,
 }));
-app.use((req, res, next) => {
+app.use((req: Request, res:Response, next:any) => {
     console.log(req.path);
     next();
 });

@@ -1,13 +1,16 @@
-import AboutData from "../../models/AboutData.js";
-import Portfolio from "../../models/Portfolio.js";
-import Skill from "../../models/Skill.js";
-import LanguageSkill from "../../models/LanguageSkill.js";
-import CV from "../../models/CV.js";
+import { MongooseError } from "mongoose";
+import { Request, Response } from "express";
 
-export default function getData(req,res) {
+import AboutData from "../models/AboutData.js";
+import Portfolio from "../models/Portfolio.js";
+import Skill from "../models/Skill.js";
+import LanguageSkill from "../models/LanguageSkill.js";
+import CV from "../models/CV.js"; 
+
+export default function getData(req:Request,res:Response) {
     const type = req.params.data.replace(":","");
     if( type == "about") {
-        AboutData.find({}, (err, result) => {
+        AboutData.find({}, (err:MongooseError, result:any) => {
             if (err) {
                 console.error(err);
             } else {
@@ -16,7 +19,7 @@ export default function getData(req,res) {
         })
     };
     if( type == "portfolio") {
-        Portfolio.find({}, (err, result) => {
+        Portfolio.find({}, (err: MongooseError, result: any) => {
             if (err) {
                 console.error(err);
             } else {
@@ -25,7 +28,7 @@ export default function getData(req,res) {
         })
     };
     if( type == "skills") {
-        Skill.find({}, (err, result) => {
+        Skill.find({}, (err: MongooseError, result: any) => {
             if (err) {
                 console.error(err);
             } else {
@@ -34,7 +37,7 @@ export default function getData(req,res) {
         })
     };
     if( type == "languages") {
-        LanguageSkill.find({}, (err, result) => {
+        LanguageSkill.find({}, (err: MongooseError, result: any) => {
             if (err) {
                 console.error(err);
             } else {
@@ -43,7 +46,7 @@ export default function getData(req,res) {
         })
     };
     if( type == "CV") {
-        CV.find({}, (err, result) => {
+        CV.find({}, (err: MongooseError, result: any) => {
             if (err) {
                 console.error(err);
             } else {

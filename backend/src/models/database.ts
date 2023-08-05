@@ -1,5 +1,5 @@
-import mongoose from "../backend/node_modules/mongoose/index.js";
-import dotenv from '../backend/node_modules/dotenv/lib/main.js';
+import mongoose, { MongooseError, MongooseQueryOptions } from "mongoose";
+import dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -10,11 +10,11 @@ const options = {
 }; 
 
 async function connect(){
-  await mongoose.connect(process.env.MONGODB_URL,options).then((res,err) => {
+  await mongoose.connect(process.env.MONGODB_URL,options).then((res: any) => {
      if(res){
         console.log(`Databe connected to ${process.env.MONGODB_URL}`)
      }
-     }).catch((err) => {
+     }).catch((err:any) => {
        console.log(err);
     })
 }
