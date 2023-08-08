@@ -1,25 +1,23 @@
 import { useState, useEffect } from "react";
-import { Typography, Grid } from "@mui/material";
+import { Typography, Grid, useMediaQuery } from "@mui/material";
 
 import mainStyles from "../../../../../styles/main.scss";
+import { LangSkillProps } from "../../../../../types/propTypes";
 
 const levelsArray = ["A1", "A2", "B1", "B2", "C1", "C2"];
-
-type LangSkillProps = {
-  language: string,
-  level: string
-}
 
 const LanguageSkill:React.FC<LangSkillProps> = ({ language, level }) => {
   const [levelNumber, setLevelNumber] = useState(0);
   const [colorPercentage, setColorPercentage] = useState(0);
+
+  const isSmall = useMediaQuery("(max-width:500px)");
 
   useEffect(() => {
     const ordersCount = levelsArray.length;
     const order = levelsArray.indexOf(level) + 1;
     if (!level) setLevelNumber(0);
     else setLevelNumber(order);
-    setColorPercentage(100 - ((ordersCount - order) * 12.5));
+    setColorPercentage(20 + (80 - ((ordersCount - order) * 13.25)));
   }, [level, setLevelNumber]);
 
   return (
@@ -29,26 +27,26 @@ const LanguageSkill:React.FC<LangSkillProps> = ({ language, level }) => {
         backgroundColor: mainStyles.backgroundColor1,
         height: "50px",
         alignItems: "center",
-        flexDirection: { xs: "column", md: "row" },
-        justifyContent: "space-between",
-        pl: "25px",
+        justifyContent: "space-evenly",
+        pl: isSmall ? "5px" : "25px",
         my: "20px",
         border: `0.5px solid ${mainStyles.textColor1}`,
         borderRadius: "10px",
-        backgroundImage: `linear-gradient(left, ${mainStyles.borderColor1}, ${mainStyles.borderColor1} ${colorPercentage}%, transparent ${colorPercentage}%, transparent 100%)`,
+        backgroundImage: `-webkit-linear-gradient(left, ${mainStyles.borderColor1}, ${mainStyles.borderColor1} ${colorPercentage}%, transparent ${colorPercentage}%, transparent 100%)`,
         width: "100%",
       }}>
       <Grid
         item
-        width="auto"
+        width="20%"
         sx={{
           height: { xs: "50%", md: "100%" },
           display: "flex",
           alignItems: "center"
         }}>
         <Typography
-          color={mainStyles.textColor1}
+          color={mainStyles.backgroundColor1}
           variant="h6"
+          fontSize={isSmall ? 12 : 16}
           fontWeight={900}>
           {language}
         </Typography>

@@ -19,7 +19,7 @@ function DownloadCV() {
             setCvLink(res.data.link);
             setDemoState(false);
         });
-    }, []);
+    }, [setDemoState]);
     return (_jsxs(Grid, { ref: mainCont, container: true, className: "download-cv-container", sx: {
             transition: "0.5s",
             position: "relative",

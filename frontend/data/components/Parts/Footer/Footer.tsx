@@ -1,6 +1,4 @@
-import { IconButton, Typography, Box, Link} from '@mui/material';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import FacebookIcon from '@mui/icons-material/Facebook';
+import { Typography, Box, Link} from '@mui/material';
 import CopyrightIcon from '@mui/icons-material/Copyright';
 
 import mainStyles from "../../../styles/main.scss";
@@ -19,28 +17,11 @@ const Footer = () => {
             height: "auto",
             backgroundColor: mainStyles.backgroundColor2
           }}>
-            <Box>
-              <IconButton 
-                href="https://www.linkedin.com/in/arman-ghazaryan-889613224/" 
-                target="_blank">
-                  <LinkedInIcon sx={{
-                    color: mainStyles.textColor2,
-                    fontSize: "30px",
-                  }} />
-              </IconButton>
-                <IconButton 
-                  href="https://www.facebook.com/arman.kazaryan.5454/" 
-                  target="_blank">
-                  <FacebookIcon sx={{
-                    color: mainStyles.textColor2,
-                    fontSize: "30px",
-                  }} />
-              </IconButton>
-            </Box>
             <Box sx={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "center"
+              alignItems: "center",
+              marginTop: "20px"
             }}>
               <Link 
                 href="malto:armanghazaryan2409@gmail.com"

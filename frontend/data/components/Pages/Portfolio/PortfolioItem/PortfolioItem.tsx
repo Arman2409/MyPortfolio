@@ -1,14 +1,6 @@
 import React, { useCallback } from "react";
+import { PortfolioItemProps } from "../../../../types/propTypes";
 
-export type PortfolioItemProps = {
-  img: string
-  link: string
-  description: string
-  left: number
-  top: number
-  index?: number
-  id?: number
-}
 const PortfolioItem: React.FC<PortfolioItemProps> = ({ img, link, description, left, top }) => {
 
   const takeToLink = useCallback(() => {

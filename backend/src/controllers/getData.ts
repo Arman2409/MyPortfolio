@@ -5,7 +5,8 @@ import AboutData from "../models/AboutData.js";
 import Portfolio from "../models/Portfolio.js";
 import Skill from "../models/Skill.js";
 import LanguageSkill from "../models/LanguageSkill.js";
-import CV from "../models/CV.js"; 
+import CV from "../models/CV.js";
+import Link from "../models/Link.js"; 
 
 export default function getData(req:Request,res:Response) {
     const type = req.params.data.replace(":","");
@@ -14,7 +15,7 @@ export default function getData(req:Request,res:Response) {
             if (err) {
                 console.error(err);
             } else {
-                res.json(result).end();
+                res.json(result);
             }
         })
     };
@@ -23,7 +24,7 @@ export default function getData(req:Request,res:Response) {
             if (err) {
                 console.error(err);
             } else {
-                res.json(result).end();
+                res.json(result);
             }
         })
     };
@@ -32,7 +33,7 @@ export default function getData(req:Request,res:Response) {
             if (err) {
                 console.error(err);
             } else {
-                res.json(result).end();
+                res.json(result);
             }
         })
     };
@@ -41,7 +42,7 @@ export default function getData(req:Request,res:Response) {
             if (err) {
                 console.error(err);
             } else {
-                res.json(result).end();
+                res.json(result);
             };
         })
     };
@@ -50,7 +51,16 @@ export default function getData(req:Request,res:Response) {
             if (err) {
                 console.error(err);
             } else {
-                res.json(result[0]).end();
+                res.json(result[0]);
+            };
+        })
+    };
+    if( type == "links") {
+        Link.find({}, (err: MongooseError, result: any) => {
+            if (err) {
+                console.error(err);
+            } else {
+                res.json(result);
             };
         })
     };

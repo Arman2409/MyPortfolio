@@ -214,7 +214,10 @@ const ResponsiveAppBar = () => {
         </Marquee>
       </Box>
    </Box>
-   <Box height="120px" sx={{mb: "25px"}}></Box>
+   <Box 
+    height="120px" 
+    sx={{mb: "25px"}}
+    ></Box>
    </>
   );
 };

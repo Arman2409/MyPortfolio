@@ -1,15 +1,8 @@
 import { CircularProgress } from "@mui/material";
 import { motion } from "framer-motion";
+import { SkillProps } from "../../../../../types/propTypes";
 
-type skillProps = {
-  zIndex: number,
-  imageSource: string,
-  percentage: number,
-  top: number,
-  left: number
-}
-
-const Skill:React.FC<skillProps> = ({ zIndex ,imageSource, percentage, top, left }) => (
+const Skill:React.FC<SkillProps> = ({ zIndex ,imageSource, percentage, top, left }) => (
     <>
      <motion.div 
             className="skill_main"

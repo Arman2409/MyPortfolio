@@ -4,7 +4,7 @@ import MainPage from "./components/Pages/Main/Main";
 import Header from "./components/Parts/Header/Header";
 import Footer from "./components/Parts/Footer/Footer";
 import Portfolio from "./components/Pages/Portfolio/Portfolio";
-import Contacts from "./components/Pages/Contact/Contact";
+import Contacts from "./components/Pages/Contacts/Contacts";
 import { useEffect } from "react";
 
 function App() {
@@ -12,6 +12,7 @@ function App() {
   useEffect(() => {
      document.body.style = " background-image: url('/images/back.webp'); background-size: 100% 100%;  background-repeat: no-repeat;";
   }, [])
+  
   return (
     <Router>
           <Header />

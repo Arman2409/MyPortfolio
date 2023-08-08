@@ -109,6 +109,5 @@
     // "forceConsistentCasingInFileNames": true,
     // "noFallthroughCasesInSwitch": true,                     /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
-  },
-  // "include": [ "src"],                         /* Specify what JSX code is generated. */
+  }                     /* Specify what JSX code is generated. */
 }

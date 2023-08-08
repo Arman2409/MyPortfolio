@@ -66,14 +66,14 @@ export const getResponsiveSizes = (isSmall, isMedium, isLarge, isExtraLarge) => 
         return ({
             width: 200,
             height: 1200,
-            radius: 120
+            radius: 80
         });
     }
     else if (isMedium) {
         return ({
             width: 400,
             height: 1000,
-            radius: 120
+            radius: 100
         });
     }
     else if (isLarge) {

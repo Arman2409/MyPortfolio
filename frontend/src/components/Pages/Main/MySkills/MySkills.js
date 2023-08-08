@@ -42,7 +42,7 @@ function MySkills() {
             height: isSmall ? 1200 : isMedium ? 1000 : 800 + "px",
             marginTop: "50px",
         }, children: [_jsx(Demo, { state: demoState }), _jsx(Typography, { variant: "h4", color: mainStyles.textColor1, fontFamily: "'Pacifico', cursive;", sx: {
-                    fontSize: "35px",
+                    fontSize: "34.5px",
                     boxShadow: mainStyles.mainShadow,
                     textAlign: "center",
                     lineHeight: "70px",

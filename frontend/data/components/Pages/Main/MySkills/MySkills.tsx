@@ -56,7 +56,7 @@ function MySkills() {
         color={mainStyles.textColor1}
         fontFamily={"'Pacifico', cursive;"}
         sx={{
-          fontSize: "35px",
+          fontSize: "34.5px",
           boxShadow: mainStyles.mainShadow,
           textAlign: "center",
           lineHeight: "70px",

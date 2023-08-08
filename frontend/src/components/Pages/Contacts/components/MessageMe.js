@@ -1,14 +1,15 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Box, TextField, Container, Typography, Button } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
 import axios from "axios";
-import mainStyles from "../../../styles/main.scss";
-function Contacts() {
+import mainStyles from "../../../../styles/main.scss";
+const MessageMe = () => {
     const [message, setMessage] = useState("");
     const [dotCount, setDotCount] = useState(0);
-    const mainBox = useRef(null);
     const dotsInterval = useRef(null);
-    function submitMessage(e) {
+    const isLarge = useMediaQuery("(max-width:1100px)");
+    const submitMessage = useCallback((e) => {
         e.preventDefault();
         const form = new FormData(e.target);
         const data = Object.fromEntries(form);
@@ -17,12 +18,8 @@ function Contacts() {
                 setMessage(res.data.message);
             }
         });
-    }
+    }, [setMessage]);
     useEffect(() => {
-        setTimeout(() => {
-            mainBox.current.style.top = "0px";
-        }, 1000);
-        window.scrollTo({ top: 0 });
         dotsInterval.current = setInterval(() => {
             setDotCount(current => {
                 if (current === 5) {
@@ -35,21 +32,18 @@ function Contacts() {
     useEffect(() => {
         return () => clearInterval(dotsInterval.current);
     }, []);
-    return (_jsxs(Container, { component: "form", onSubmit: submitMessage, ref: mainBox, sx: {
+    return (_jsxs(Container, { component: "form", onSubmit: submitMessage, sx: {
             border: `1px solid ${mainStyles.borderColor1}`,
             padding: "20px",
             display: "flex",
             height: "500px",
-            width: "80%",
-            transition: "0.5s",
-            position: "relative",
-            top: "-2500px",
+            width: isLarge ? "100%" : "80%",
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "space-evenly",
             backgroundColor: mainStyles.backgroundColor2,
             boxShadow: mainStyles.mainShadow
-        }, children: [_jsx(Typography, { variant: "h3", fontFamily: "'Pacifico', cursive;", color: mainStyles.textColor1, children: "Contact me" }), _jsx(TextField, { required: true, name: "name", placeholder: "Your name" + ".".repeat(dotCount), sx: {
+        }, children: [_jsx(Typography, { variant: "h3", fontFamily: "'Pacifico', cursive;", color: mainStyles.textColor1, children: "Message me" }), _jsx(TextField, { required: true, name: "name", placeholder: "Your name" + ".".repeat(dotCount), sx: {
                     width: "80%",
                     backgroundColor: mainStyles.backgroundColor1,
                     border: `1px solid ${mainStyles.borderColor2}`,
@@ -71,7 +65,7 @@ function Contacts() {
                         opacity: 1,
                         fontWeight: 900
                     }
-                } }), _jsx(TextField, { required: true, multiline: true, rows: 5, maxRows: 10, inputProps: { style: { color: mainStyles.textColor1 } }, name: "message", placeholder: "Your message" + ".".repeat(dotCount), sx: {
+                } }), _jsx(TextField, { required: true, multiline: true, rows: 5, inputProps: { style: { color: mainStyles.textColor1 } }, name: "message", placeholder: "Your message" + ".".repeat(dotCount), sx: {
                     width: "80%",
                     backgroundColor: mainStyles.backgroundColor1,
                     border: `1px solid ${mainStyles.borderColor2}`,
@@ -107,5 +101,5 @@ function Contacts() {
                             opacity: 1,
                             fontWeight: 900
                         }, children: "Submit" })] })] }));
-}
-export default Contacts;
+};
+export default MessageMe;

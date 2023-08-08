@@ -1,0 +1,49 @@
+.links {
+    height: 100px;
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background-color: $backgroundColor2;
+    box-shadow: $mainShadow;
+    border: 1px solid $borderColor1;
+    padding: 0 50px;
+
+    @media screen and (max-width: 500px) {
+        padding: 0 10px;
+    }
+
+    .link {
+        width: 50px;
+        height: 50px;
+        padding: 0 !important;
+        background-color: $backgroundColor1 !important;
+        border: 1px solid $borderColor1 !important;
+        transition: 0.25s;
+        background: repeating-radial-gradient(closest-side at 15px 15px, rgba($backgroundColor1, 0.5) 25%, rgba($backgroundColor2, 0.5) 60%);
+        box-shadow: -5px -5px 15px 5px $borderColor1;
+
+        @media screen and (max-width: 500px) {
+            width: 35px;
+            height: 35px;
+        }
+
+        &:hover {
+            background: repeating-radial-gradient(closest-side at 35px 35px, rgba($backgroundColor1, 0.5) 25%, rgba($backgroundColor2, 0.5) 60%);
+            box-shadow: 5px 5px 15px 5px $borderColor1;
+        }
+
+        &_icon {
+            width: 30px;
+            height: 30px;
+            color: $backgroundColor2;
+
+            @media screen and (max-width: 500px) {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}

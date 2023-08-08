@@ -21,7 +21,7 @@ function DownloadCV() {
         setCvLink(res.data.link);
         setDemoState(false);
       });
-    }, []);
+    }, [setDemoState]);
 
     return (
         <Grid 

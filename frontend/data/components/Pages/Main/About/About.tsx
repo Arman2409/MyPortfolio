@@ -59,7 +59,7 @@ function About() {
 
     return (
         <Box
-          ref = {mainBox}
+          ref={mainBox}
           sx={{
             width: isLarge ? "100%" : "80%",
             padding: "15px",
@@ -74,7 +74,8 @@ function About() {
             height: {xs: "450px", md: "335px"}
           }}>
             <Demo state={demoState} />
-            <Grid container 
+            <Grid 
+              container 
               sx={{
                 justifyContent: 'space-between',
                 height: {xs: "auto" , md: "100%"},

@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import axios from "axios";
 
 import mainStyles from "../../../../styles/main.scss";
@@ -16,6 +16,8 @@ const LanguageSkills = () => {
   const [mySkills, setMySkills] = useState<langSkill[]>([]);
   const mainCont = useRef<any>(null);
 
+  const isSmall = useMediaQuery("(max-width:500px)"); 
+
   useEffect(() => {
     setTimeout(() => {
       mainCont.current.style.top = "0px";
@@ -25,7 +27,7 @@ const LanguageSkills = () => {
       setMySkills(res.data);
       setDemoState(false);
     });
-  }, []);
+  }, [setMySkills, setDemoState, mainCont]);
 
   return (
     <Box
@@ -35,10 +37,10 @@ const LanguageSkills = () => {
         position: "relative",
         top: "-2500px",
         padding: "20px",
+        width: isSmall ? "100%" : "80%",
         backgroundColor: mainStyles.backgroundColor2,
         height: "auto",
         margin: "50px 0",
-        width: "80%",
         boxShadow: mainStyles.mainShadow,
       }}>
       <Demo state={demoState} />

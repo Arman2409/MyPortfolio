@@ -8,6 +8,7 @@ const Portfolio_js_1 = __importDefault(require("../models/Portfolio.js"));
 const Skill_js_1 = __importDefault(require("../models/Skill.js"));
 const LanguageSkill_js_1 = __importDefault(require("../models/LanguageSkill.js"));
 const CV_js_1 = __importDefault(require("../models/CV.js"));
+const Link_js_1 = __importDefault(require("../models/Link.js"));
 function getData(req, res) {
     const type = req.params.data.replace(":", "");
     if (type == "about") {
@@ -16,7 +17,7 @@ function getData(req, res) {
                 console.error(err);
             }
             else {
-                res.json(result).end();
+                res.json(result);
             }
         });
     }
@@ -27,7 +28,7 @@ function getData(req, res) {
                 console.error(err);
             }
             else {
-                res.json(result).end();
+                res.json(result);
             }
         });
     }
@@ -38,7 +39,7 @@ function getData(req, res) {
                 console.error(err);
             }
             else {
-                res.json(result).end();
+                res.json(result);
             }
         });
     }
@@ -49,7 +50,7 @@ function getData(req, res) {
                 console.error(err);
             }
             else {
-                res.json(result).end();
+                res.json(result);
             }
             ;
         });
@@ -61,7 +62,19 @@ function getData(req, res) {
                 console.error(err);
             }
             else {
-                res.json(result[0]).end();
+                res.json(result[0]);
+            }
+            ;
+        });
+    }
+    ;
+    if (type == "links") {
+        Link_js_1.default.find({}, (err, result) => {
+            if (err) {
+                console.error(err);
+            }
+            else {
+                res.json(result);
             }
             ;
         });

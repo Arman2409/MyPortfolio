@@ -3,7 +3,7 @@ import { Box, useMediaQuery } from '@mui/material';
 import axios from 'axios';
 
 import PortfolioItem from './PortfolioItem/PortfolioItem';
-import { PortfolioItemProps } from './PortfolioItem/PortfolioItem';
+import { PortfolioItemProps } from "../../../types/propTypes";
 
 const Portfolio = () => {
   const mainBox = useRef<any>(null);
