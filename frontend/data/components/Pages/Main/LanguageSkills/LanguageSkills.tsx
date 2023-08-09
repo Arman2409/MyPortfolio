@@ -1,32 +1,28 @@
 import { useRef, useState, useEffect } from "react";
 import { Box, Typography, useMediaQuery } from "@mui/material";
-import axios from "axios";
 
 import mainStyles from "../../../../styles/main.scss";
 import Demo from "../../../Parts/Demo/Demo";
 import LanguageSkill from "./components/LanguageSkill";
-
-type langSkill = {
-  level: string,
-  language: string
-}
+import type { LangSkillProps } from "../../../../types/propTypes";
+import { fetchData } from "../../../../API/fetchData";
 
 const LanguageSkills = () => {
   const [demoState, setDemoState] = useState<boolean>(true);
-  const [mySkills, setMySkills] = useState<langSkill[]>([]);
+  const [mySkills, setMySkills] = useState<LangSkillProps[]>([]);
   const mainCont = useRef<any>(null);
 
-  const isSmall = useMediaQuery("(max-width:500px)"); 
+  const isSmall = useMediaQuery("(max-width:500px)");
 
   useEffect(() => {
     setTimeout(() => {
       mainCont.current.style.top = "0px";
     }, 1000);
     setDemoState(true);
-    axios.get("/getData:languages").then((res) => {
-      setMySkills(res.data);
+    fetchData("getData", "languages").then((res:any[]) => {
+      setMySkills(res);
       setDemoState(false);
-    });
+    }).catch((errorMsg:string) => console.error(errorMsg))
   }, [setMySkills, setDemoState, mainCont]);
 
   return (
@@ -54,7 +50,7 @@ const LanguageSkills = () => {
         }}>
         My Language Skills
       </Typography>
-      {mySkills.map((elem:langSkill, index:number) => (
+      {mySkills.map((elem: LangSkillProps, index: number) => (
         <Box key={index}>
           <LanguageSkill language={elem.language} level={elem.level} />
         </Box>

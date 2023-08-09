@@ -3,10 +3,10 @@ import { useRef, useState } from "react";
 import { Button, Grid, Link, Typography } from "@mui/material";
 import SimCardDownloadIcon from '@mui/icons-material/SimCardDownload';
 import { useEffect } from "react";
-import axios from "axios";
 import Demo from "../../../Parts/Demo/Demo";
 import mainStyles from "../../../../styles/main.scss";
-function DownloadCV() {
+import { fetchData } from "../../../../API/fetchData";
+const DownloadCV = () => {
     const mainCont = useRef(null);
     const [cvLink, setCvLink] = useState("");
     const [demoState, setDemoState] = useState(true);
@@ -15,10 +15,10 @@ function DownloadCV() {
             mainCont.current.style.top = "0px";
         }, 1000);
         setDemoState(true);
-        axios.get("/getData:CV").then(res => {
-            setCvLink(res.data.link);
+        fetchData("getData", "cv").then(({ link }) => {
+            setCvLink(link);
             setDemoState(false);
-        });
+        }).catch((errorMsg) => console.error(errorMsg));
     }, [setDemoState]);
     return (_jsxs(Grid, { ref: mainCont, container: true, className: "download-cv-container", sx: {
             transition: "0.5s",
@@ -72,5 +72,5 @@ function DownloadCV() {
                         }, children: ["Download", _jsx(SimCardDownloadIcon, { sx: {
                                     color: mainStyles.textColor2
                                 } })] }) }) })] }));
-}
+};
 export default DownloadCV;

@@ -1,8 +1,8 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useRef, useState, useEffect } from "react";
 import { Box, useMediaQuery } from '@mui/material';
-import axios from 'axios';
 import PortfolioItem from './PortfolioItem/PortfolioItem';
+import { fetchData } from "../../../API/fetchData";
 const Portfolio = () => {
     const mainBox = useRef(null);
     const [itemData, setItemData] = useState([]);
@@ -13,18 +13,20 @@ const Portfolio = () => {
         setTimeout(() => {
             mainBox.current.style.top = "0px";
         }, 1000);
-        axios.get("/getData:portfolio").then((res) => {
-            let newData = res.data.map((elem, index) => {
-                const newElem = elem;
-                newElem.index = index;
-                return newElem;
-            });
-            newData = newData.sort((prev, next) => prev.id - next.id);
-            if (newData.length > 6) {
-                newData = newData.splice(0, 6);
+        fetchData("getData", "portfolio").then((data) => {
+            if (data.length) {
+                let newData = data.map((elem, index) => {
+                    const newElem = elem;
+                    newElem.index = index;
+                    return newElem;
+                });
+                newData = newData.sort((prev, next) => prev.id - next.id);
+                if (newData.length > 6) {
+                    newData = newData.splice(0, 6);
+                }
+                setItemData(newData);
             }
-            setItemData(newData);
-        });
+        }).catch((errorMsg) => console.error(errorMsg));
     }, [setItemData]);
     return (_jsx(Box, { sx: {
             height: isSmall ? itemData.length * 280 + "px" : isMedium ? itemData.length * 200 + "px" : "500px",
@@ -46,18 +48,18 @@ const Portfolio = () => {
                 }
                 else if (isMedium) {
                     if (Number.isInteger(index / 2)) {
-                        left = 0;
+                        left = -25;
                     }
                     else {
-                        left = 150;
+                        left = 150 - 25;
                     }
                 }
                 else {
                     if (index === 0) {
-                        left = 0;
+                        left = -50;
                     }
                     else {
-                        left = index * 150;
+                        left = index * 150 - 50;
                     }
                 }
                 let top;

@@ -2,9 +2,9 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useState, useRef, useCallback } from "react";
 import { Avatar, Box, Grid, useMediaQuery } from "@mui/material";
 import { Typewriter } from 'react-simple-typewriter';
-import axios from "axios";
 import mainStyles from "../../../../styles/main.scss";
 import Demo from "../../../Parts/Demo/Demo.js";
+import { fetchData } from "../../../../API/fetchData";
 const speeds = [
     {
         duration: 2,
@@ -21,7 +21,8 @@ const speeds = [
 ];
 function About() {
     const mainBox = useRef(null);
-    const [info, setInfo] = useState({ data: "...", link: "" });
+    const [info, setInfo] = useState("");
+    const [link, setLink] = useState("");
     const [demoState, setDemoState] = useState(true);
     const [speed, setSpeed] = useState(100);
     const isLarge = useMediaQuery("(max-width:1100px)");
@@ -36,17 +37,15 @@ function About() {
         }, speeds[count].duration * 1000);
     }, [setSpeed]);
     useEffect(() => {
-        if (!info.link) {
-            setDemoState(true);
-            axios.get("/getData:about").then((res) => {
-                setInfo(res.data[0]);
-                setDemoState(false);
-            });
-        }
-        ;
-    }, [setDemoState, info]);
+        setDemoState(true);
+        fetchData("getData", "about").then((res) => {
+            const { link = "", data = "" } = res[0];
+            setInfo(data);
+            setLink(link);
+            setDemoState(false);
+        }).catch((errorMsg) => console.error(errorMsg));
+    }, [setDemoState]);
     useEffect(() => {
-        setInfo({ link: "", data: "" });
         setTimeout(() => {
             mainBox.current.style.top = "0px";
         }, 1000);
@@ -75,7 +74,7 @@ function About() {
                             display: "flex",
                             alignItems: "flex-end",
                             justifyContent: "center"
-                        }, children: _jsx(Avatar, { src: info.link, sx: {
+                        }, children: _jsx(Avatar, { src: link, sx: {
                                 width: { xs: "200px", md: "250px" },
                                 height: { xs: "240px", md: "300px" },
                                 borderRadius: "0px",
@@ -93,8 +92,8 @@ function About() {
                             display: "flex",
                             alignItems: "center",
                             textShadow: "1px 1px 1px #CE5937"
-                        }, children: info.data ?
-                            _jsx(Typewriter, { words: [info.data], typeSpeed: speed })
+                        }, children: info ?
+                            _jsx(Typewriter, { words: [info], typeSpeed: speed })
                             : null })] })] }));
 }
 ;

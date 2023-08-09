@@ -8,11 +8,12 @@ import axios from "axios";
 
 import Link from "./Link";
 import { LinkTypeProps } from "../../../../types/propTypes";
+import { fetchData } from "../../../../API/fetchData";
 
 const iconsMap = new Map([
     ["facebook", <FacebookIcon className="link_icon" />],
-    ["linkedin", <LinkedInIcon className="link_icon"/>],
-    ["github", <GitHubIcon className="link_icon"/>],
+    ["linkedin", <LinkedInIcon className="link_icon" />],
+    ["github", <GitHubIcon className="link_icon" />],
 ])
 
 const Links = () => {
@@ -21,41 +22,39 @@ const Links = () => {
     const isLarge = useMediaQuery("(max-width:1100px)");
 
     useEffect(() => {
-        axios.get("/getData:links").then(({data}:{data:any[]}) => {
-             if(data) {
-                if (data.length > 5) data = data.splice(0,5) 
-                setLinks(data.map(elem => {
-                        if(iconsMap.get(elem.name)) {
-                           return {
-                               ...elem,
-                               image: iconsMap.get(elem.name)
-                           }
-                        } 
-                        return {
-                            ...elem,
-                            image: <LanguageIcon className="link_icon" />
-                        }
-                      }))
-             }
+        fetchData("getData", "links").then((data: LinkTypeProps[]) => {
+            if (data.length > 5) data = data.splice(0, 5)
+            setLinks(data.map(elem => {
+                if (iconsMap.get(elem.name)) {
+                    return {
+                        ...elem,
+                        image: iconsMap.get(elem.name)
+                    }
+                }
+                return {
+                    ...elem,
+                    image: <LanguageIcon className="link_icon" />
+                }
+            }))
         }
-        ).catch(e => console.error(e.message))
+        ).catch((errorMsg:string) => console.error(errorMsg))
     }, [])
 
     return (
-        <div 
-          className="links"
-          style={{
-            width: isLarge ? "80%" : "40%"
-          }}
-          >
-           {links.map(({name, link, image}, index) => (
-             <Link
-               key={index}
-               image={image}
-               link={link}
-               name={name}
-               />))
-           }
+        <div
+            className="links"
+            style={{
+                width: isLarge ? "80%" : "40%"
+            }}
+        >
+            {links.map(({ name, link, image }, index) => (
+                <Link
+                    key={index}
+                    image={image}
+                    link={link}
+                    name={name}
+                />))
+            }
         </div>
     )
 }

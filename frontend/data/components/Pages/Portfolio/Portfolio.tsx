@@ -1,9 +1,9 @@
 import { useRef,useState, useEffect } from "react";
 import { Box, useMediaQuery } from '@mui/material';
-import axios from 'axios';
 
 import PortfolioItem from './PortfolioItem/PortfolioItem';
 import { PortfolioItemProps } from "../../../types/propTypes";
+import { fetchData } from "../../../API/fetchData";
 
 const Portfolio = () => {
   const mainBox = useRef<any>(null);
@@ -16,18 +16,20 @@ const Portfolio = () => {
     setTimeout(() => {
       mainBox.current.style.top = "0px";
     }, 1000);
-    axios.get("/getData:portfolio").then((res) => {
-    let newData = res.data.map((elem:PortfolioItemProps, index:number) => {
-      const newElem = elem;
-      newElem.index = index;
-      return newElem;
-    });
-     newData = newData.sort((prev:any, next:any) => prev.id - next.id);
-     if (newData.length > 6) {
-       newData = newData.splice(0, 6);
-     }
-     setItemData(newData);
-    });
+    fetchData("getData", "portfolio").then((data:PortfolioItemProps[]) => {
+      if(data.length) {
+        let newData = data.map((elem:PortfolioItemProps, index:number) => {
+          const newElem = elem;
+          newElem.index = index;
+          return newElem;
+        })
+         newData = newData.sort((prev:any, next:any) => prev.id - next.id);
+         if (newData.length > 6) {
+           newData = newData.splice(0, 6);
+         }
+         setItemData(newData);
+      }
+    }).catch((errorMsg:string) => console.error(errorMsg));
   }, [setItemData]);
 
   return (
@@ -55,17 +57,17 @@ const Portfolio = () => {
                     left = 0
                 } else if(isMedium) {
                   if(Number.isInteger(index/2)) {
-                    left = 0;
+                    left = -25;
                   } else {
-                    left = 150;
+                    left = 150 - 25;
                   }
                 } else  {
                   if (index === 0) {
-                    left = 0;
+                    left = -50;
                   } else {
-                    left = index * 150;                    
+                    left = index * 150 - 50;                    
                   }
-                }              
+                }           
               let top;
               if (isSmall) {
                 if(index === 0) {

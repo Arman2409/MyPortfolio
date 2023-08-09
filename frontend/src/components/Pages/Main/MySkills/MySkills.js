@@ -2,12 +2,12 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Box, Typography, useMediaQuery } from "@mui/material";
 import { useRef, useState } from "react";
 import { useEffect } from "react";
-import axios from "axios";
 import mainStyles from "../../../../styles/main.scss";
 import Demo from "../../../Parts/Demo/Demo";
 import Skill from "./components/Skill";
 import { getDimesions, getResponsiveSizes } from "./utils/functions";
-function MySkills() {
+import { fetchData } from "../../../../API/fetchData";
+const MySkills = () => {
     const mainCont = useRef(null);
     const [skills, setSkills] = useState([]);
     const [demoState, setDemoState] = useState(true);
@@ -21,13 +21,13 @@ function MySkills() {
             mainCont.current.style.top = "0px";
         }, 1000);
         setDemoState(true);
-        axios.get("/getData:skills").then(resp => {
-            setSkills(resp.data);
+        fetchData("getData", "skills").then((res) => {
+            setSkills(res);
             setDemoState(false);
             const { width, height, radius } = getResponsiveSizes(isSmall, isMedium, isLarge, isExtraLarge);
-            const dimsArr = getDimesions([0, width], [radius, height - 2 * radius], radius, resp.data.length);
+            const dimsArr = getDimesions([0, width], [radius, height - 2 * radius], radius, res.length);
             setDimensionsArr(dimsArr);
-        });
+        }).catch((errorMsg) => console.error(errorMsg));
     }, [setSkills, isSmall, isMedium, isLarge, isExtraLarge]);
     useEffect(() => {
         const { width, height, radius } = getResponsiveSizes(isSmall, isMedium, isLarge, isExtraLarge);
@@ -49,9 +49,9 @@ function MySkills() {
                     margin: "0 auto",
                     width: isSmall ? "100%" : isMedium ? "80%" : "100%",
                     backgroundColor: mainStyles.backgroundColor2,
-                }, children: "My Technical Skills" }), skills.map((elem, index) => {
+                }, children: "My Technical Skills" }), dimensionsArr.length && skills.map((elem, index) => {
                 const zIndex = Math.random() * 3;
-                return _jsx(Skill, { zIndex: zIndex, top: dimensionsArr[index].y, left: dimensionsArr[index].x, imageSource: elem.source, percentage: elem.percentage }, index);
+                return _jsx(Skill, { zIndex: zIndex, top: dimensionsArr[index].y, left: dimensionsArr[index].x, source: elem.source, percentage: elem.percentage }, index);
             })] }));
-}
+};
 export default MySkills;

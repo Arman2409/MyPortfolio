@@ -5,7 +5,6 @@ import Message from "../models/Message.js";
 
 export default (req: Request, res:Response) => {
    const options = req.body;
-   console.log(req.body);
    Message.find({email: options.email}, (err:MongooseError, response:any) => {
       if (err) console.log({error: err});
       if (response) {

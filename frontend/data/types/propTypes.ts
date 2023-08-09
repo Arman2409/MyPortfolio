@@ -1,6 +1,6 @@
 export type SkillProps = {
     zIndex: number,
-    imageSource: string,
+    source: string,
     percentage: number,
     top: number,
     left: number

@@ -2,8 +2,8 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState, useRef, useEffect, useCallback } from "react";
 import { Box, TextField, Container, Typography, Button } from "@mui/material";
 import { useMediaQuery } from "@mui/material";
-import axios from "axios";
 import mainStyles from "../../../../styles/main.scss";
+import { fetchData } from "../../../../API/fetchData";
 const MessageMe = () => {
     const [message, setMessage] = useState("");
     const [dotCount, setDotCount] = useState(0);
@@ -13,11 +13,9 @@ const MessageMe = () => {
         e.preventDefault();
         const form = new FormData(e.target);
         const data = Object.fromEntries(form);
-        axios.post("/sendMessage", data).then((res) => {
-            if (res.data.message) {
-                setMessage(res.data.message);
-            }
-        });
+        fetchData("sendMessage", "about", data).then(resp => {
+            setMessage(resp);
+        }).catch(msg => console.error(msg));
     }, [setMessage]);
     useEffect(() => {
         dotsInterval.current = setInterval(() => {
@@ -43,7 +41,9 @@ const MessageMe = () => {
             justifyContent: "space-evenly",
             backgroundColor: mainStyles.backgroundColor2,
             boxShadow: mainStyles.mainShadow
-        }, children: [_jsx(Typography, { variant: "h3", fontFamily: "'Pacifico', cursive;", color: mainStyles.textColor1, children: "Message me" }), _jsx(TextField, { required: true, name: "name", placeholder: "Your name" + ".".repeat(dotCount), sx: {
+        }, children: [_jsx(Typography, { variant: "h3", fontFamily: "'Pacifico', cursive;", color: mainStyles.textColor1, sx: {
+                    mb: "10px"
+                }, children: "Message me" }), _jsx(TextField, { required: true, name: "name", placeholder: "Your name" + ".".repeat(dotCount), sx: {
                     width: "80%",
                     backgroundColor: mainStyles.backgroundColor1,
                     border: `1px solid ${mainStyles.borderColor2}`,

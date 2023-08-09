@@ -2,12 +2,12 @@ import React, { useRef, useState } from "react";
 import {Button, Grid, Link, Typography} from "@mui/material";
 import SimCardDownloadIcon from '@mui/icons-material/SimCardDownload';
 import { useEffect } from "react";
-import axios from "axios";
 
 import Demo from "../../../Parts/Demo/Demo";
 import mainStyles from "../../../../styles/main.scss";
+import { fetchData } from "../../../../API/fetchData";
 
-function DownloadCV() {
+const DownloadCV = () => {
     const mainCont = useRef<any>(null);
     const [cvLink, setCvLink] = useState("");
     const [demoState, setDemoState] = useState(true);
@@ -17,10 +17,10 @@ function DownloadCV() {
         mainCont.current.style.top = "0px";
       }, 1000)
       setDemoState(true);
-      axios.get("/getData:CV").then(res => {
-        setCvLink(res.data.link);
+      fetchData("getData", "cv").then(({link}:any) => {
+        setCvLink(link);
         setDemoState(false);
-      });
+      }).catch((errorMsg:string) => console.error(errorMsg))
     }, [setDemoState]);
 
     return (

@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { Box, TextField, Container, Typography, Button } from "@mui/material";
 import { useMediaQuery } from "@mui/material";
-import axios from "axios";
 
 import mainStyles from "../../../../styles/main.scss";
+import { fetchData } from "../../../../API/fetchData";
 
 const MessageMe = () => {
     const [message, setMessage] = useState<string>("");
@@ -17,11 +17,9 @@ const MessageMe = () => {
       e.preventDefault();
       const form = new FormData(e.target as HTMLFormElement);
       const data = Object.fromEntries(form);
-      axios.post("/sendMessage", data).then((res) => {
-         if (res.data.message) {
-            setMessage(res.data.message);
-         }
-      })
+      fetchData("sendMessage", "about", data).then(resp => {
+         setMessage(resp)       
+      }).catch(msg=> console.error(msg))
    }, [setMessage])
 
     useEffect(() => {
@@ -59,6 +57,9 @@ const MessageMe = () => {
                 variant="h3"
                 fontFamily={"'Pacifico', cursive;"}
                 color={mainStyles.textColor1}
+                sx={{
+                    mb: "10px"
+                }}
             >
                 Message me
             </Typography>
