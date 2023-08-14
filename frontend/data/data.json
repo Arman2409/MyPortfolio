@@ -105,6 +105,14 @@
     ],
     "portfolio": [
         {
+            "_id": "645d09398db2a152fb2f847c",
+            "id": 1,
+            "img": "https://drive.google.com/uc?export=view&id=1BpwfRl26_rfB3_CuhmI89g-ZxWbi-dwV",
+            "title": "Talk Space",
+            "description": "Chat app with simple features",
+            "link": "https://talk-space-chat.glitch.me/"
+        },
+        {
             "_id": "6373f4ca2a14d48fdd5c1b52",
             "id": 2,
             "img": "https://drive.google.com/uc?export=view&id=1foIvrvNLaVQpjhbR1Hw-vgpWMFsxEXAH",
@@ -127,14 +135,6 @@
             "title": "Landscape animation",
             "description": "Landscape animation made with Framer Motion, SASS",
             "link": "https://landscape-animation.netlify.app/"
-        },
-        {
-            "_id": "645d09398db2a152fb2f847c",
-            "id": 1,
-            "img": "https://drive.google.com/uc?export=view&id=1BpwfRl26_rfB3_CuhmI89g-ZxWbi-dwV",
-            "title": "Talk Space",
-            "description": "Chat app with simple features",
-            "link": "https://talk-space-webapp-8b7e07f5044e.herokuapp.com/"
         }
     ],
     "cv": {
