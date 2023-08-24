@@ -1,7 +1,7 @@
 {
     "about": [{
         "_id": "6373f69d2a14d48fdd611957",
-        "data": " Hello, my name is Arman.I am twenty years old.I am a Full Stack JavaScript developer.I can use React.js/Next.js for frontend and Node.js/Nest.js for backend. From databases I can use MongoDB and PostgreSQL.I have more than a year of experience.My programming stack also includes HTML, CSS, SCSS, jQuery, Material UI, Ant Design, TypeScript, Redux Toolkit, Express.js, Docker, Nest.js, Prisma, Mongoose, GraphQL.",
+        "data": " Hello, my name is Arman.I am a Full Stack JavaScript developer with more than a year of experience.I have been working on different kinds of projects like admin panels, lists, etc.I use React.js/Next.js for client side and Node.js/Express.js/Nest.js for server side.",
         "link": "https://res.cloudinary.com/personal-image-storage/image/upload/v1674940368/image_s7sltu.png"
     }],
     "skills": [
@@ -13,7 +13,7 @@
         {
             "_id": "637494272a14d48fddd8ef0c",
             "source": "https://img.freepik.com/free-icon/css_318-698167.jpg?w=360",
-            "percentage": 70
+            "percentage": 60
         },
         {
             "_id": "637494272a14d48fddd8ef0e",
@@ -33,7 +33,7 @@
         {
             "_id": "637494272a14d48fddd8ef0b",
             "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png",
-            "percentage": 70
+            "percentage": 60
         },
         {
             "_id": "637494272a14d48fddd8ef12",
@@ -117,7 +117,7 @@
             "id": 2,
             "img": "https://drive.google.com/uc?export=view&id=1foIvrvNLaVQpjhbR1Hw-vgpWMFsxEXAH",
             "title": "NOW Photography",
-            "description": "An experimental photography website.",
+            "description": "A website about photography",
             "link": "https://now-photography.netlify.app/"
         },
         {
