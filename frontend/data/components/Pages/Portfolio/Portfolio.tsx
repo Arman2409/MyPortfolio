@@ -23,7 +23,7 @@ const Portfolio = () => {
           newElem.index = index;
           return newElem;
         })
-         newData = newData.sort((prev:any, next:any) => prev.id - next.id);
+         newData = newData.sort((prev:any, next:any) => prev.order - next.order);
          if (newData.length > 6) {
            newData = newData.splice(0, 6);
          }

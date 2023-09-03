@@ -15,6 +15,7 @@ const MySkills = () => {
   const [demoState, setDemoState] = useState<boolean>(true);
   const [dimensionsArr, setDimensionsArr] = useState<any[]>([]);
 
+  const isVeryLarge = useMediaQuery("(max-width:1600px)");
   const isExtraLarge = useMediaQuery("(max-width:1350px)");
   const isLarge = useMediaQuery("(max-width:1100px)");
   const isMedium = useMediaQuery("(max-width:800px)");
@@ -28,17 +29,17 @@ const MySkills = () => {
     fetchData("getData", "skills").then((res: any[]) => {
       setSkills(res);
       setDemoState(false);
-      const { width, height, radius } = getResponsiveSizes(isSmall, isMedium, isLarge, isExtraLarge);
+      const { width, height, radius } = getResponsiveSizes(isSmall, isMedium, isLarge, isExtraLarge, isVeryLarge);
       const dimsArr = getDimesions([0, width], [radius, height - 2 * radius], radius, res.length);
       setDimensionsArr(dimsArr);
     }).catch((errorMsg:string) => console.error(errorMsg))
-  }, [setSkills, isSmall, isMedium, isLarge, isExtraLarge]);
+  }, [setSkills, isSmall, isMedium, isLarge, isExtraLarge, isVeryLarge]);
 
   useEffect(() => {
-      const { width, height, radius } = getResponsiveSizes(isSmall, isMedium, isLarge, isExtraLarge);
+      const { width, height, radius } = getResponsiveSizes(isSmall, isMedium, isLarge, isExtraLarge, isVeryLarge);
       const dimsArr = getDimesions([0, width], [radius, height - 2 * radius], radius, skills.length);
       setDimensionsArr(dimsArr);
-  }, [isSmall, isMedium, isLarge, skills, isExtraLarge])
+  }, [isSmall, isMedium, isLarge, skills, isExtraLarge, isVeryLarge])
 
   return (
     <Box

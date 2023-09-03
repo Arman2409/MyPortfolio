@@ -1,7 +1,7 @@
 {
     "about": [{
             "_id": "6373f69d2a14d48fdd611957",
-            "data": " Hello, my name is Arman.I am a Full Stack JavaScript developer with more than a year of experience.I have been working on different kinds of projects like admin panels, lists, etc.I use React.js/Next.js for client side and Node.js/Express.js/Nest.js for server side.",
+            "data": "Hello, my name is Arman.I am a Full Stack JavaScript developer with more than a year of experience.I use React.js/Next.js for client side and Node.js/Express.js/Nest.js for server side.I have also basic knowledge of mobile development with React Native.",
             "link": "https://res.cloudinary.com/personal-image-storage/image/upload/v1674940368/image_s7sltu.png"
         }],
     "skills": [
@@ -106,34 +106,26 @@
     "portfolio": [
         {
             "_id": "645d09398db2a152fb2f847c",
-            "id": 1,
+            "order": 1,
             "img": "https://drive.google.com/uc?export=view&id=1BpwfRl26_rfB3_CuhmI89g-ZxWbi-dwV",
             "title": "Talk Space",
-            "description": "Chat app with simple features",
-            "link": "https://talk-space-chat.glitch.me/"
-        },
-        {
-            "_id": "6373f4ca2a14d48fdd5c1b52",
-            "id": 2,
-            "img": "https://drive.google.com/uc?export=view&id=1foIvrvNLaVQpjhbR1Hw-vgpWMFsxEXAH",
-            "title": "NOW Photography",
-            "description": "A website about photography",
-            "link": "https://now-photography.netlify.app/"
+            "description": "Chat app with Next.js, Nest.js, Socket.IO, Prisma",
+            "link": "https://github.com/Arman2409/Chat-app"
         },
         {
             "_id": "6373f6452a14d48fdd600dc3",
-            "id": 4,
-            "img": "https://drive.google.com/uc?export=view&id=1gRVh7_UxA1xn2QCnHtmg1QPWx6jlGPMb",
-            "title": "Neuron animation",
-            "description": "Neuron animation with CSS",
-            "link": "https://famous-mooncake-6e542c.netlify.app/"
+            "order": 3,
+            "img": "https://drive.google.com/uc?export=download&id=1EAX0qk5_u-acWmMMsWlHDIwT4gQmBxJ_",
+            "title": "Note Shot",
+            "description": "Note taking app with React Native, Ant Design Mobile",
+            "link": "https://note-shot.netlify.app/"
         },
         {
             "_id": "6373f6452a14d48fdd600dc2",
-            "id": 3,
+            "order": 2,
             "img": "https://drive.google.com/uc?export=view&id=1qgPKdReZ4DykZcaYRbUiVJK3164efnxx",
             "title": "Landscape animation",
-            "description": "Landscape animation made with Framer Motion, SASS",
+            "description": "Landscape animation with Framer Motion, SCSS",
             "link": "https://landscape-animation.netlify.app/"
         }
     ],

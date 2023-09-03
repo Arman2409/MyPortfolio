@@ -61,7 +61,7 @@ export const getDimesions = (xDimesion = [0, 1000], yDimesion = [0, 500], radius
     }
     return dimsArr;
 };
-export const getResponsiveSizes = (isSmall, isMedium, isLarge, isExtraLarge) => {
+export const getResponsiveSizes = (isSmall, isMedium, isLarge, isExtraLarge, isVeryLarge) => {
     if (isSmall) {
         return ({
             width: 200,
@@ -78,7 +78,7 @@ export const getResponsiveSizes = (isSmall, isMedium, isLarge, isExtraLarge) => 
     }
     else if (isLarge) {
         return ({
-            width: 700,
+            width: 600,
             height: 800,
             radius: 110
         });
@@ -90,9 +90,16 @@ export const getResponsiveSizes = (isSmall, isMedium, isLarge, isExtraLarge) => 
             radius: 110
         });
     }
-    else {
+    else if (isVeryLarge) {
         return ({
             width: 1000,
+            height: 800,
+            radius: 110
+        });
+    }
+    else {
+        return ({
+            width: 1350,
             height: 800,
             radius: 110
         });

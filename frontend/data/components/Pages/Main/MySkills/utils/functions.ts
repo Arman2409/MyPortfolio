@@ -73,7 +73,9 @@ export const getResponsiveSizes = (
   isSmall: boolean,
   isMedium: boolean,
   isLarge: boolean,
-  isExtraLarge: boolean) => {
+  isExtraLarge: boolean,
+  isVeryLarge?: boolean) => {
+  
   if (isSmall) {
     return ({
       width: 200,
@@ -88,19 +90,23 @@ export const getResponsiveSizes = (
     })
   } else if (isLarge) {
     return ({
-      width: 700,
+      width: 600,
       height: 800,
       radius: 110
     })
   } else if (isExtraLarge) {
-    return ({
+      return ({
       width: 850,
       height: 800,
       radius: 110
     })
-  } else {
-    return ({
+  } else if (isVeryLarge) {return ({
       width: 1000,
+      height: 800,
+      radius: 110
+    })
+  } else {return ({
+      width: 1350,
       height: 800,
       radius: 110
     })
