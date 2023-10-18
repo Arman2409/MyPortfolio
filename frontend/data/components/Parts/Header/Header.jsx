@@ -37,13 +37,13 @@ const ResponsiveAppBar = () => {
     }, 1500);
      randomBitsInt.current =  setInterval(() => {
        const random =  Math.round(Math.random());
-       if (zerosAndOnesRef.current.length > 160) {
+       if (zerosAndOnesRef.current.length > 250) {
         clearInterval(randomBitsInt.current);
         return;
        }
        zerosAndOnesRef.current.push(random);
        setZerosAndOnes([...zerosAndOnesRef.current]);
-     }, 1000);
+     }, 700);
   }, []);
 
   return (
@@ -144,7 +144,7 @@ const ResponsiveAppBar = () => {
                           sx={{
                             color: mainStyles.textColor1,
                             fontSize: "17px"
-                        }}>{page === "Contacts" ? "Contact me" : page === "Portfolio" ? "My Works" : page}</Typography>
+                        }}>{page === "Contacts" ? "Contact me" : page === "Portfolio" ? "Projects" : page}</Typography>
                     </MenuItem>
                   </Link>
                 ))}
@@ -180,12 +180,12 @@ const ResponsiveAppBar = () => {
                     <motion.p
                      className="menu_item_text"
                      whileHover={{
-                      transform: ["rotateZ(10deg)", "rotateZ(-10deg)", "rotateZ(10deg)"],
+                      transform: ["rotateZ(5deg)", "rotateZ(-10deg)", "rotateZ(5deg)"],
                       transition: {
                         duration: 1
                       }
                      }}>
-                      {page === "Contacts" ? "Contact me" : page === "Portfolio" ? "My Works" : page}
+                      {page === "Contacts" ? "Contact me" : page === "Portfolio" ? "Projects" : page}
                     </motion.p>
                     </Button>
                   </Link>
