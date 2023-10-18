@@ -1,9 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const jsx_runtime_1 = require("react/jsx-runtime");
-const material_1 = require("@mui/material");
+import { jsx as _jsx } from "react/jsx-runtime";
+import { Box, CircularProgress } from "@mui/material";
 const Demo = ({ state }) => {
-    return ((0, jsx_runtime_1.jsx)(material_1.Box, { sx: {
+    return (_jsx(Box, { sx: {
             backgroundColor: "black",
             opacity: 0.8,
             position: "absolute",
@@ -15,6 +13,6 @@ const Demo = ({ state }) => {
             display: state ? "flex" : "none",
             justifyContent: "center",
             alignItems: "center"
-        }, children: (0, jsx_runtime_1.jsx)(material_1.CircularProgress, {}) }));
+        }, children: _jsx(CircularProgress, {}) }));
 };
-exports.default = Demo;
+export default Demo;

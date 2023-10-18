@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import MainPage from "./components/Pages/Main/Main";
-import Header from "./components/Parts/Header/Header";
+import Header from "./components/Parts/Header/Header.jsx";
 import Footer from "./components/Parts/Footer/Footer";
 import Portfolio from "./components/Pages/Portfolio/Portfolio";
 import Contacts from "./components/Pages/Contacts/Contacts";

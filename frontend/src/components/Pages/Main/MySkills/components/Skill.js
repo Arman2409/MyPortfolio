@@ -1,9 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const jsx_runtime_1 = require("react/jsx-runtime");
-const material_1 = require("@mui/material");
-const framer_motion_1 = require("framer-motion");
-const Skill = ({ zIndex, source: imageSource, percentage, top, left }) => ((0, jsx_runtime_1.jsxs)(framer_motion_1.motion.div, { className: "skill_main", style: {
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { CircularProgress } from "@mui/material";
+import { motion } from "framer-motion";
+const Skill = ({ zIndex, source: imageSource, percentage, top, left }) => (_jsxs(motion.div, { className: "skill_main", style: {
         top,
         left,
         zIndex
@@ -13,5 +11,5 @@ const Skill = ({ zIndex, source: imageSource, percentage, top, left }) => ((0, j
         transition: {
             duration: 1
         }
-    }, children: [(0, jsx_runtime_1.jsx)(material_1.CircularProgress, { className: "skill_main_circular", value: percentage, variant: "determinate" }), (0, jsx_runtime_1.jsx)("img", { alt: "My skill", src: imageSource, className: "skill_main_image" })] }));
-exports.default = Skill;
+    }, children: [_jsx(CircularProgress, { className: "skill_main_circular", value: percentage, variant: "determinate" }), _jsx("img", { alt: "My skill", src: imageSource, className: "skill_main_image" })] }));
+export default Skill;

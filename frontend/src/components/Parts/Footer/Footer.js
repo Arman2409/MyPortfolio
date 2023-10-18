@@ -1,14 +1,9 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const jsx_runtime_1 = require("react/jsx-runtime");
-const material_1 = require("@mui/material");
-const Copyright_1 = __importDefault(require("@mui/icons-material/Copyright"));
-const main_scss_1 = __importDefault(require("../../../styles/main.scss"));
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { Typography, Box, Link } from '@mui/material';
+import CopyrightIcon from '@mui/icons-material/Copyright';
+import mainStyles from "../../../styles/main.scss";
 const Footer = () => {
-    return ((0, jsx_runtime_1.jsxs)(material_1.Box, { sx: {
+    return (_jsxs(Box, { sx: {
             display: "flex",
             position: "absolute",
             bottom: 0,
@@ -17,18 +12,18 @@ const Footer = () => {
             flexDirection: "column",
             alignItems: "center",
             height: "auto",
-            backgroundColor: main_scss_1.default.backgroundColor2
-        }, children: [(0, jsx_runtime_1.jsxs)(material_1.Box, { sx: {
+            backgroundColor: mainStyles.backgroundColor2
+        }, children: [_jsxs(Box, { sx: {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
                     marginTop: "20px"
-                }, children: [(0, jsx_runtime_1.jsx)(material_1.Link, { href: "malto:armanghazaryan2409@gmail.com", underline: "none", children: (0, jsx_runtime_1.jsx)(material_1.Typography, { variant: "p", color: main_scss_1.default.textColor1, children: "armanghazaryan2409@gmail.com" }) }), (0, jsx_runtime_1.jsx)(material_1.Link, { href: "tel:armanghazaryan2409@gmail.com", underline: "none", children: (0, jsx_runtime_1.jsx)(material_1.Typography, { variant: "p", fontSize: "11px", color: main_scss_1.default.textColor1, children: "+37496503823" }) })] }), (0, jsx_runtime_1.jsxs)(material_1.Box, { sx: {
+                }, children: [_jsx(Link, { href: "malto:armanghazaryan2409@gmail.com", underline: "none", children: _jsx(Typography, { variant: "p", color: mainStyles.textColor1, children: "armanghazaryan2409@gmail.com" }) }), _jsx(Link, { href: "tel:armanghazaryan2409@gmail.com", underline: "none", children: _jsx(Typography, { variant: "p", fontSize: "11px", color: mainStyles.textColor1, children: "+37496503823" }) })] }), _jsxs(Box, { sx: {
                     display: "flex",
-                    color: main_scss_1.default.textColor2,
+                    color: mainStyles.textColor2,
                     mb: "15px"
-                }, children: [(0, jsx_runtime_1.jsx)(material_1.Typography, { sx: {
+                }, children: [_jsx(Typography, { sx: {
                             marginLeft: "10px"
-                        }, children: "Copyright" }), (0, jsx_runtime_1.jsx)(Copyright_1.default, { sx: { m: "0 7px" } }), (0, jsx_runtime_1.jsx)(material_1.Typography, { children: "Ghazaryan Arman 2022 All rights reserved" })] })] }));
+                        }, children: "Copyright" }), _jsx(CopyrightIcon, { sx: { m: "0 7px" } }), _jsx(Typography, { children: "Ghazaryan Arman 2022 All rights reserved" })] })] }));
 };
-exports.default = Footer;
+export default Footer;

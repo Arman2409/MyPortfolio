@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getResponsiveSizes = exports.getDimesions = void 0;
 const getRandomNumber = (min, max) => {
     return Math.random() * (max - min) + min;
 };
@@ -52,7 +49,7 @@ const getRandomDims = (xLimitsMin, xLimitsMax, yLimitsMin, yLimitsMax, radius, d
         return ({ x, y });
     }
 };
-const getDimesions = (xDimesion = [0, 1000], yDimesion = [0, 500], radius = 50, count = 20) => {
+export const getDimesions = (xDimesion = [0, 1000], yDimesion = [0, 500], radius = 50, count = 20) => {
     const xLimitsMin = xDimesion[0];
     const xLimitsMax = xDimesion[1];
     const yLimitsMin = yDimesion[0];
@@ -64,8 +61,7 @@ const getDimesions = (xDimesion = [0, 1000], yDimesion = [0, 500], radius = 50, 
     }
     return dimsArr;
 };
-exports.getDimesions = getDimesions;
-const getResponsiveSizes = (isSmall, isMedium, isLarge, isExtraLarge, isVeryLarge) => {
+export const getResponsiveSizes = (isSmall, isMedium, isLarge, isExtraLarge, isVeryLarge) => {
     if (isSmall) {
         return ({
             width: 200,
@@ -109,4 +105,3 @@ const getResponsiveSizes = (isSmall, isMedium, isLarge, isExtraLarge, isVeryLarg
         });
     }
 };
-exports.getResponsiveSizes = getResponsiveSizes;
