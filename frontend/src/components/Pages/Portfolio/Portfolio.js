@@ -1,19 +1,24 @@
-import { jsx as _jsx } from "react/jsx-runtime";
-import { useRef, useState, useEffect } from "react";
-import { Box, useMediaQuery } from '@mui/material';
-import PortfolioItem from './PortfolioItem/PortfolioItem';
-import { fetchData } from "../../../API/fetchData";
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const jsx_runtime_1 = require("react/jsx-runtime");
+const react_1 = require("react");
+const material_1 = require("@mui/material");
+const PortfolioItem_1 = __importDefault(require("./PortfolioItem/PortfolioItem"));
+const fetchData_1 = require("../../../API/fetchData");
 const Portfolio = () => {
-    const mainBox = useRef(null);
-    const [itemData, setItemData] = useState([]);
-    const isMedium = useMediaQuery("(max-width:1100px)");
-    const isSmall = useMediaQuery("(max-width:500px)");
-    useEffect(() => {
+    const mainBox = (0, react_1.useRef)(null);
+    const [itemData, setItemData] = (0, react_1.useState)([]);
+    const isMedium = (0, material_1.useMediaQuery)("(max-width:1100px)");
+    const isSmall = (0, material_1.useMediaQuery)("(max-width:500px)");
+    (0, react_1.useEffect)(() => {
         window.scrollTo({ top: 0 });
         setTimeout(() => {
             mainBox.current.style.top = "0px";
         }, 1000);
-        fetchData("getData", "portfolio").then((data) => {
+        (0, fetchData_1.fetchData)("getData", "portfolio").then((data) => {
             if (data.length) {
                 let newData = data.map((elem, index) => {
                     const newElem = elem;
@@ -28,12 +33,12 @@ const Portfolio = () => {
             }
         }).catch((errorMsg) => console.error(errorMsg));
     }, [setItemData]);
-    return (_jsx(Box, { sx: {
+    return ((0, jsx_runtime_1.jsx)(material_1.Box, { sx: {
             height: isSmall ? itemData.length * 280 + "px" : isMedium ? itemData.length * 200 + "px" : "500px",
             width: "100%",
             display: "flex",
             justifyContent: "center"
-        }, children: _jsx(Box, { ref: mainBox, sx: {
+        }, children: (0, jsx_runtime_1.jsx)(material_1.Box, { ref: mainBox, sx: {
                 transition: "0.5s",
                 maxWidth: "100%",
                 width: isSmall ? "180px" : isMedium ? "500px" : itemData.length * 175 + "px",
@@ -82,7 +87,7 @@ const Portfolio = () => {
                         top = 145;
                     }
                 }
-                return _jsx(PortfolioItem, { img: img, description: description, link: link, left: left, top: top }, index);
+                return (0, jsx_runtime_1.jsx)(PortfolioItem_1.default, { img: img, description: description, link: link, left: left, top: top }, index);
             }) }) }));
 };
-export default Portfolio;
+exports.default = Portfolio;

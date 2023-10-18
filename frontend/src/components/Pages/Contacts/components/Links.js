@@ -1,22 +1,27 @@
-import { jsx as _jsx } from "react/jsx-runtime";
-import { useEffect, useState } from "react";
-import FacebookIcon from '@mui/icons-material/Facebook';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LanguageIcon from '@mui/icons-material/Language';
-import { useMediaQuery } from "@mui/material";
-import Link from "./Link";
-import { fetchData } from "../../../../API/fetchData";
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const jsx_runtime_1 = require("react/jsx-runtime");
+const react_1 = require("react");
+const Facebook_1 = __importDefault(require("@mui/icons-material/Facebook"));
+const LinkedIn_1 = __importDefault(require("@mui/icons-material/LinkedIn"));
+const GitHub_1 = __importDefault(require("@mui/icons-material/GitHub"));
+const Language_1 = __importDefault(require("@mui/icons-material/Language"));
+const material_1 = require("@mui/material");
+const Link_1 = __importDefault(require("./Link"));
+const fetchData_1 = require("../../../../API/fetchData");
 const iconsMap = new Map([
-    ["facebook", _jsx(FacebookIcon, { className: "link_icon" })],
-    ["linkedin", _jsx(LinkedInIcon, { className: "link_icon" })],
-    ["github", _jsx(GitHubIcon, { className: "link_icon" })],
+    ["facebook", (0, jsx_runtime_1.jsx)(Facebook_1.default, { className: "link_icon" })],
+    ["linkedin", (0, jsx_runtime_1.jsx)(LinkedIn_1.default, { className: "link_icon" })],
+    ["github", (0, jsx_runtime_1.jsx)(GitHub_1.default, { className: "link_icon" })],
 ]);
 const Links = () => {
-    const [links, setLinks] = useState([]);
-    const isLarge = useMediaQuery("(max-width:1100px)");
-    useEffect(() => {
-        fetchData("getData", "links").then((data) => {
+    const [links, setLinks] = (0, react_1.useState)([]);
+    const isLarge = (0, material_1.useMediaQuery)("(max-width:1100px)");
+    (0, react_1.useEffect)(() => {
+        (0, fetchData_1.fetchData)("getData", "links").then((data) => {
             if (data.length > 5)
                 data = data.splice(0, 5);
             setLinks(data.map(elem => {
@@ -28,13 +33,13 @@ const Links = () => {
                 }
                 return {
                     ...elem,
-                    image: _jsx(LanguageIcon, { className: "link_icon" })
+                    image: (0, jsx_runtime_1.jsx)(Language_1.default, { className: "link_icon" })
                 };
             }));
         }).catch((errorMsg) => console.error(errorMsg));
     }, []);
-    return (_jsx("div", { className: "links", style: {
+    return ((0, jsx_runtime_1.jsx)("div", { className: "links", style: {
             width: isLarge ? "80%" : "40%"
-        }, children: links.map(({ name, link, image }, index) => (_jsx(Link, { image: image, link: link, name: name }, index))) }));
+        }, children: links.map(({ name, link, image }, index) => ((0, jsx_runtime_1.jsx)(Link_1.default, { image: image, link: link, name: name }, index))) }));
 };
-export default Links;
+exports.default = Links;

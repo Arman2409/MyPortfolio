@@ -32,13 +32,13 @@ const MySkills = () => {
       const { width, height, radius } = getResponsiveSizes(isSmall, isMedium, isLarge, isExtraLarge, isVeryLarge);
       const dimsArr = getDimesions([0, width], [radius, height - 2 * radius], radius, res.length);
       setDimensionsArr(dimsArr);
-    }).catch((errorMsg:string) => console.error(errorMsg))
+    }).catch((errorMsg: string) => console.error(errorMsg))
   }, [setSkills, isSmall, isMedium, isLarge, isExtraLarge, isVeryLarge]);
 
   useEffect(() => {
-      const { width, height, radius } = getResponsiveSizes(isSmall, isMedium, isLarge, isExtraLarge, isVeryLarge);
-      const dimsArr = getDimesions([0, width], [radius, height - 2 * radius], radius, skills.length);
-      setDimensionsArr(dimsArr);
+    const { width, height, radius } = getResponsiveSizes(isSmall, isMedium, isLarge, isExtraLarge, isVeryLarge);
+    const dimsArr = getDimesions([0, width], [radius, height - 2 * radius], radius, skills.length);
+    setDimensionsArr(dimsArr);
   }, [isSmall, isMedium, isLarge, skills, isExtraLarge, isVeryLarge])
 
   return (
@@ -48,7 +48,7 @@ const MySkills = () => {
         transition: "0.5s",
         position: "relative",
         top: "-2500px",
-        width: isSmall || isMedium || isLarge ? "100%" : "calc(80% + 40px)",
+        width: isSmall || isMedium || isLarge ? "100%" : "80%",
         height: isSmall ? 1200 : isMedium ? 1000 : 800 + "px",
         marginTop: "50px",
       }}>
@@ -70,7 +70,13 @@ const MySkills = () => {
       </Typography>
       {dimensionsArr.length && skills.map((elem: SkillProps, index: number) => {
         const zIndex = Math.random() * 3;
-        return <Skill key={index} zIndex={zIndex} top={dimensionsArr[index].y} left={dimensionsArr[index].x} source={elem.source} percentage={elem.percentage} />
+        return (<Skill
+          key={index}
+          zIndex={zIndex}
+          top={dimensionsArr[index].y}
+          left={dimensionsArr[index].x}
+          source={elem.source}
+          percentage={elem.percentage} />)
       }
       )}
     </Box>

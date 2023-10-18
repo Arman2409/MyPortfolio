@@ -119,7 +119,6 @@ const ResponsiveAppBar = () => {
                 {pages.map((page, index) => (
                     <Link 
                     to={page === "Main" ? "/" : `/${page.toLowerCase()}`}
-                    // underline="none"
                     key={index}
                     style={{
                       textDecoration: "none",
@@ -145,7 +144,7 @@ const ResponsiveAppBar = () => {
                           sx={{
                             color: mainStyles.textColor1,
                             fontSize: "17px"
-                        }}>{page}</Typography>
+                        }}>{page === "Contacts" ? "Contact me" : page === "Portfolio" ? "My Works" : page}</Typography>
                     </MenuItem>
                   </Link>
                 ))}
@@ -160,7 +159,6 @@ const ResponsiveAppBar = () => {
               {pages.map((page, index) => (
                 <Link
                   to={page === "Main" ? "/" : `/${page.toLowerCase()}`}
-                  // underline="none"
                   key={index}
                   style={{
                     textDecoration: "none"
@@ -187,7 +185,7 @@ const ResponsiveAppBar = () => {
                         duration: 1
                       }
                      }}>
-                      {page === "Contacts" ? "Contact me" : page}
+                      {page === "Contacts" ? "Contact me" : page === "Portfolio" ? "My Works" : page}
                     </motion.p>
                     </Button>
                   </Link>
