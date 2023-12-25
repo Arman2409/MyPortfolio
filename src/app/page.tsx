@@ -1,11 +1,13 @@
-import About from "../parts/About/About";
-import Header from "../parts/Header/Header";
+import About from "./sections/About/About";
+import Skills from "./sections/Skills/Skills";
+import Header from "./static/Header/Header";
 
 const Home = () => {
   return (
     <main>
       <Header />
       <About />
+      <Skills />
     </main>
   )
 }

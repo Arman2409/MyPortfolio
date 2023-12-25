@@ -1,3 +1,4 @@
 export default {
-    tvTurnOnTime: 1.5
+    tvTurnOnTime: 1.5,
+    typewriterSpeed: 5,
 }
