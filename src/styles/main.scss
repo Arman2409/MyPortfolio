@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import "./variables";
+@import "./portfolio";
+@import "./skill";
+@import "./header";
+@import "./links";
+
+.MuiLinearProgress-bar1Determinate{
+    animation: bar 1.5s infinite linear;
+    background-image: linear-gradient(to right, violet, orangered, skyblue, indigo, green, orange, red);
+    @keyframes bar {
+
+        0% {
+            background-size: 100%;
+        }
+        1% {
+            background-size: 200%;
+        }
+        100% {
+            background-size: 500%;
+        }
+    }
+};
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#root {
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 150px;
+    box-sizing: border-box;
+}
+
+:export {
+    textColor1: $textColor1;
+    textColor2: $textColor2;
+    backgroundColor1: $backgroundColor1;
+    backgroundColor2: $backgroundColor2;
+    borderColor1: $borderColor1;
+    borderColor2: $borderColor2;
+    mainShadow: $mainShadow; 
+}
