@@ -44,7 +44,7 @@ function About() {
             setLink(link);
             setDemoState(false);
         }).catch((errorMsg) => console.error(errorMsg));
-    }, [setDemoState]);
+    }, [setDemoState, setInfo, setLink]);
     useEffect(() => {
         setTimeout(() => {
             mainBox.current.style.top = "0px";

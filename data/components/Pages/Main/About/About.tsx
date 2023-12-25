@@ -48,7 +48,7 @@ function About() {
       setLink(link);
       setDemoState(false);
     }).catch((errorMsg:string) => console.error(errorMsg));   
-  }, [setDemoState])
+  }, [setDemoState, setInfo, setLink])
 
   useEffect(() => {
     setTimeout(() => {
