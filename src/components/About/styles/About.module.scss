@@ -1,0 +1,15 @@
+@import "../../../styles/colors.scss";
+@import "../../../styles/classes.scss";
+
+.about_cont {
+    height: 500px;
+    width: 100%;
+    
+    @extend .centered;
+}
+
+.about_content {
+    width: 80%;
+    height: 80%;
+    background-image: url("/public/about/");
+}
