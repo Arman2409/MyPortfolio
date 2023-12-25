@@ -1,0 +1,17 @@
+@import "../../../styles/dimesions.scss";
+@import "../../../styles/colors.scss";
+
+.header {
+    width: 100%;
+    position: fixed;
+    height: $headerHeight;
+    background-color: $color3;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo_cont {
+    height: 100%;
+    width: 200px;
+    border: 1px solid white;
+}
