@@ -1,0 +1,42 @@
+@import "../../../styles/colors.scss";
+@import "../../../styles/classes.scss";
+@import "../../../styles/dimesions.scss";
+
+.about_cont {
+    height: 625px;
+    width: 100%;
+    padding-top: calc($headerHeight + 25px);
+    display: flex;
+    justify-content: center;
+}
+
+.about_content {
+    width: 800px;
+    height: 500px;
+    padding: 15px;
+    position: relative;
+    background-image: url("/about/tv.jpg");
+    color: $color2;
+    font-size: 20px;
+
+    @extend .centered;
+    @extend .background_fixed;
+}
+
+.screen {
+        background-color: $color4;
+        margin-bottom: 20px;
+        box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(237,241,255,0);
+}
+.switch_button {
+    color: $color3;
+    position: absolute;
+    left: calc(50% - 7.5px);
+    bottom: 5px;
+}
+
+.typewriter_cont{
+   position: absolute;
+   top: 15px;
+   left: 25px;
+}
