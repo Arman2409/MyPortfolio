@@ -3,11 +3,12 @@
 @import "../../../styles/dimesions.scss";
 
 .about_cont {
-    height: 650px;
+    height: 700px;
     width: 100%;
-    padding-top: calc($headerHeight + 25px);
+    padding-top: calc($headerHeight + 75px);
     display: flex;
     justify-content: center;
+    margin-bottom: 25px
 }
 
 .about_content {

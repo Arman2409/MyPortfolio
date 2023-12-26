@@ -23,6 +23,9 @@ const Skills = () => {
         <div
             id="skills_main"
             className={styles.skills}>
+            <h2 className={styles.title}>
+                My Skills
+            </h2>
             <div
                 className={styles.skills_content}>
                 {windowWidth && <Connections
