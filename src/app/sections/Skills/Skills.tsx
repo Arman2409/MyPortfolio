@@ -1,23 +1,35 @@
 "use client"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import data from "../../../data/data.json";
 import styles from "./styles/Skills.module.scss";
 import { getDimesions } from "./utils/functions";
 import Skill from "./components/Skill/Skill";
 import type { Dimesion } from "../../types/skills";
+import Connections from "./components/Connections/Connections";
 
 const { skills } = { ...data };
 
 const Skills = () => {
     const [locations, setLocations] = useState<any[]>([]);
-    // !! maximum width should be limited
-    const dimesions = getDimesions([0, innerWidth], [0, 600], 50, skills.length);
+    const [windowWidth, setWindowWidth] = useState<number>()
+
+    useEffect(() => {
+        setWindowWidth(document.getElementById("skills_main")?.offsetWidth);
+        setLocations(getDimesions([60, window.innerWidth - 60], [60, 540], 120, skills.length));
+    }, [setLocations])
 
     return (
-        <div className={styles.skills}>
-            <div className={styles.skills_content}>
-                {dimesions.map((dimesion: Dimesion, index: number) => {
+        <div
+            id="skills_main"
+            className={styles.skills}>
+            <div
+                className={styles.skills_content}>
+                {windowWidth && <Connections
+                    width={windowWidth}
+                    height={700}
+                    dimesions={locations} />}
+                {locations.map((dimesion: Dimesion, index: number) => {
                     const { id, source } = { ...skills[index] };
                     return (
                         <Skill
