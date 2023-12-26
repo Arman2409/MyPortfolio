@@ -1,3 +1,6 @@
-export default {
-    tvTurnOnTime: 1.5
+const configs = {
+    tvTurnOnTime: 1.5,
+    typewriterSpeed: 5,
 }
+
+export default configs;
