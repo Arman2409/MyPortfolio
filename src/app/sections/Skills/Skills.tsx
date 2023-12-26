@@ -5,8 +5,9 @@ import data from "../../../data/data.json";
 import styles from "./styles/Skills.module.scss";
 import { getDimesions } from "./utils/functions";
 import Skill from "./components/Skill/Skill";
-import type { Dimesion } from "../../types/skills";
 import Connections from "./components/Connections/Connections";
+import SectionTitle from "../../globals/components/SectionTitle/SectionTitle";
+import type { Dimesion } from "../../types/skills";
 
 const { skills } = { ...data };
 
@@ -23,9 +24,7 @@ const Skills = () => {
         <div
             id="skills_main"
             className={styles.skills}>
-            <h2 className={styles.title}>
-                My Skills
-            </h2>
+            <SectionTitle title={"My Skills"}/>
             <div
                 className={styles.skills_content}>
                 {windowWidth && <Connections

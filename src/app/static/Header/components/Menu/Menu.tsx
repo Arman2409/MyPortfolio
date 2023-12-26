@@ -1,5 +1,5 @@
 "use client"
-import { MouseEventHandler, useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { ImMenu } from "react-icons/im";
 
 import styles from "./styles/Menu.module.scss";
@@ -9,7 +9,7 @@ import type { MenuItem } from "../../../../types/header";
 const { menuItems, menuItemHeight, menuItemWidth } = { ...configs };
 
 const Menu = () => {
-   const [menuStatus, setMenuStatus] = useState<boolean>(true);
+   const [menuStatus, setMenuStatus] = useState<boolean>(false);
    const [items, setItems] = useState<MenuItem[]>([]);
 
    const oppositeMenuStatus = useCallback(() => setMenuStatus(current => !current), [setMenuStatus])
@@ -42,23 +42,22 @@ const Menu = () => {
             <div
                className={styles.menu_demo}
                onClick={oppositeMenuStatus}>
-               {items.map(({ scrollTo, id, title, x = 100, y = 100 }: MenuItem) => {
-                  return (
-                     <div
-                        key={id}
-                        className={styles.menu_item}
-                        onClick={(event:any) => clickItem(event, scrollTo)}
-                        style={{
-                           width: menuItemWidth + "px",
-                           height: menuItemHeight + "px",
-                           top: y - menuItemHeight / 2 + "px",
-                           left: x - menuItemWidth / 2 + "px",
-                        }}
-                     >
-                        {title}
-                     </div>
-                  )
-               })}
+               {items.map(({ scrollTo, id, title, x = 100, y = 100 }: MenuItem) => (
+                  <div
+                     key={id}
+                     className={styles.menu_item}
+                     onClick={(event: any) => clickItem(event, scrollTo)}
+                     style={{
+                        width: menuItemWidth + "px",
+                        height: menuItemHeight + "px",
+                        top: y - menuItemHeight / 2 + "px",
+                        left: x - menuItemWidth / 2 + "px",
+                     }}
+                  >
+                     {title}
+                  </div>
+               )
+               )}
             </div>
          )}
       </div>
