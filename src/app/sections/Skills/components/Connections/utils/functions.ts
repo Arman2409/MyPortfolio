@@ -13,7 +13,7 @@ export const drawLines = (dimesions: Dimesion[], ctx: any):void => {
     ctx.strokeStyle = linesColor;
     ctx.lineWidth = linesWidth;
     ctx.beginPath();
-    dimesions.push({x: ctx.canvas.width, y: ctx.canvas.height})
+    dimesions.push({x: ctx.canvas.width, y:dimesions[dimesions.length - 1].y})
     dimesions.forEach((dimesion: Dimesion) => {
         const { x, y } = { ...currentEnd };
         const { x: destX, y: destY } = { ...dimesion };
