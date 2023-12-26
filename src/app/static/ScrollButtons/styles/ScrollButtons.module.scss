@@ -1,0 +1,33 @@
+@import "../../../styles/colors.scss";
+
+.scroll_buttons_main {
+    height: 200px;
+    width: 50px;
+    position: relative;
+    top: 300px;
+    right: 0px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: $color1;
+    z-index: 3;
+    box-shadow: 0px 0px 2px 2px $color4;
+
+}
+
+.scroll_button {
+    width: 30px;
+    border-radius: 50%;
+    height: 20px;
+    background-color: $color4;
+    box-shadow: 0 5px $color3;
+}
+
+.scroll_button_clicked {
+    @extend .scroll_button;
+
+    background-color: green;
+    box-shadow: 0 2px $color3;
+}

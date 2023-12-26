@@ -11,14 +11,14 @@
 }
 
 .about_content {
+    @extend .centered;
+    @extend .background_fixed;
+    
     width: 800px;
     height: 500px;
     padding: 15px;
     position: relative;
     background-image: url("/about/tv.jpg");
-
-    @extend .centered;
-    @extend .background_fixed;
 }
 
 .screen {
