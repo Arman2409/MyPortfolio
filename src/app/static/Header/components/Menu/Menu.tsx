@@ -45,8 +45,6 @@ const Menu = () => {
       }))
       if (menuStatus) {
          const menuCanvas: any = document.getElementById("menu_canvas")
-         console.log(menuCanvas);
-
          menuCanvas.width = windowWidth;
          menuCanvas.height = windowHeight;
          const context = menuCanvas.getContext("2d");
