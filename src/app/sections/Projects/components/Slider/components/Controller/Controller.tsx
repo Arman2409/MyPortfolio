@@ -1,14 +1,20 @@
-import ControllerButton from "./components/ControllerButton/ControllerButton";
-import styles from "./styles/Controller.module.scss";
-import { FaCaretRight } from "react-icons/fa";
+import { FaCaretRight, FaGithub, FaLink, FaLinkedin } from "react-icons/fa";
 import { FaCaretLeft } from "react-icons/fa";
 
+import styles from "./styles/Controller.module.scss";
+import Screen from "./components/Screen/Screen";
+import ControllerButton from "./components/ControllerButton/ControllerButton";
 
-const Controller = () => {
+const Controller = ({usedSkills}:{usedSkills: string[]}) => {
     return (
         <div className={styles.controller_main}>
-           <ControllerButton icon={<FaCaretLeft />}/>
-           <ControllerButton icon={<FaCaretRight />}/>
+            <Screen usedSkills={usedSkills}/>
+            <div className={styles.buttons_cont}>
+                <ControllerButton icon={<FaCaretLeft />} />
+                <ControllerButton icon={<FaGithub />} />
+                <ControllerButton icon={<FaLink />} />
+                <ControllerButton icon={<FaCaretRight />} />
+            </div>
         </div>
     )
 }

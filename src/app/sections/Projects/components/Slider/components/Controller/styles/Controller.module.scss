@@ -2,6 +2,14 @@
 
 .controller_main {
     width: 400px;
-    height: 400px;
+    height: 180px;
+    padding: 5px;
     background-color: $color1;
+    border: 1px solid black;
+}
+
+.buttons_cont {
+    display: flex;
+    padding: 10px;
+    justify-content: space-evenly;
 }

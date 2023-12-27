@@ -1,91 +1,108 @@
 {
     "about": {
-            "info": "Hello, my name is Arman.I am a Full Stack JavaScript developer with more than a year of experience.I can use React.js/Next.js for client side and Node.js/Express.js/Nest.js for server side.I have worked on different types of projects including dashboards, admin panels, user authentication and real time servers, etc. .I like to improve my skills and learn new things.",
-            "link": "https://res.cloudinary.com/personal-image-storage/image/upload/v1674940368/image_s7sltu.png"
-        },
+        "info": "Hello, my name is Arman.I am a Full Stack JavaScript developer with more than a year of experience.I can use React.js/Next.js for client side and Node.js/Express.js/Nest.js for server side.I have worked on different types of projects including dashboards, admin panels, user authentication and real time servers, etc. .I like to improve my skills and learn new things.",
+        "link": "https://res.cloudinary.com/personal-image-storage/image/upload/v1674940368/image_s7sltu.png"
+    },
     "skills": [
         {
             "id": "637494272a14d48fddd8ef0d",
+            "name": "SCSS",
             "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1280px-Sass_Logo_Color.svg.png",
             "percentage": 50
         },
         {
             "id": "637494272a14d48fddd8ef0c",
+            "name": "CSS",
             "source": "https://img.freepik.com/free-icon/css_318-698167.jpg?w=360",
             "percentage": 60
         },
         {
             "id": "637494272a14d48fddd8ef0e",
+            "name": "JavaScript",
             "source": "https://toppng.com/uploads/thumbnail/javascript-logo-computerprogrammieren-scripting-sprache-javascript-logo-vector-11563550683gikhwkkvfu.png",
             "percentage": 60
         },
         {
             "id": "637494272a14d48fddd8ef0f",
+            "name": "React.js",
             "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png",
             "percentage": 60
         },
         {
             "id": "637494272a14d48fddd8ef11",
+            "name": "Node.js",
             "source": "https://hermes.digitalinnovation.one/tracks/673c85f4-a1cb-40b7-a6fd-7f9becb379f6.png",
             "percentage": 50
         },
         {
             "id": "637494272a14d48fddd8ef15",
+            "name": "Phaser.js",
             "source": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Phaser_Logo.png",
             "percentage": 40
         },
         {
             "id": "637494272a14d48fddd8ef0b",
+            "name": "HTML",
             "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png",
             "percentage": 60
         },
         {
             "id": "637494272a14d48fddd8ef12",
+            "name": "MongoDB",
             "source": "https://miro.medium.com/max/512/1*doAg1_fMQKWFoub-6gwUiQ.png",
             "percentage": 40
         },
         {
             "id": "637494272a14d48fddd8ef13",
+            "name": "PostgreSQL",
             "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1985px-Postgresql_elephant.svg.png",
             "percentage": 30
         },
         {
             "id": "637494272a14d48fddd8ef10",
+            "name": "MUI",
             "source": "https://v4.material-ui.com/static/logo.png",
             "percentage": 40
         },
         {
             "id": "637494272a14d48fddd8ef14",
+            "name": "Docker",
             "source": "https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png",
             "percentage": 30
         },
         {
             "id": "6376695e53355f775ca2ca58",
+            "name": "Git",
             "source": "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png",
             "percentage": 50
         },
         {
             "id": "637f493684dcf6959d7a217c",
+            "name": "TypeScript",
             "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png",
             "percentage": 40
         },
         {
             "id": "638b89f2d388f64307fd6576",
+            "name": "Next.js",
             "source": "https://www.rlogical.com/wp-content/uploads/2021/08/Rlogical-Blog-Images-thumbnail.png",
             "percentage": 40
         },
         {
             "id": "63d58c758643e31dfa7bc2c4",
+            "name": "Nest.js",
             "source": "https://docs.nestjs.com/assets/logo-small.svg",
             "percentage": 40
         },
         {
             "id": "6460a4a876cea29ab33bca5c",
+            "name": "Ant Design",
             "source": "https://seeklogo.com/images/A/ant-design-logo-EAB6B3D5D9-seeklogo.com.png",
             "percentage": 40
         },
         {
             "id": "64b98497514219b3c5242853",
+            "name": "Jest",
             "source": "https://docs.knapsackpro.com/images/blog/posts/run-jest-on-github-actions-with-parallelization/jest.png",
             "percentage": 30
         }

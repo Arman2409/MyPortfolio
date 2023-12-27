@@ -9,7 +9,7 @@ const Slider = () => {
 
             </div>
             <div className={styles.controllers_cont}>
-                <Controller />
+                <Controller usedSkills={[]}/>
             </div>
         </div>
     )
