@@ -1,9 +1,38 @@
 @import "../../../../../styles/classes.scss";
+@import "../../../../../styles/colors.scss";
 
 .menu_cont {
     @extend .centered;
-    
+
     height: 100%;
     width: 200px;
-    border: 1px solid white;
+    z-index: 5;
+}
+
+.menu_demo {
+    @extend .demo;
+
+    background-color: $color1;
+}
+
+.menu_item {
+    @extend .centered;
+
+    position: absolute;
+    border: 1px solid $color4;
+    color: $color3;
+    background-color: $color2;
+    font-size: 22px;
+    transition: 0.5s;
+
+    &:hover {
+        color: $color2;
+        background-color: $color3;
+    }
+}
+
+.menu_icon {
+    font-size: 30px;
+    color: $color2;
+    transition: 0.5s;
 }

@@ -1,5 +1,5 @@
 const configs = {
-   scrollPoints: [0, 500]
+   scrollPoints: [0, 600]
 }
 
 export default configs;
