@@ -1,16 +1,19 @@
 const configs = {
     menuItemWidth: 250,
     menuItemHeight: 80,
+    menuLineColor: "#0B666A",
+    menuLineWidth: 7.5,
+    menuDrawInterval: 500,
     menuItems: [{
-        id: 1,
+        order: 1,
         title: "About Me",
         scrollTo: 0,
     },
     {
-        id: 2,
+        order: 2,
         title: "My skills",
-        scrollTo: 550,
-    }
+        scrollTo: 600,
+    },
     ]
 }
 
