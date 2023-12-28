@@ -8,7 +8,7 @@ import ScrollButtons from "./fixed/ScrollButtons/ScrollButtons";
 const Home = () => {
   return (
     <main>
-      {/* static components  */}
+      {/* fixed components  */}
       <Header />
       <ScrollButtons />
       {/* sections  */}

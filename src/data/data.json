@@ -128,7 +128,7 @@
         {
             "id": "645d09398db2a152fb2445115",
             "order": 1,
-            "img": "https://drive.google.com/uc?export=download&id=14yFb-Bx476ouiFIoF9Z9Jl-ovIRCEV-V",
+            "img": "/projects/deStress.png",
             "title": "Destress",
             "usedSkills": ["TypeScript", "Next.js", "Phaser.js"],
             "github": "https://github.com/Arman2409/DeStress",
@@ -137,7 +137,7 @@
         {
             "id": "645d09398db2a152fb2f847c",
             "order": 2,
-            "img": "https://drive.google.com/uc?export=view&id=1BpwfRl26_rfB3_CuhmI89g-ZxWbi-dwV",
+            "img": "/projects/talkSpace.png",
             "title": "Talk Space",
             "usedSkills": ["TypeScript", "Next.js", "Nest.js", "MongoDB"],
             "github": "https://github.com/Arman2409/Chat-app"
@@ -145,7 +145,7 @@
         {
             "id": "6373f6452a14d48fdd600dc2",
             "order": 3,
-            "img": "https://drive.google.com/uc?export=view&id=1qgPKdReZ4DykZcaYRbUiVJK3164efnxx",
+            "img": "/projects/landscape.png",
             "title": "Landscape",
             "usedSkills": ["TypeScript", "SCSS"],
             "link": "https://landscape-animation.netlify.app/",
