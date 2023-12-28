@@ -3,7 +3,7 @@ import { Variants } from "framer-motion";
 const screenVariants:Variants = {
   switchedOn: {
      height: "460px",
-     width: "760px",
+     width: "780px",
      transition: {
         duration: 0.25
      }
