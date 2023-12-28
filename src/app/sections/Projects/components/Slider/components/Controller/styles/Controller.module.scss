@@ -1,0 +1,15 @@
+@import "../../../../../../../styles/colors.scss";
+
+.controller_main {
+    width: 400px;
+    height: 210px;
+    padding: 5px;
+    background-color: $color1;
+    border: 3px solid $color2;
+}
+
+.buttons_cont {
+    display: flex;
+    padding: 10px;
+    justify-content: space-evenly;
+}
