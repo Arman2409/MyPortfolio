@@ -20,14 +20,14 @@
 
     position: absolute;
     border: 1px solid $color4;
-    color: $color3;
+    color: $color4;
     background-color: $color2;
     font-size: 22px;
     transition: 0.5s;
 
     &:hover {
         color: $color2;
-        background-color: $color3;
+        background-color: $color4;
     }
 }
 

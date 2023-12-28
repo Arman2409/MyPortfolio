@@ -14,6 +14,7 @@ const Screen = ({ currentItem }: { currentItem: PortfolioItem }) => {
             <div className={styles.skills_cont}>
                 {urls.map((url: string) => (
                     <img
+                        key={url}
                         src={url}
                         className={styles.screen_skill}
                     />

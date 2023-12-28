@@ -10,11 +10,9 @@ const ControllerButton = ({ icon, disabled = false, onClick }:
   const handleClick = useCallback(() => {
     if(clicked) return;
      setClicked(true);
-     setTimeout(() => {
-      setClicked(false);
-     }, 500)
+     setTimeout(() => setClicked(false), 500)
      onClick && onClick();
-  }, [setClicked, clicked])
+  }, [setClicked, clicked, onClick])
 
   return (
     <div
@@ -31,7 +29,7 @@ const ControllerButton = ({ icon, disabled = false, onClick }:
       <div
         className={styles.controller_button_content}
         style={disabled ? {
-          backgroundColor: "red"
+          backgroundColor: "yellow"
         } : clicked ? {
           backgroundColor: "green"
         } : {}}

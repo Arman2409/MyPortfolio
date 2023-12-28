@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import { FaCaretRight, FaGithub, FaLink, FaLinkedin } from "react-icons/fa";
 import { FaCaretLeft } from "react-icons/fa";
 
@@ -9,20 +9,28 @@ import type { PortfolioItem } from "../../../../../../types/projects";
 
 const Controller = ({ currentItem, portfolio, setCurrentItem }:
     {
-        currentItem: PortfolioItem, portfolio:
-            PortfolioItem[], setCurrentItem: Function
+        currentItem: PortfolioItem,
+        portfolio: PortfolioItem[],
+        setCurrentItem: Function
     }) => {
-    const [chosenItem, setChosenItem] = useState<PortfolioItem>({} as PortfolioItem)
-    const [nextAvailable, setNextAvailable] = useState<boolean>(false);
-    const [prevAvailable, setPrevAvailable] = useState<boolean>()
+    const disableGithubLink = !currentItem.github;
+    const disableSiteLink = !currentItem.link;
 
-    const handleItemChange = useCallback((change: number) => {
+    const handleItemChange = useCallback((direction: "left" | "right") => {
         const { order } = { ...currentItem };
+        const newOrder = direction === "left" ? order - 1 : order + 1;
         if (order === undefined) console.error("Item not provided");
-        const newItem = portfolio.find(({ order: itemOrder }: PortfolioItem) => itemOrder === order + change);
+        const newItem = portfolio.find(({ order: itemOrder }: PortfolioItem) => itemOrder === newOrder);
         if (!newItem) return;
         setCurrentItem({ ...newItem });
-    }, [setCurrentItem]);
+    }, [currentItem, setCurrentItem]);
+
+    const takeToLink = useCallback((href: string) => {
+        const link = document.createElement("a");
+        link.target = "_blank";
+        link.href = href;
+        link.click();
+    }, []);
 
     return (
         <div className={styles.controller_main}>
@@ -30,19 +38,21 @@ const Controller = ({ currentItem, portfolio, setCurrentItem }:
             <div className={styles.buttons_cont}>
                 <ControllerButton
                     icon={<FaCaretLeft />}
-                    onClick={() => handleItemChange(-1)}
+                    onClick={() => handleItemChange("left")}
                 />
                 <ControllerButton
-                    disabled={!currentItem.github}
+                    onClick={disableGithubLink ? undefined : () => takeToLink(currentItem.github || "")}
+                    disabled={disableGithubLink}
                     icon={<FaGithub />}
                 />
                 <ControllerButton
-                    disabled={!currentItem.link}
+                    onClick={disableSiteLink ? undefined : () => takeToLink(currentItem.link || "")}
+                    disabled={disableSiteLink}
                     icon={<FaLink />}
                 />
                 <ControllerButton
                     icon={<FaCaretRight />}
-                    onClick={() => handleItemChange(1)}
+                    onClick={() => handleItemChange("right")}
                 />
             </div>
         </div>

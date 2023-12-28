@@ -1,7 +1,9 @@
-import { skills } from "../../../../../../../../../../data/data.json";
+import data from "../../../../../../../../../../data/data.json";
+
+const { skills } = { ...data };
 
 export const getUrls = (urlSKills: string[]) => {
-    if(!Array.isArray(urlSKills)) {
+    if (!Array.isArray(urlSKills)) {
         console.error("Array not provided");
         return [];
     }
