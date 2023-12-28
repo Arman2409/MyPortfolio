@@ -1,8 +1,9 @@
 import styles from "./styles/Screen.module.scss";
 import { getUrls } from "./utils/functions";
-import type { PortfolioItem } from "../../../../../../../../types/projects";
+import type { ScreenProps } from "../../../../../../../../types/projects";
 
-const Screen = ({ currentItem }: { currentItem: PortfolioItem }) => {
+
+const Screen = ({ currentItem }: ScreenProps) => {
     const { usedSkills, title } = { ...currentItem };
     const urls = getUrls(usedSkills || []);
 

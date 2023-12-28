@@ -9,6 +9,12 @@
     z-index: 5;
 }
 
+.menu_icon {
+    font-size: 40px;
+    color: $color4;
+    transition: 0.5s;
+}
+
 .menu_demo {
     @extend .demo;
 
@@ -29,10 +35,4 @@
         color: $color2;
         background-color: $color4;
     }
-}
-
-.menu_icon {
-    font-size: 30px;
-    color: $color2;
-    transition: 0.5s;
 }

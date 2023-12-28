@@ -1,25 +1,23 @@
 import { useCallback } from "react";
-import { FaCaretRight, FaGithub, FaLink, FaLinkedin } from "react-icons/fa";
+import { FaCaretRight, FaGithub, FaLink } from "react-icons/fa";
 import { FaCaretLeft } from "react-icons/fa";
 
 import styles from "./styles/Controller.module.scss";
 import Screen from "./components/Screen/Screen";
 import ControllerButton from "./components/ControllerButton/ControllerButton";
-import type { PortfolioItem } from "../../../../../../types/projects";
+import type { PortfolioItem, ControllerProps } from "../../../../../../types/projects";
 
-const Controller = ({ currentItem, portfolio, setCurrentItem }:
-    {
-        currentItem: PortfolioItem,
-        portfolio: PortfolioItem[],
-        setCurrentItem: Function
-    }) => {
+const Controller = ({ currentItem, portfolio, setCurrentItem }:ControllerProps) => {
     const disableGithubLink = !currentItem.github;
     const disableSiteLink = !currentItem.link;
 
     const handleItemChange = useCallback((direction: "left" | "right") => {
         const { order } = { ...currentItem };
-        const newOrder = direction === "left" ? order - 1 : order + 1;
         if (order === undefined) console.error("Item not provided");
+        let newOrder = direction === "left" ? order - 1 : order + 1;
+        const itemsCount = portfolio.length;
+        if (newOrder === 0) newOrder = itemsCount;
+        if (newOrder > itemsCount) newOrder = 1;
         const newItem = portfolio.find(({ order: itemOrder }: PortfolioItem) => itemOrder === newOrder);
         if (!newItem) return;
         setCurrentItem({ ...newItem });

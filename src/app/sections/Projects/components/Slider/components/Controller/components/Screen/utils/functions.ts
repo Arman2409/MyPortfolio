@@ -8,5 +8,5 @@ export const getUrls = (urlSKills: string[]) => {
         return [];
     }
     const allSkills = skills.filter(({ name }: any) => urlSKills.includes(name)) || [];
-    return allSkills.map((skill: any) => skill.source);
+    return allSkills.map(({source}: any) => source);
 }

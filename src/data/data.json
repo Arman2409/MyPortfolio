@@ -143,19 +143,10 @@
             "github": "https://github.com/Arman2409/Chat-app"
         },
         {
-            "id": "6373f6452a14d48fdd600dc3",
-            "order": 3,
-            "img": "https://drive.google.com/uc?export=download&id=1EAX0qk5_u-acWmMMsWlHDIwT4gQmBxJ_",
-            "title": "Note Shot",
-            "usedSkills": ["TypeScript"],
-            "link": "https://note-shot.netlify.app/",
-            "github": "https://github.com/Arman2409/NoteShot"
-        },
-        {
             "id": "6373f6452a14d48fdd600dc2",
-            "order": 4,
+            "order": 3,
             "img": "https://drive.google.com/uc?export=view&id=1qgPKdReZ4DykZcaYRbUiVJK3164efnxx",
-            "title": "Landscape animation",
+            "title": "Landscape",
             "usedSkills": ["TypeScript", "SCSS"],
             "link": "https://landscape-animation.netlify.app/",
             "github": "https://github.com/Arman2409/Landscape-animation"
