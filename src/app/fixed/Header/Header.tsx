@@ -5,7 +5,7 @@ const Header = () => {
     return (
         <div className={styles.header}>
             <div className={styles.logo_cont}>
-
+               <img src="/logo.png" />
             </div>
             <Menu />
         </div>

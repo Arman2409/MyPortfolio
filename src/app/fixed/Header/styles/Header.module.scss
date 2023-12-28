@@ -1,5 +1,6 @@
 @import "../../../styles/dimesions.scss";
 @import "../../../styles/colors.scss";
+@import "../../../styles/classes.scss";
 
 .header {
     width: 100%;
@@ -12,7 +13,8 @@
 }
 
 .logo_cont {
+   @extend .centered;
+
     height: 100%;
     width: 200px;
-    border: 1px solid white;
 }

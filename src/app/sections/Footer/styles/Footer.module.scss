@@ -5,11 +5,12 @@
     @extend .centered;
 
     flex-direction: column;
-    height: 100px;
+    height: 50px;
     width: 100%;
     color: $color2;
 }
 
 .copyright_cont {
     margin-top: 5px;
+    font-size: 12px;
 }
