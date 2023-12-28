@@ -1,5 +1,27 @@
 .slider_main {
     width: 100%;
-    height: 500px;
+    height: 700px;
     border: 1px solid pink;
+    display: flex;
+}
+
+.slider_cont {
+    height: 600px;
+    width: 800px;
+    display: flex;
+    position: relative;
+    overflow-x: hidden;
+
+}
+
+
+.slider_holder {
+    position: absolute;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    overflow-x: hidden;
+}
+.slider_image {
+    height: 100%;
 }

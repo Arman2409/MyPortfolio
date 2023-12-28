@@ -12,7 +12,7 @@
     box-shadow: 0 5px $color3;
 }
 
-.controller_button_content{
+.controller_button_content {
     @extend .centered;
 
     width: 50px;
@@ -22,4 +22,5 @@
     border: 1px solid $color4;
     font-size: 30px;
     color: $color4;
+    transition: 0.25s;
 }
