@@ -1,5 +1,5 @@
-import { drawFromPointToPoint } from "../../../globals/functions/drawFromPointToPoint";
-import type { Point } from "../../../types/header";
+import { drawFromPointToPoint } from "../../../../../globals/functions/drawFromPointToPoint";
+import type { Point } from "../../../../../types/header";
 
 export class DrawLine {
     height: number = 100;

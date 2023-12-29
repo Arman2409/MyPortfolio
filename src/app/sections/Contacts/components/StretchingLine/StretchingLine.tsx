@@ -3,12 +3,12 @@ import { useEffect, useRef } from "react";
 
 import styles from "./styles/Stretching.module.scss";
 import { DrawLine } from "./utils/drawLine";
-import configs from "../../../configs/stretchingLine";
-import type { StretchingLineProps } from "../../types/stretchingLIne";
+import configs from "../../../../../configs/contacts";
+import type { StretchingLineProps } from "../../../../types/contacts";
 
 const { edgeRadius, connectionWidth, connectionColor, edgeColor, lineWidth } = { ...configs }
 
-const StretchingLine = ({ top, right, left }: StretchingLineProps) => {
+const StretchingLine = ({ right }: StretchingLineProps) => {
     const stretchingCanvas = useRef<any>(null);
 
     useEffect(() => {
@@ -28,9 +28,7 @@ const StretchingLine = ({ top, right, left }: StretchingLineProps) => {
         <div
             className={styles.stretching_main}
             style={{
-                top: top + "px",
                 right: right + "px",
-                left: left + "px"
             }}
         >
             <canvas
