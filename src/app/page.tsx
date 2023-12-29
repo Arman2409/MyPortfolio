@@ -13,7 +13,10 @@ const Home = () => {
       <Header />
       <ScrollButtons />
       {/* sections  */}
-      <StretchingLine />
+      <StretchingLine top={10} left={30}/>
+      <StretchingLine top={30}  left={40}/>
+      <StretchingLine top={20} left={50}/>
+      <StretchingLine top={30}  left={60}/>
       <About />
       <Skills />
       <Projects />
