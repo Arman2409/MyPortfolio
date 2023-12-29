@@ -1,0 +1,9 @@
+@import "../../../styles/classes.scss";
+
+.contacts_main {
+    @extend .centered;
+
+    position: relative;
+    height: 200px;
+    width: 100%;
+}
