@@ -1,0 +1,14 @@
+@import "../../../styles/classes.scss";
+
+.languages {
+    @extend .centered;
+
+    flex-direction: column;
+    width: 100%;
+    height: 400px;
+}
+
+.languages_cont {
+    padding-top: 50px;
+    display: flex;
+}

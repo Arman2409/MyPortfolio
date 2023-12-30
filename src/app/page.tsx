@@ -5,10 +5,11 @@ import Skills from "./sections/Skills/Skills";
 import Header from "./fixed/Header/Header";
 import ScrollButtons from "./fixed/ScrollButtons/ScrollButtons";
 import Contacts from "./sections/Contacts/Contacts";
+import Languages from "./sections/Languages/Languages";
 
 const Home = () => {
   return (
-    <main>
+    <main id="main_container">
       {/* fixed components  */}
       <Header />
       <ScrollButtons />
@@ -16,6 +17,7 @@ const Home = () => {
       <About />
       <Skills />
       <Projects />
+      <Languages />
       <Contacts />
       <Footer />
     </main>

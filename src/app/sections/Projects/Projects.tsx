@@ -5,7 +5,7 @@ import Slider from "./components/Slider/Slider";
 
 const Projects = () => (
    <div className={styles.projects_main}>
-      <SectionTitle title="My Projects" />
+      <SectionTitle title="Projects" />
       <Slider />
    </div>
 )

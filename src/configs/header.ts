@@ -7,18 +7,23 @@ const configs = {
     // Changes in menuItems assumes changes also for scrollPoints in scroll buttons config
     menuItems: [{
         order: 1,
-        title: "About Me",
+        title: "About",
         scrollTo: 0,
     },
     {
         order: 2,
-        title: "My skills",
+        title: "Skills",
         scrollTo: 600,
     },
     {
         order: 3,
-        title: "My Projects",
+        title: "Projects",
         scrollTo: 1300,
+    },
+    {
+        order: 4,
+        title: "Language Skills",
+        scrollTo: 2100,
     },
     ]
 }
