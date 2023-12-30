@@ -9,11 +9,12 @@
     background-color: $color3;
     display: flex;
     justify-content: space-between;
+    background-image: url("/background.jpg");
     z-index: 4;
 }
 
 .logo_cont {
-   @extend .centered;
+    @extend .centered;
 
     height: 100%;
     width: 200px;

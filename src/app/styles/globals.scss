@@ -37,7 +37,8 @@ a {
   text-decoration: none;
 }
 
-main {
+#main_container {
   position: relative;
   overflow: hidden;
+  background-image: url("/background.jpg");
 }

@@ -111,17 +111,17 @@
         {
             "id": "637494e32a14d48fddda891f",
             "language": "English",
-            "level": "B2"
+            "percent": 65
         },
         {
             "id": "637494e32a14d48fddda8920",
             "language": "Russian",
-            "level": "B1"
+            "percent": 50
         },
         {
             "id": "637494e32a14d48fddda8921",
             "language": "Armenian",
-            "level": "C2"
+            "percent": 85
         }
     ],
     "portfolio": [
