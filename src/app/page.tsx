@@ -6,6 +6,7 @@ import Header from "./fixed/Header/Header";
 import ScrollButtons from "./fixed/ScrollButtons/ScrollButtons";
 import Contacts from "./sections/Contacts/Contacts";
 import Languages from "./sections/Languages/Languages";
+import MouseParticles from "./fixed/MouseParticles/MouseParticles";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       {/* fixed components  */}
       <Header />
       <ScrollButtons />
+      <MouseParticles />
       {/* sections  */}
       <About />
       <Skills />
