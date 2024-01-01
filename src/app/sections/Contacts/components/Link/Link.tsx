@@ -1,12 +1,20 @@
+import { useCallback } from "react";
+
 import styles from "./styles/Link.module.scss";
 import { icons } from "./utils/icons";
+import { takeToLink } from "../../../../globals/functions/takeToLink";
 import type { Link } from "../../../../types/contacts";
 
-const Link = ({ link, name }: Link) => (
-    <div className={styles.link}>
+const Link = ({ link, name }: Link) => {
+    const goTo = useCallback(takeToLink,[])
+
+    return (
+    <div 
+     className={styles.link}
+     onClick={() => goTo(link)}>
         {icons.get(name)}
     </div>
-)
+)}
 
 
 export default Link;
