@@ -33,7 +33,7 @@ export class Particle {
         const newX = Math.round(Math.random() * ctx.canvas.width);
         const newY = Math.round(Math.random() * ctx.canvas.height);
         const distance = calculateDistance(newX, newY, centerX, centerY);
-        if (distance > centerX - particleSize) {
+        if (distance > centerX - particleSize || distance < centerX / 3) {
             return getNewPoint(ctx);
         }
         return { x: newX, y: newY }
