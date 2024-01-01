@@ -5,6 +5,7 @@ import { FaCaretLeft } from "react-icons/fa";
 import styles from "./styles/Controller.module.scss";
 import Screen from "./components/Screen/Screen";
 import ControllerButton from "./components/ControllerButton/ControllerButton";
+import { takeToLink } from "../../../../../../globals/functions/takeToLink";
 import type { PortfolioItem, ControllerProps } from "../../../../../../types/projects";
 
 const Controller = ({ currentItem, portfolio, setCurrentItem }:ControllerProps) => {
@@ -23,12 +24,7 @@ const Controller = ({ currentItem, portfolio, setCurrentItem }:ControllerProps) 
         setCurrentItem({ ...newItem });
     }, [currentItem, setCurrentItem]);
 
-    const takeToLink = useCallback((href: string) => {
-        const link = document.createElement("a");
-        link.target = "_blank";
-        link.href = href;
-        link.click();
-    }, []);
+    const goToLink = useCallback(takeToLink, []);
 
     return (
         <div className={styles.controller_main}>
@@ -39,12 +35,12 @@ const Controller = ({ currentItem, portfolio, setCurrentItem }:ControllerProps) 
                     onClick={() => handleItemChange("left")}
                 />
                 <ControllerButton
-                    onClick={disableGithubLink ? undefined : () => takeToLink(currentItem.github || "")}
+                    onClick={disableGithubLink ? undefined : () => goToLink(currentItem.github || "")}
                     disabled={disableGithubLink}
                     icon={<FaGithub />}
                 />
                 <ControllerButton
-                    onClick={disableSiteLink ? undefined : () => takeToLink(currentItem.link || "")}
+                    onClick={disableSiteLink ? undefined : () => goToLink(currentItem.link || "")}
                     disabled={disableSiteLink}
                     icon={<FaLink />}
                 />
