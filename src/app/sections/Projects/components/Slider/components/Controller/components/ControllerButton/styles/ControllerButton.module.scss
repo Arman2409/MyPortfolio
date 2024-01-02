@@ -11,6 +11,11 @@
     border: 1px solid $color4;
     box-shadow: 0 5px $color3;
     cursor: pointer;
+
+    @media screen and (max-width: 700px) {
+       width: 45px;
+       height: 35px;
+    }
 }
 
 .controller_button_content {
@@ -24,4 +29,9 @@
     font-size: 30px;
     color: $color4;
     transition: 0.25s;
+
+    @media screen and (max-width: 700px) {
+        width: 40px;
+        height: 30px;
+     }
 }

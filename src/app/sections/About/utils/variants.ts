@@ -1,9 +1,9 @@
 import { Variants } from "framer-motion";
 
-const screenVariants:Variants = {
+const getScreenVariants = (breakpoint:string):Variants => ({
   switchedOn: {
-     height: "460px",
-     width: "780px",
+     height: breakpoint === "small" ? "220px" : breakpoint === "medium" ? "360px" : "460px",
+     width: breakpoint === "small" ? "400px" :  breakpoint === "medium" ? "590px" : "780px",
      transition: {
         duration: 0.25
      }
@@ -15,6 +15,6 @@ const screenVariants:Variants = {
         duration: 0.25
      }
   }
-}
+})
 
-export default screenVariants;
+export default getScreenVariants;
