@@ -3,7 +3,8 @@ const configs = {
     linesColor: "#7b0893",
     linesWidth: 7.5,
     breakpoints: {
-        verySmall: 0,
+        zero: 0,
+        verySmall: 300,
         small: 600,
         medium: 900,
         large: 1280,

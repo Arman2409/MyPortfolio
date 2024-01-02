@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import data from "../../../data/data.json";
 import styles from "./styles/Skills.module.scss";
@@ -13,26 +13,32 @@ import type { Dimesion } from "../../types/skills";
 
 
 const { breakpoints, skillSize } = {...configs};
-const { skills } = { ...data };
+let { skills } = { ...data };
 
 const Skills = () => {
     const [locations, setLocations] = useState<any[]>([]);
     const [windowWidth, setWindowWidth] = useState<number>();
     const [screenSize, setScreenSize] = useState<string>("veryLarge");
 
-    useEffect(() => {
-        setWindowWidth(document.getElementById("skills_main")?.offsetWidth);
-        setLocations(getDimesions([60, window.innerWidth - 60], [60, 540], screenSize === "medium" || screenSize === "small" ? skillSize / 2 : skillSize, skills.length));
-    }, [setLocations, setWindowWidth])
+    const changeLocations = useCallback((screen: string) => {
+        setLocations(getDimesions([60, window.innerWidth - 60], [60, 540], screen === "medium" ||  screen === "small" ? skillSize / 2 : skillSize, screen === "verySmall" ? 4 : screen === "small" ? skills.length / 2 :  skills.length));
+    }, [setLocations])
 
     useEffect(() => {
-        setScreenSize(getScreenSize(window.innerWidth, breakpoints))
+        const newScreenSize = getScreenSize(window.innerWidth, breakpoints);
+        setScreenSize(newScreenSize);
+        setWindowWidth(document.getElementById("skills_main")?.offsetWidth);
+        changeLocations(newScreenSize);
+    }, [screenSize, setLocations, setWindowWidth])
+
+    useEffect(() => {
        window.addEventListener("resize", () => {
         setWindowWidth(document.getElementById("skills_main")?.offsetWidth);
-        setLocations(getDimesions([60, window.innerWidth - 60], [60, 540], screenSize === "medium" || screenSize === "small" ? skillSize / 2 : skillSize, skills.length));4
-        setScreenSize(getScreenSize(window.innerWidth, breakpoints))
+        const newScreenSize = getScreenSize(window.innerWidth, breakpoints);
+        changeLocations(newScreenSize);
+        setScreenSize(newScreenSize)
        })
-    }, [setLocations, setWindowWidth])
+    }, [screenSize, setLocations, setWindowWidth])
 
     return (
         <div
