@@ -18,7 +18,7 @@ const { skills } = { ...data };
 const Skills = () => {
     const [locations, setLocations] = useState<any[]>([]);
     const [windowWidth, setWindowWidth] = useState<number>();
-    const [screenSize, setScreenSize] = useState<string>(getScreenSize(window.innerWidth, breakpoints));
+    const [screenSize, setScreenSize] = useState<string>("veryLarge");
 
     useEffect(() => {
         setWindowWidth(document.getElementById("skills_main")?.offsetWidth);
@@ -26,9 +26,11 @@ const Skills = () => {
     }, [setLocations, setWindowWidth])
 
     useEffect(() => {
+        setScreenSize(getScreenSize(window.innerWidth, breakpoints))
        window.addEventListener("resize", () => {
         setWindowWidth(document.getElementById("skills_main")?.offsetWidth);
-        setLocations(getDimesions([60, window.innerWidth - 60], [60, 540], screenSize === "medium" || screenSize === "small" ? skillSize / 2 : skillSize, skills.length))
+        setLocations(getDimesions([60, window.innerWidth - 60], [60, 540], screenSize === "medium" || screenSize === "small" ? skillSize / 2 : skillSize, skills.length));4
+        setScreenSize(getScreenSize(window.innerWidth, breakpoints))
        })
     }, [setLocations, setWindowWidth])
 

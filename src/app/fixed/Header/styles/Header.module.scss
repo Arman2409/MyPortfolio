@@ -9,6 +9,7 @@
     background-color: $color3;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-image: url("/background.jpg");
     z-index: 4;
 }
@@ -20,10 +21,16 @@
     width: 200px;
 
     @media screen and (max-width:700px) {
-        width: 150px;
+        width: 125px;
+        height: 80%;
     }
-    
+
     img {
         cursor: pointer;
+
+        @media screen and (max-width:700px) {
+            width: 75px;
+            height: 80%;
+        }
     }
 }
