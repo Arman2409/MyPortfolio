@@ -8,25 +8,44 @@
     padding-top: calc($headerHeight + 85px);
     display: flex;
     justify-content: center;
-    margin-bottom: 25px
+    margin-bottom: 25px;
+
+    @media screen and (max-width: 900px) {
+        height: 650px;
+    }
+
+    @media screen and (max-width: 600px) {
+        height: 500px;
+    }
 }
 
 .about_content {
     @extend .centered;
     @extend .background_fixed;
-    
+
     width: 800px;
     height: 500px;
     padding: 15px;
     position: relative;
     background-image: url("/about/tv.jpg");
+
+    @media screen and (max-width: 900px) {
+        width: 600px;
+        height: 400px;
+    }
+
+    @media screen and (max-width: 600px) {
+        width: 320px;
+        height: 250px;
+    }
 }
 
 .screen {
-        background-color: $color4;
-        margin-bottom: 20px;
-        box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(237,241,255,0);
+    background-color: $color4;
+    margin-bottom: 20px;
+    box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(237, 241, 255, 0);
 }
+
 .switch_button {
     color: $color3;
     position: absolute;
@@ -34,13 +53,32 @@
     bottom: 10px;
     transition: 0.25s;
     cursor: pointer;
+
+    @media screen and (max-width: 900px) {
+        bottom: 5px;
+    }
+
+    @media screen and (max-width: 600px) {
+        font-size: 11px;
+        bottom: 2px;
+    }
 }
 
-.typewriter_cont{
-   position: absolute;
-   top: 15px;
-   width: 750px;
-   left: 25px;
-   color: $color2;
-   font-size: 24px;
+.typewriter_cont {
+    position: absolute;
+    top: 15px;
+    width: 750px;
+    left: 25px;
+    color: $color2;
+    font-size: 24px;
+
+    @media screen and (max-width: 900px) {
+        width: 550px;
+        font-size: 20px;
+    }
+
+    @media screen and (max-width: 600px) {
+        width: 270px;
+        font-size: 15px;
+    }
 }
