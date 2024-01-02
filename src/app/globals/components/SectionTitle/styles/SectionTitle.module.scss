@@ -8,6 +8,11 @@
     width: 250px;
     height: 60px;
     position: relative;
+
+    @media screen and (max-width: 600px) {
+        width: 200px;
+        height: 50px;
+    }
 }
 
 .content_cont_1 {
@@ -34,4 +39,8 @@
     font-weight: 900;
     z-index: 2;
     text-shadow: 0 0 5px $color4, 0 0 5px $color4, 0 0 5px $color4, 0 0 5px $color4, 0 0 30px $color4, 0 0 30px $color4, 0 0 30px $color4, 0 0 30px $color4;
+
+    @media screen and (max-width: 600px) {
+        font-size: 20px;
+    }
 }

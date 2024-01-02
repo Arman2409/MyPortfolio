@@ -16,10 +16,10 @@ const { tvTurnOnTime, typewriterSpeed, breakpoints } = { ...configs }
 
 const About = () => {
     const [switchedOn, setSwitchedOn] = useState<boolean | null>(null);
+    const [screenSize, setScreenSize] = useState<string>("veryLarge");
     const [startTypewriter, setStartTypewriter] = useState<boolean>(false);
     const screenRef = useRef<any>(null);
 
-    const [screenSize, setScreenSize] = useState<string>(getScreenSize(window.innerWidth, breakpoints));
     const handleClickButton = useCallback(() => {
         if (switchedOn) {
             setSwitchedOn(false);
@@ -39,6 +39,7 @@ const About = () => {
     }, [setSwitchedOn, setStartTypewriter])
 
     useEffect(() => {
+        setScreenSize(getScreenSize(window.innerWidth, breakpoints))
         window.addEventListener("resize", () => {
             setScreenSize(getScreenSize(window.innerWidth, breakpoints))
         })

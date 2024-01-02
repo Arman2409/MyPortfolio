@@ -7,7 +7,6 @@ const configs = {
         medium: 900,
         large: 1280,
         veryLarge: 2000
-
     }
 }
 
