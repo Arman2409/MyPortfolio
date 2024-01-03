@@ -7,14 +7,14 @@
     flex-direction: column;
     height: 50px;
     width: 100%;
-    color: $color2;
+    color: $color4;
 }
 
 .copyright_cont {
     margin-top: 5px;
-    font-size: 12px;
+    font-size: 11px;
 
     @media screen and (max-width: 700px) {
-        font-size: 10px;
+        font-size: 9px;
     }
 }

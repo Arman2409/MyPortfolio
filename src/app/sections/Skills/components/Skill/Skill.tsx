@@ -10,10 +10,6 @@ let { skillSize, breakpoints } = { ...configs };
 const isSmallDimesion = (screen:string) => screen === "medium" || screen === "small" || screen === "verySmall"; 
 
 const Skill = ({ src, dimesion }: SkillProps) => {
-  if (!src) {
-    console.error("Image source not provided");
-    return <></>;
-  };
   const [screenSize, setScreenSize] = useState<string>("veryLarge");
   const { x, y } = { ...dimesion };
 
@@ -22,6 +18,10 @@ const Skill = ({ src, dimesion }: SkillProps) => {
      window.addEventListener("resize", () => setScreenSize(getScreenSize(window.innerWidth, breakpoints)));
   }, [setScreenSize])
 
+  if (!src) {
+    console.error("Image source not provided");
+    return <></>;
+  };
   return (
     <div
       className={styles.skill}
