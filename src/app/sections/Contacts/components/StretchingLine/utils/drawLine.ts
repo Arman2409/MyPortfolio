@@ -10,7 +10,7 @@ export class DrawLine {
     private animation: number = 0;
     private circleColor: string = "green";
     private current: Point = { x: 10, y: 10 }
-    private destination: Point = { x: 10, y: 50 }
+    private destination: Point = { x: 10, y: 10 }
     private readonly ctx;
 
     constructor(
@@ -23,6 +23,14 @@ export class DrawLine {
         this.connectionWidth = connectionWidth;
         this.edgeRadius = edgeRadius;
         this.circleColor = edgeColor;
+        this.destination = {
+            x: 10 + edgeRadius,
+            y: 10 + edgeRadius,
+        }
+        this.current = {
+            x: 10 + edgeRadius,
+            y: 10 + edgeRadius,
+        }
         ctx.strokeStyle = connectionColor;
         ctx.lineWidth = lineWidth || 5;
         ctx.beginPath();
