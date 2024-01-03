@@ -4,6 +4,7 @@ export type PortfolioItem = {
     img: string
     title: string
     usedSkills: string[],
+    description?: string,
     link?: string
     github?: string
 }
