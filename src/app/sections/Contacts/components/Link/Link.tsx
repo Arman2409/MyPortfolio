@@ -12,7 +12,7 @@ const Link = ({ link, name }: Link) => {
     <div 
      className={styles.link}
      onClick={() => goTo(link)}>
-        {icons.get(name)}
+        {icons[name as keyof typeof icons]}
     </div>
 )}
 
