@@ -44,7 +44,7 @@ const Skills = () => {
         <div
             id="skills_main"
             className={styles.skills}>
-            <SectionTitle title={"Skills"} />
+            <SectionTitle title={"Technical Skills"} />
             <div
                 className={styles.skills_content}>
                 {windowWidth && <Connections
