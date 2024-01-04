@@ -7,7 +7,7 @@ import configs from "../../../../../configs/header";
 import { drawConnections } from "./utils/functions";
 import type { MenuItem, Point } from "../../../../types/header";
 
-const { menuItems, menuItemHeight, menuItemWidth, menuLineColor, menuDrawInterval, menuLineWidth } = { ...configs };
+const { menuItems, menuItemHeight, menuItemWidth, menuLineColor, menuDrawInterval, menuLineWidth, switchToSmallWidth } = { ...configs };
 
 const Menu = () => {
    const [menuStatus, setMenuStatus] = useState<boolean>(false);
@@ -78,7 +78,7 @@ const Menu = () => {
                   <div
                      key={order}
                      className={styles.menu_item}
-                     onClick={(event: any) => clickItem(event, scrollTo)}
+                     onClick={(event: any) => clickItem(event, window.innerWidth > switchToSmallWidth ? scrollTo.large : scrollTo.small)}
                      style={{
                         width: menuItemWidth + "px",
                         height: menuItemHeight + "px",

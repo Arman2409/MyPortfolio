@@ -4,10 +4,11 @@ import { useCallback, useEffect, useState } from "react";
 import styles from "./styles/ScrollButtons.module.scss";
 import configs from "../../../configs/scrollButtons";
 
-const { scrollPoints } = { ...configs }
+const { scrollPoints, switchToSmallWidth } = { ...configs }
 
 const ScrollButtons = () => {
     const [chosenPoint, setChosenPoint] = useState<number>(0);
+    const [points, setPoints] = useState<number[]>([]);
 
     const chose = useCallback((point: number) => {
         setChosenPoint(point)
@@ -17,24 +18,25 @@ const ScrollButtons = () => {
     }, [setChosenPoint]);
 
     useEffect(() => {
+        setPoints(window.innerWidth > switchToSmallWidth ? scrollPoints.large : scrollPoints.small)
         window.addEventListener("scroll", () => {
             const scrolledY = window.scrollY;
-            scrollPoints.forEach((point: number, index: number) => {
-                const nextPoint = scrollPoints[index + 1]
+            points.forEach((point: number, index: number) => {
+                const nextPoint = points[index + 1]
                 if (point < scrolledY && (!nextPoint || nextPoint > scrolledY)) {
                     setChosenPoint(point);
                 }
             })
         })
-    }, [setChosenPoint])
+    }, [setChosenPoint, setPoints])
 
     return (
-        <div 
-          className={styles.scroll_buttons_main}
-          style={{
-            height: scrollPoints.length * 40 + "px",
-          }}>
-            {scrollPoints.map((point: number) => (
+        <div
+            className={styles.scroll_buttons_main}
+            style={{
+                height: points.length * 40 + "px",
+            }}>
+            {points.map((point: number) => (
                 <div
                     key={point}
                     className={chosenPoint !== point ? styles.scroll_button : styles.scroll_button_clicked}

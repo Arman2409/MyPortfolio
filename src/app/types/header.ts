@@ -5,7 +5,10 @@ export type Point = {
 
 export type MenuItem = {
     title: string
-    scrollTo: number
+    scrollTo: {
+        small: number
+        large: number
+    }
     y?: number
     x? :number
     order: number
