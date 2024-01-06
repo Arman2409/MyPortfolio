@@ -14,13 +14,15 @@ const Languages = () => {
         <div className={styles.languages}>
             <SectionTitle title="Language Skills" />
             <div className={styles.languages_cont}>
-                {languages.map((language: LanguageType) => (
+                {languages.map((language: LanguageType) => {
+                    const {id, language:languageName, percent}  = { ...language}
+                    return (
                     <Language
-                        key={language.id}
-                        name={language.language}
-                        percent={language.percent}
+                        key={id}
+                        name={languageName}
+                        percent={percent}
                     />
-                ))}
+                )})}
             </div>
         </div>
     )

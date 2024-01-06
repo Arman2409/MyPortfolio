@@ -30,7 +30,6 @@ const Contacts = () => {
             {showLines && linesPlacements.map((placement:number) => (
                  <StretchingLine key={placement} right={placement} />
             ))}
-
             {links.map((link: LinkType) => (
                 <Link
                     link={link.link}
