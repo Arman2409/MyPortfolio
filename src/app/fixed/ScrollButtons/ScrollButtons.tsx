@@ -10,7 +10,7 @@ const ScrollButtons = () => {
     const [chosenPoint, setChosenPoint] = useState<number>(0);
     const [points, setPoints] = useState<number[]>([]);
 
-    const chose = useCallback((point: number) => {
+    const choose = useCallback((point: number) => {
         setChosenPoint(point)
         window.scrollTo({
             top: point
@@ -18,11 +18,12 @@ const ScrollButtons = () => {
     }, [setChosenPoint]);
 
     useEffect(() => {
-        setPoints(window.innerWidth > switchToSmallWidth ? scrollPoints.large : scrollPoints.small)
+        const currentPoints = window.innerWidth > switchToSmallWidth ? scrollPoints.large : scrollPoints.small;
+        setPoints(currentPoints)
         window.addEventListener("scroll", () => {
             const scrolledY = window.scrollY;
-            points.forEach((point: number, index: number) => {
-                const nextPoint = points[index + 1]
+            currentPoints.forEach((point: number, index: number) => {
+                const nextPoint = currentPoints[index + 1];
                 if (point < scrolledY && (!nextPoint || nextPoint > scrolledY)) {
                     setChosenPoint(point);
                 }
@@ -40,7 +41,7 @@ const ScrollButtons = () => {
                 <div
                     key={point}
                     className={chosenPoint !== point ? styles.scroll_button : styles.scroll_button_clicked}
-                    onClick={() => chose(point)}>
+                    onClick={() => choose(point)}>
                 </div>
             ))}
         </div>

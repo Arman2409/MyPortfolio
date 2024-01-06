@@ -30,8 +30,8 @@ export class Particle {
 
     private getNewPoint = (ctx: any): Point => {
         const { centerX, centerY, particleSize, calculateDistance, getNewPoint} = {...this};
-        const newX = Math.round(Math.random() * ctx.canvas.width);
-        const newY = Math.round(Math.random() * ctx.canvas.height);
+        const newX = Math.round(Math.random() * centerX * 2);
+        const newY = Math.round(Math.random() * centerY * 2);
         const distance = calculateDistance(newX, newY, centerX, centerY);
         if (distance > centerX - particleSize || distance < centerX / 2) {
             return getNewPoint(ctx);

@@ -66,7 +66,7 @@ const Menu = () => {
             className={styles.menu_icon}
             onClick={oppositeMenuStatus}
             style={{
-               transform: menuStatus ? "rotate(-90deg)" : "rotate(0deg)"
+               transform:  `rotate(${menuStatus ? -90 : 0}deg)`
             }}
          />
          {menuStatus && (
