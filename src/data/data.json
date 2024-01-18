@@ -120,11 +120,12 @@
         {
             "id": "645d09398db2a152fb2f847c",
             "order": 2,
-            "img": "/projects/talkSpace.png",
-            "title": "Talk Space",
-            "description": "chat app",
-            "usedSkills": ["TypeScript", "Node.js", "Next.js", "Nest.js", "MongoDB"],
-            "github": "https://github.com/Arman2409/Chat-app"
+            "img": "/projects/pointscape.png",
+            "title": "Pointscape",
+            "description": "npm package of 2D functions",
+            "usedSkills": ["TypeScript", "Node.js", "Jest"],
+            "link": "https://www.npmjs.com/package/pointscape",
+            "github": "https://github.com/Arman2409/pointscape"
         },
         {
             "id": "6373f6452a14d48fdd600dc2",
