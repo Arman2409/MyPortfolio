@@ -6,7 +6,7 @@ import data from "../../../data/data.json";
 import Link from "./components/Link/Link";
 import StretchingLine from "./components/StretchingLine/StretchingLine";
 import configs from "../../../configs/contacts";
-import type { Link as LinkType } from "../../types/contacts";
+import type { Link as ContactType } from "../../types/contacts";
 
 const { links } = { ...data };
 const { linesPlacements } = {...configs}
@@ -30,11 +30,11 @@ const Contacts = () => {
             {showLines && linesPlacements.map((placement:number) => (
                  <StretchingLine key={placement} right={placement} />
             ))}
-            {links.map((link: LinkType) => (
+            {links.map(({link, name}: ContactType) => (
                 <Link
-                    link={link.link}
-                    name={link.name}
-                    key={link.id}
+                    link={link}
+                    name={name}
+                    key={name}
                 />
             ))}
         </div>

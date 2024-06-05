@@ -1,158 +1,134 @@
 {
-    "about": {
-        "info": "Hello, my name is Arman.I am a Full Stack JavaScript developer.I have developed and maintained different types of applications with JavaScript and TypeScript. For client side developement I use React.js and Next.js, for server side developement I use Node.js, Express.js and Nest.js. I like to learn new things and improve my skills."
-    },
+    "about": "Hi, I'm Arman, a Full Stack JavaScript developer. I have used React.js and Next.js for building user interfaces, and  Node.js, Express.js, and Nest.js for server-side development. I'm constantly learning and adapting to new technologies in the JavaScript ecosystem.",
     "skills": [
         {
-            "id": "637494272a14d48fddd8ef0d",
             "name": "SCSS",
             "source": "/skills/scss.png"
         },
         {
-            "id": "637494272a14d48fddd8ef0e",
             "name": "JavaScript",
             "source": "/skills/js.png"
         },
         {
-            "id": "637494272a14d48fddd8ef0f",
             "name": "React.js",
             "source": "/skills/react.png"
         },
         {
-            "id": "637494272a14d48fddd8ef11",
             "name": "Node.js",
             "source": "/skills/node.webp"
         },
         {
-            "id": "637494272a14d48fddd8ef15",
             "name": "Phaser.js",
             "source": "/skills/phaser.png"
         },
         {
-            "id": "637494272a14d48fddd8ef0b",
             "name": "HTML",
             "source": "/skills/html.png"
         },
         {
-            "id": "637494272a14d48fddd8ef12",
             "name": "MongoDB",
             "source": "/skills/mongodb.png"
         },
         {
-            "id": "637494272a14d48fddd8ef13",
             "name": "PostgreSQL",
             "source": "/skills/postgresql.png"
         },
         {
-            "id": "637494272a14d48fddd44415",
             "name": "Redux",
             "source": "skills/redux.png"
         },
         {
-            "id": "637494272a14d48fddd8ef10",
-            "name": "MUI",
-            "source": "/skills/mui.png"
+            "name": "Linux",
+            "source": "/skills/linux.png"
         },
         {
-            "id": "637494272a14d48fddd8ef14",
             "name": "Docker",
             "source": "/skills/docker.png"
         },
         {
-            "id": "6376695e53355f775ca2ca58",
             "name": "Git",
             "source": "/skills/git.png"
         },
         {
-            "id": "637f493684dcf6959d7a217c",
             "name": "TypeScript",
             "source": "/skills/ts.png"
         },
         {
-            "id": "638b89f2d388f64307fd6576",
             "name": "Next.js",
             "source": "/skills/next.png"
         },
         {
-            "id": "63d58c758643e31dfa7bc2c4",
             "name": "Nest.js",
             "source": "/skills/nest.svg"
         },
         {
-            "id": "6460a4a876cea29ab33bca5c",
-            "name": "Ant Design",
-            "source": "/skills/antd.png"
+            "name": "Graphql",
+            "source": "/skills/graphql.png"
         },
         {
-            "id": "64b98497514219b3c5242853",
             "name": "Jest",
             "source": "/skills/jest.png"
+        },
+        {
+            "name": "NPM",
+            "source": "/skills/npm.webp"
         }
     ],
     "languages": [
         {
-            "id": "637494e32a14d48fddda891f",
-            "language": "English",
+            "name": "English",
             "percent": 60
         },
         {
-            "id": "637494e32a14d48fddda8920",
-            "language": "Russian",
+            "name": "Russian",
             "percent": 50
         },
         {
-            "id": "637494e32a14d48fddda8921",
-            "language": "Armenian",
-            "percent": 80
+            "name": "Armenian",
+            "percent": 85
         }
     ],
-    "portfolio": [
+    "projects": [
         {
-            "id": "645d09398db2a152fb2445115",
             "order": 1,
-            "img": "/projects/deStress.png",
-            "title": "Destress",
-            "description": "antistress games compilation",
-            "usedSkills": ["TypeScript", "Next.js", "Phaser.js"],
-            "github": "https://github.com/Arman2409/DeStress",
-            "link": "https://destress-app.netlify.app/"
+            "img": "/projects/svg-colorizer.png",
+            "title": "SVG colorizer",
+            "description": "npm package for SVG colorization",
+            "usedSkills": ["TypeScript", "NPM", "Node.js", "Jest"],
+            "link": "https://www.npmjs.com/package/svg-colorizer",
+            "github": "https://github.com/Arman2409/svg-colorizer"
         },
         {
-            "id": "645d09398db2a152fb2f847c",
             "order": 2,
             "img": "/projects/pointscape.png",
             "title": "Pointscape",
             "description": "npm package of 2D functions",
-            "usedSkills": ["TypeScript", "Node.js", "Jest"],
+            "usedSkills": ["TypeScript", "NPM", "Node.js", "Jest"],
             "link": "https://www.npmjs.com/package/pointscape",
             "github": "https://github.com/Arman2409/pointscape"
         },
         {
-            "id": "6373f6452a14d48fdd600dc2",
             "order": 3,
-            "img": "/projects/landscape.png",
-            "title": "Landscape",
-            "description": "landscape animation",
-            "usedSkills": ["TypeScript", "SCSS"],
-            "link": "https://landscape-animation.netlify.app/",
-            "github": "https://github.com/Arman2409/Landscape-animation"
+            "img": "/projects/deStress.png",
+            "title": "Destress",
+            "description": "antistress games compilation",
+            "usedSkills": ["TypeScript", "Phaser.js", "SCSS"],
+            "github": "https://github.com/Arman2409/DeStress",
+            "link": "https://destress-app.netlify.app/"
         }
     ],
     "links": [
         {
-            "id": "64d152cf05c58c152359b4ae",
-            "name": "facebook",
-            "link": "https://www.facebook.com/arman.kazaryan.5454"
+            "name": "github",
+            "link": "https://github.com/Arman2409"
         },
         {
-            "id": "64d154b305c58c152359b4af",
             "name": "linkedin",
             "link": "https://www.linkedin.com/in/arman-ghazaryan-889613224/"
         },
         {
-            "id": "64d154d205c58c152359b4b0",
-            "name": "github",
-            "link": "https://github.com/Arman2409"
+            "name": "npm",
+            "link": "https://www.npmjs.com/~armanghazaryan"
         }
     ]
 }

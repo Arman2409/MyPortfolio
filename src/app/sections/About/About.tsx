@@ -11,7 +11,6 @@ import { getScreenSize } from "../../globals/functions/getScreenSize";
 import getScreenVariants from "./utils/variants";
 
 const { about } = { ...data };
-const { info = "" } = { ...about }
 const { tvTurnOnTime, typewriterSpeed, breakpoints } = { ...configs }
 
 const About = () => {
@@ -65,7 +64,7 @@ const About = () => {
                 />
                 {startTypewriter && switchedOn && <div className={styles.typewriter_cont}>
                     <Typewriter
-                        words={[info]}
+                        words={[about]}
                         typeSpeed={typewriterSpeed} />
                 </div>}
             </div>

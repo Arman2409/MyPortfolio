@@ -1,9 +1,9 @@
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
+import { FaNpm } from "react-icons/fa";
 
 export const icons = {
-    facebook: <FaFacebook />,
+    npm: <FaNpm />,
     linkedin: <FaLinkedin />,
     github: <FaGithub />
 }

@@ -6,10 +6,10 @@ import Controller from "./components/Controller/Controller";
 import data from "../../../../../data/data.json";
 import type { PortfolioItem } from "../../../../types/projects";
 
-const { portfolio } = { ...data };
+const { projects } = { ...data };
 
 const Slider = () => {
-    const [currentItem, setCurrentItem] = useState<PortfolioItem>(portfolio[0]);
+    const [currentItem, setCurrentItem] = useState<PortfolioItem>(projects[0]);
     const sliderCont = useRef<any>();
     const sliderImage = useRef<any>();
     const initializingImage = useRef<boolean>(false);
@@ -44,7 +44,7 @@ const Slider = () => {
             <div className={styles.controllers_cont}>
                 <Controller
                     currentItem={currentItem}
-                    portfolio={portfolio}
+                    portfolio={projects}
                     setCurrentItem={setCurrentItem} />
             </div>
         </div>

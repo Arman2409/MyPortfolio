@@ -17,7 +17,7 @@ const configs = {
     },
     {
         order: 2,
-        title: "Skills",
+        title: "Technical Skills",
         scrollTo: {
             small: 400,
             large: 600

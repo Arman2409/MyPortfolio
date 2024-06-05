@@ -1,5 +1,4 @@
 export type PortfolioItem = {
-    id: string
     order: number
     img: string
     title: string

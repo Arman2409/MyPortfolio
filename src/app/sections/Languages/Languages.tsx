@@ -15,10 +15,10 @@ const Languages = () => {
             <SectionTitle title="Language Skills" />
             <div className={styles.languages_cont}>
                 {languages.map((language: LanguageType) => {
-                    const {id, language:languageName, percent}  = { ...language}
+                    const {name: languageName, percent}  = { ...language}
                     return (
                     <Language
-                        key={id}
+                        key={languageName}
                         name={languageName}
                         percent={percent}
                     />

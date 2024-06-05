@@ -52,10 +52,10 @@ const Skills = () => {
                     height={700}
                     dimesions={locations} />}
                 {locations.map((dimesion: Dimesion, index: number) => {
-                    const { id, source } = { ...skills[index] };
+                    const { name, source } = { ...skills[index] };
                     return (
                         <Skill
-                            key={id}
+                            key={name}
                             dimesion={dimesion}
                             src={source}
                         />)
