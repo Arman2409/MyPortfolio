@@ -1,0 +1,1 @@
+export const loadingDelay = 0.5

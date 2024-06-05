@@ -7,11 +7,13 @@ import ScrollButtons from "./fixed/ScrollButtons/ScrollButtons";
 import Contacts from "./sections/Contacts/Contacts";
 import Languages from "./sections/Languages/Languages";
 import MouseParticles from "./fixed/MouseParticles/MouseParticles";
+import Loading from "./fixed/Loading/Loading";
 
 const Home = () => {
   return (
     <main id="main_container">
       {/* fixed components  */}
+      <Loading />
       <Header />
       <ScrollButtons />
       <MouseParticles />
