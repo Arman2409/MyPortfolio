@@ -1,9 +1,12 @@
-export type Dimesion = {
-    x: number
-    y: number
-}
+import type { Point } from "./global"
 
 export interface SkillProps {
     src: string
-    dimesion: Dimesion
+    dimesion: Point
+}
+
+export interface ConnectionsProps {
+    width: number
+    height: number
+    dimesions: Point[]
 }

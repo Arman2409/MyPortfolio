@@ -1,26 +1,35 @@
 
 import configs from "../../../../../../configs/skills";
-import type { Dimesion } from "../../../../../types/skills";
+import type { Point } from "../../../../../types/global";
 
-const { linesColor, linesWidth } = { ...configs }
+const { linesColor, linesWidth, circlesColor } = { ...configs }
 
-export const drawLines = (dimesions: Dimesion[], ctx: any, screenSize: string):void => {
-    if (!Array.isArray(dimesions)) {
+export const drawLines = (dimesions: Point[], ctx: CanvasRenderingContext2D, screenSize: string):void => {
+    if (!Array.isArray(dimesions) || !dimesions.length) {
         console.error("Dimesions not provided");
         return;
     }
-    let currentEnd: Dimesion = { x: 0, y: dimesions[0].y };
+    let currentEnd: Point = { x: 0, y: dimesions[0].y };
     ctx.strokeStyle = linesColor;
     ctx.lineWidth = screenSize === "small" || screenSize === "medium" ? linesWidth / 2 : linesWidth;
     ctx.beginPath();
     dimesions.push({x: ctx.canvas.width, y:dimesions[dimesions.length - 1].y})
-    dimesions.forEach((dimesion: Dimesion) => {
+    // Draw the lines 
+    dimesions.forEach((dimesion: Point) => {
         const { x, y } = { ...currentEnd };
         const { x: destX, y: destY } = { ...dimesion };
         ctx.moveTo(x, y);
         ctx.lineTo(x, destY);
         ctx.lineTo(destX, destY);
         ctx.stroke();
+        // Change the end of the line for the next line
         currentEnd = dimesion;
+    })
+    ctx.fillStyle = circlesColor;
+    // Draw the circles 
+    dimesions.forEach(({x, y}: Point) => {
+        ctx.beginPath();
+        ctx.arc(x, y, 10, 0, Math.PI * 2);
+        ctx.fill();
     })
 }

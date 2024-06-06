@@ -2,26 +2,29 @@ import { useEffect, useState } from "react";
 
 import styles from "./styles/Skill.module.scss";
 import configs from "../../../../../configs/skills";
-import type { SkillProps } from "../../../../types/skills";
 import { getScreenSize } from "../../../../globals/functions/getScreenSize";
+import type { SkillProps } from "../../../../types/skills";
 
 let { skillSize, breakpoints } = { ...configs };
 
-const isSmallDimesion = (screen:string) => screen === "medium" || screen === "small" || screen === "verySmall"; 
+const isSmallDimesion = (screen: string) => screen === "medium" || screen === "small" || screen === "verySmall";
 
 const Skill = ({ src, dimesion }: SkillProps) => {
   const [screenSize, setScreenSize] = useState<string>("veryLarge");
   const { x, y } = { ...dimesion };
 
   useEffect(() => {
-     setScreenSize(getScreenSize(window.innerWidth, breakpoints));
-     window.addEventListener("resize", () => setScreenSize(getScreenSize(window.innerWidth, breakpoints)));
+    setScreenSize(getScreenSize(window.innerWidth, breakpoints));
+    window.addEventListener("resize", () => {
+      setScreenSize(getScreenSize(window.innerWidth, breakpoints))
+    });
   }, [setScreenSize])
 
   if (!src) {
     console.error("Image source not provided");
     return <></>;
   };
+  
   return (
     <div
       className={styles.skill}

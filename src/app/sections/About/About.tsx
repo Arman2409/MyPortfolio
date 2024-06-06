@@ -8,7 +8,7 @@ import styles from "./styles/About.module.scss";
 import data from "../../../data/data.json";
 import configs from "../../../configs/about";
 import { getScreenSize } from "../../globals/functions/getScreenSize";
-import getScreenVariants from "./utils/variants";
+import getTVVariants from "./utils/variants";
 
 const { about } = { ...data };
 const { tvTurnOnTime, typewriterSpeed, breakpoints } = { ...configs }
@@ -17,7 +17,7 @@ const About = () => {
     const [switchedOn, setSwitchedOn] = useState<boolean | null>(null);
     const [screenSize, setScreenSize] = useState<string>("veryLarge");
     const [startTypewriter, setStartTypewriter] = useState<boolean>(false);
-    const screenRef = useRef<any>(null);
+    const screenRef = useRef<HTMLDivElement|null>(null);
 
     const handleClickButton = useCallback(() => {
         if (switchedOn) {
@@ -38,11 +38,12 @@ const About = () => {
     }, [setSwitchedOn, setStartTypewriter])
 
     useEffect(() => {
+        // Change the screen size by the breakpoint 
         setScreenSize(getScreenSize(window.innerWidth, breakpoints))
         window.addEventListener("resize", () => {
             setScreenSize(getScreenSize(window.innerWidth, breakpoints))
         })
-    }, [setScreenSize])
+    }, [])
 
 
     return (
@@ -53,7 +54,7 @@ const About = () => {
                 <motion.div
                     className={styles.screen}
                     ref={screenRef}
-                    variants={switchedOn !== null ? getScreenVariants(screenSize) : {}}
+                    variants={switchedOn !== null ? getTVVariants(screenSize) : {}}
                     initial={switchedOn ? "switchedOff" : "switchedOn"}
                     animate={switchedOn ? "switchedOn" : "switchedOff"}
                 />

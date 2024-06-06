@@ -1,8 +1,3 @@
-export type Point = {
-    x: number
-    y: number
-}
-
 export type MenuItem = {
     title: string
     scrollTo: {

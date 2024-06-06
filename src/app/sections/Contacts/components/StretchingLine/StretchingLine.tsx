@@ -9,19 +9,21 @@ import type { StretchingLineProps } from "../../../../types/contacts";
 const { edgeRadius, connectionWidth, connectionColor, edgeColor, lineWidth } = { ...configs }
 
 const StretchingLine = ({ right }: StretchingLineProps) => {
-    const stretchingCanvas = useRef<any>(null);
+    const stretchingCanvas = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
         if (!stretchingCanvas.current) return;
         stretchingCanvas.current.width = 100;
         stretchingCanvas.current.height = document.documentElement.scrollHeight;
-        const context = stretchingCanvas.current.getContext("2d");
-        new DrawLine(connectionWidth,
+        const context = stretchingCanvas.current.getContext("2d") as CanvasRenderingContext2D;
+        new DrawLine(
+            connectionWidth,
             edgeRadius,
             lineWidth,
             connectionColor,
             edgeColor,
-            context).drawConnections();
+            context
+        ).drawConnections();
     }, [])
 
     return (

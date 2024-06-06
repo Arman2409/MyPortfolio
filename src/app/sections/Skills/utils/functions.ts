@@ -1,3 +1,5 @@
+import type { Point } from "../../../types/global";
+
 const getRandomNumber = (min: number, max: number) => {
     return Math.random() * (max - min) + min;
 }
@@ -6,7 +8,7 @@ const chechkForCollides = (
     x: number,
     y: number,
     radius: number,
-    arr: any[],
+    arr: Point[],
     repeated = 1): Function | { x: number, y: number } => {
     repeated++;
     if (repeated >= 100) {
@@ -53,10 +55,10 @@ const getRandomDims = (
     yLimitsMin: number,
     yLimitsMax: number,
     radius: number,
-    dimsArr: any[]): Function | { x: number, y: number } => {
+    dimsArr: Point[]): Function | Point => {
     const dimesionX = getRandomNumber(xLimitsMin, xLimitsMax);
     const dimesionY = getRandomNumber(yLimitsMin, yLimitsMax);
-    const { x, y } = chechkForCollides(dimesionX, dimesionY, radius, dimsArr) as any;
+    const { x, y } = chechkForCollides(dimesionX, dimesionY, radius, dimsArr) as Point;
     if (x < xLimitsMin || x > xLimitsMax || y < yLimitsMin || y > yLimitsMax) {
         return getRandomDims(xLimitsMin, xLimitsMax, yLimitsMin, yLimitsMax, radius, dimsArr);
     }
@@ -76,7 +78,7 @@ export const getDimesions = (
     const yLimitsMax = yDimesion[1];
     const dimsArr = [];
     for (let i = 0; i < count; i++) {
-        let { x, y } = getRandomDims(xLimitsMin, xLimitsMax, yLimitsMin, yLimitsMax, radius, dimsArr) as any;
+        let { x, y } = getRandomDims(xLimitsMin, xLimitsMax, yLimitsMin, yLimitsMax, radius, dimsArr) as Point;
         dimsArr.push({ x, y });
     }
     return dimsArr;

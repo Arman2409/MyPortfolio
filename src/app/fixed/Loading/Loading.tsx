@@ -1,16 +1,13 @@
 "use client"
 import { useEffect, useState } from "react";
 
-import { loadingDelay } from "../../../configs/loading";
 import styles from "./styles/Loading.module.scss";
 
 const Loading = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        setTimeout(() => {
-            setIsLoading(false);
-        }, loadingDelay * 1000)
+        setIsLoading(false);
     }, [])
 
     return (

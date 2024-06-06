@@ -2,10 +2,10 @@
 import { useEffect, useState } from "react";
 
 import styles from "./styles/Contacts.module.scss";
+import configs from "../../../configs/contacts";
 import data from "../../../data/data.json";
 import Link from "./components/Link/Link";
 import StretchingLine from "./components/StretchingLine/StretchingLine";
-import configs from "../../../configs/contacts";
 import type { Link as ContactType } from "../../types/contacts";
 
 const { links } = { ...data };
@@ -19,7 +19,9 @@ const Contacts = () => {
             setShowLines(true);
         }
         window.addEventListener("scroll", () => {
-            if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight) {
+            const bottomPx = window.innerHeight + Math.round(window.scrollY);
+            // Check if the user has reached the bottom of the page 
+            if (bottomPx >= document.body.offsetHeight) {
                 setShowLines(true);
             }
         })

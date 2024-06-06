@@ -1,10 +1,10 @@
 import styles from "./styles/Language.module.scss";
 import configs from "../../../../../configs/languages";
-import type { LanguageProps } from "../../../../types/languages";
+import type { Language } from "../../../../types/languages";
 
 const { percentColor } = { ...configs }
 
-const Language = ({ name, percent }: LanguageProps) => (
+const Language = ({ name, percent }: Language) => (
     <div
         className={styles.language}
     >

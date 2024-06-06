@@ -1,5 +1,5 @@
 import { drawFromPointToPoint } from "../../../../../globals/functions/drawFromPointToPoint";
-import type { Point } from "../../../../../types/header";
+import type { Point } from "../../../../../types/global";
 
 export class DrawLine {
     height: number = 100;
@@ -19,7 +19,7 @@ export class DrawLine {
         lineWidth: number,
         connectionColor: string,
         edgeColor: string,
-        ctx: any) {
+        ctx: CanvasRenderingContext2D) {
         this.connectionWidth = connectionWidth;
         this.edgeRadius = edgeRadius;
         this.circleColor = edgeColor;

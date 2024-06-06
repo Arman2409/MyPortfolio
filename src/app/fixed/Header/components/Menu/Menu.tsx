@@ -4,17 +4,18 @@ import { ImMenu } from "react-icons/im";
 
 import styles from "./styles/Menu.module.scss";
 import configs from "../../../../../configs/header";
-import { drawConnections } from "./utils/functions";
-import type { MenuItem, Point } from "../../../../types/header";
+import drawConnections from "./utils/drawConnections";
+import type { MenuItem } from "../../../../types/header";
+import type { Point } from "../../../../types/global";
 
 const { menuItems, menuItemHeight, menuItemWidth, menuLineColor, menuDrawInterval, menuLineWidth, switchToSmallWidth } = { ...configs };
 
 const Menu = () => {
    const [menuStatus, setMenuStatus] = useState<boolean>(false);
    const [items, setItems] = useState<MenuItem[]>([]);
-   const menuCanvas = useRef<any>(null);
+   const menuCanvas = useRef<HTMLCanvasElement>(null);
 
-   const oppositeMenuStatus = useCallback(() => setMenuStatus(current => !current), [setMenuStatus])
+   const revertMenuStatus = useCallback(() => setMenuStatus(current => !current), [setMenuStatus])
 
    const clickItem = useCallback((event: MouseEvent, scrollTo: number) => {
       event.stopPropagation();
@@ -44,10 +45,10 @@ const Menu = () => {
          }
       }))
       if (menuStatus) {
-         const menuCanvas: any = document.getElementById("menu_canvas")
+         const menuCanvas = document.getElementById("menu_canvas") as HTMLCanvasElement;
          menuCanvas.width = windowWidth;
          menuCanvas.height = windowHeight;
-         const context = menuCanvas.getContext("2d");
+         const context = menuCanvas.getContext("2d") as CanvasRenderingContext2D;
          drawConnections(
             menuItemHeight,
             windowWidth,
@@ -64,7 +65,7 @@ const Menu = () => {
       <div className={styles.menu_cont}>
          <ImMenu
             className={styles.menu_icon}
-            onClick={oppositeMenuStatus}
+            onClick={revertMenuStatus}
             style={{
                transform:  `rotate(${menuStatus ? -90 : 0}deg)`
             }}
@@ -72,7 +73,7 @@ const Menu = () => {
          {menuStatus && (
             <div
                className={styles.menu_demo}
-               onClick={oppositeMenuStatus}>
+               onClick={revertMenuStatus}>
                <canvas ref={menuCanvas} id="menu_canvas" />
                {items.map(({ scrollTo, order, title, x = 100, y = 100 }: MenuItem) => (
                   <div
