@@ -1,7 +1,7 @@
 # My Portfolio
 
-### My Portfolio website telling about me.
+### My Portfolio website
 
 ## Stack used
 
-TypeScript, HTML, SCSS, , Next.js, Framer Motion, HTML Canvas
+TypeScript, HTML, SCSS, Next.js, Framer Motion, HTML Canvas
