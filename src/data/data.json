@@ -18,8 +18,8 @@
             "source": "/skills/node.webp"
         },
         {
-            "name": "Phaser.js",
-            "source": "/skills/phaser.png"
+            "name": "HTML Canvas",
+            "source": "/skills/canvas.png"
         },
         {
             "name": "HTML",
@@ -120,7 +120,7 @@
             "img": "/projects/deStress.png",
             "title": "Destress",
             "description": "antistress games compilation",
-            "usedSkills": ["TypeScript", "Phaser.js", "SCSS"],
+            "usedSkills": ["TypeScript", "HTML Canvas", "SCSS"],
             "github": "https://github.com/Arman2409/DeStress",
             "link": "https://destress-app.netlify.app/"
         }

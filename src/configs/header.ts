@@ -33,7 +33,7 @@ const configs = {
     },
     {
         order: 4,
-        title: "Language Skills",
+        title: "Languages",
         scrollTo: {
             small: 1750,
             large: 2100
