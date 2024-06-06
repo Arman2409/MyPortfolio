@@ -10,8 +10,8 @@ const { projects } = { ...data };
 
 const Slider = () => {
     const [currentItem, setCurrentItem] = useState<PortfolioItem>(projects[0]);
-    const sliderCont = useRef<any>();
-    const sliderImage = useRef<any>();
+    const sliderCont = useRef<HTMLDivElement|null>(null);
+    const sliderImage = useRef<HTMLImageElement>();
     const initializingImage = useRef<boolean>(false);
 
     useEffect(() => {
@@ -19,9 +19,11 @@ const Slider = () => {
         initializingImage.current = true;
         const image = document.createElement("img");
         image.src = currentItem.img;
+
+        let imageTimeout;
         image.onload = () => {
             image.setAttribute("class", styles.slider_image);
-            setTimeout(() => {
+            imageTimeout = setTimeout(() => {
                 if (sliderImage.current) {
                     sliderImage.current.style.top = "100%";
                     sliderImage.current.style.left = "-100%";
@@ -30,9 +32,13 @@ const Slider = () => {
                 image.style.left = "0px";
                 sliderImage.current = image;
             }, 100)
-            sliderCont.current.append(image)
+            if(sliderCont.current) {
+                sliderCont.current.append(image)
+            }
             initializingImage.current = false;
         }
+
+        return clearTimeout(imageTimeout);
     }, [currentItem]);
 
     return (

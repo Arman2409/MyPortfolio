@@ -3,7 +3,7 @@ import { FaCopyright } from "react-icons/fa";
 import styles from "./styles/Footer.module.scss";
 import configs from "../../../configs/footer";
 
-const { email, copyrightText } = { ...configs };
+const { copyrightText } = { ...configs };
 
 const Footer = () => (
     <div className={styles.footer_main}>

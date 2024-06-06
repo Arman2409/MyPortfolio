@@ -25,12 +25,10 @@
         height: 80%;
     }
 
-    img {
-        cursor: pointer;
+    cursor: pointer;
 
-        @media screen and (max-width:700px) {
-            width: 75px;
-            height: 80%;
-        }
+    @media screen and (max-width:700px) {
+        width: 75px;
+        height: 80%;
     }
 }

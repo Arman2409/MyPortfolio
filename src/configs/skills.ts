@@ -1,6 +1,7 @@
 const configs = {
     skillSize: 80,
     linesColor: "#7b0893",
+    circlesColor: "#8bbfb0",
     linesWidth: 7.5,
     breakpoints: {
         zero: 0,

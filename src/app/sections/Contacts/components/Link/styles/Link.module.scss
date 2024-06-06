@@ -4,10 +4,10 @@
 .link {
     @extend .centered;
 
-    font-size: 50px;
-    color: $color4;
     width: 100px;
     height: 100px;
+    font-size: 50px;
+    color: $color4;
     margin: 25px;
     background-color: $color2;
     border: 1px solid $color4;

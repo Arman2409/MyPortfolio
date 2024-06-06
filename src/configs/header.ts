@@ -3,7 +3,7 @@ const configs = {
     menuItemHeight: 80,
     menuLineColor: "#0B666A",
     menuLineWidth: 7.5,
-    menuDrawInterval: 500,
+    menuDrawInterval: 330,
     // this is the same also for scrollButtons
     switchToSmallWidth: 500,
     // changes in menuItems assumes changes also for scrollPoints in scroll buttons config

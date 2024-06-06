@@ -7,6 +7,6 @@ export const getUrls = (urlSKills: string[]) => {
         console.error("Array not provided");
         return [];
     }
-    const allSkills = skills.filter(({ name }: any) => urlSKills.includes(name)) || [];
-    return allSkills.map(({source}: any) => source);
+    const allSkills = skills.filter(({ name }: {name: string}) => urlSKills.includes(name)) || [];
+    return allSkills.map(({source}: { source: string}) => source);
 }

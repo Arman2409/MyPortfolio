@@ -1,0 +1,19 @@
+@import "../../../styles/classes.scss";
+
+.loading {
+    @extend .centered;
+
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: black;
+    opacity: 0.85;
+    z-index: 100;
+}
+
+.loading_image {
+    width: 300px;
+    height: 300px
+}

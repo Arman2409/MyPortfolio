@@ -5,7 +5,6 @@ export type Link = {
 }
 
 // props 
-
 export interface StretchingLineProps {
     right?: number,
 }

@@ -1,4 +1,4 @@
-import type { Point } from "../../../types/header";
+import type { Point } from "../../../types/global";
 
 export class Particle {
     distance: number = 0;
@@ -6,13 +6,17 @@ export class Particle {
     y: number = 0;
     particleSize: number = 0;
     angle: number = 0;
-    angleChange: number = 0;
-    dx: number = 0.01;
-    dy: number = 0.01;
     centerX: number = 0;
     centerY: number = 0;
-    private readonly ctx: any;
-    constructor(ctx: any, particleSize: number, color: string, minSpeed: number) {
+    
+    private angleChange: number = 0;
+
+    private readonly ctx: CanvasRenderingContext2D;
+    constructor(
+        ctx: CanvasRenderingContext2D,
+        particleSize: number,
+        color: string,
+        minSpeed: number) {
         this.ctx = ctx;
         this.particleSize = particleSize;
         this.centerX = ctx.canvas.width / 2;
@@ -28,8 +32,8 @@ export class Particle {
         ctx.stroke();
     }
 
-    private getNewPoint = (ctx: any): Point => {
-        const { centerX, centerY, particleSize, calculateDistance, getNewPoint} = {...this};
+    private getNewPoint = (ctx: CanvasRenderingContext2D): Point => {
+        const { centerX, centerY, particleSize, calculateDistance, getNewPoint } = { ...this };
         const newX = Math.round(Math.random() * centerX * 2);
         const newY = Math.round(Math.random() * centerY * 2);
         const distance = calculateDistance(newX, newY, centerX, centerY);

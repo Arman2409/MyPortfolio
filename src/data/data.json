@@ -1,5 +1,5 @@
 {
-    "about": "Hi, I'm Arman, a Full Stack JavaScript developer. I have used React.js and Next.js for building user interfaces, and  Node.js, Express.js, and Nest.js for server-side development. I'm constantly learning and adapting to new technologies in the JavaScript ecosystem.",
+    "about": "Hi, my name is Arman, a Full Stack JavaScript developer. I have used React.js and Next.js for building user interfaces, and  Node.js, Express.js, and Nest.js for server-side development. I'm constantly learning and adapting to new technologies in the JavaScript ecosystem.",
     "skills": [
         {
             "name": "SCSS",
@@ -62,7 +62,7 @@
             "source": "/skills/nest.svg"
         },
         {
-            "name": "Graphql",
+            "name": "GraphQL",
             "source": "/skills/graphql.png"
         },
         {
@@ -109,6 +109,14 @@
         },
         {
             "order": 3,
+            "img": "/projects/dataFalcon.png",
+            "title": "DataFalcon",
+            "description": "web crawler",
+            "usedSkills": ["TypeScript","Next.js", "Nest.js", "MongoDB", "Redux"],
+            "github": "https://github.com/Arman2409/DataFalcon"
+        },
+        {
+            "order": 4,
             "img": "/projects/deStress.png",
             "title": "Destress",
             "description": "antistress games compilation",
@@ -129,6 +137,10 @@
         {
             "name": "npm",
             "link": "https://www.npmjs.com/~armanghazaryan"
+        },
+        {
+            "name": "sololearn",
+            "link": "https://www.sololearn.com/en/profile/31256636"
         }
     ]
 }

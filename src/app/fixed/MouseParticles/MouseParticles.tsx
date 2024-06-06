@@ -2,14 +2,14 @@
 import { useEffect, useRef } from "react";
 
 import styles from "./styles/MouseParticles.module.scss";
-import { Particle } from "./utils/Particle";
 import configs from "../../../configs/mouseParticles";
+import { Particle } from "./utils/Particle";
 
 const { canvasSize, particlesColor, particlesMinSpeed, particlesQuantity, particleSize } = { ...configs };
 
 const MouseParticles = () => {
-    const particlesCanvas = useRef<any>();
-    const particlesCont = useRef<any>();
+    const particlesCanvas = useRef<HTMLCanvasElement | null>(null);
+    const particlesCont = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         if (!particlesCanvas.current) return;
@@ -23,7 +23,7 @@ const MouseParticles = () => {
         }
         particlesCanvas.current.width = canvasSize;
         particlesCanvas.current.height = canvasSize;
-        const context = particlesCanvas.current.getContext("2d");
+        const context = particlesCanvas.current.getContext("2d") as CanvasRenderingContext2D;
         addParticles();
         const animateParticles = () => {
             context.clearRect(0, 0, canvasSize, canvasSize);
@@ -32,11 +32,15 @@ const MouseParticles = () => {
         };
         animateParticles();
         const halfCanvasSize = canvasSize / 2;
-        particlesCont.current.style.top = -halfCanvasSize + "px";
-        window.addEventListener("mousemove", ({ clientX, clientY }: MouseEvent) => {
-            particlesCont.current.style.top = clientY - halfCanvasSize + "px";
-            particlesCont.current.style.left = clientX - halfCanvasSize + "px";
-        })
+        if (particlesCont.current) {
+            particlesCont.current.style.top = -halfCanvasSize + "px";
+            window.addEventListener("mousemove", ({ clientX, clientY }: MouseEvent) => {
+                if (particlesCont.current) {
+                    particlesCont.current.style.top = clientY - halfCanvasSize + "px";
+                    particlesCont.current.style.left = clientX - halfCanvasSize + "px";
+                }
+            })
+        }
         window.addEventListener("click", () => addParticles());
     }, [])
 
