@@ -2,11 +2,16 @@ import data from "../../../../../../../../../../data/data.json";
 
 const { skills } = { ...data };
 
-export const getUrls = (urlSKills: string[]) => {
-    if (!Array.isArray(urlSKills)) {
+export const getUrls = (urlSkills: string[] = []) => {
+    if (!Array.isArray(urlSkills)) {
         console.error("Array not provided");
         return [];
     }
-    const allSkills = skills.filter(({ name }: {name: string}) => urlSKills.includes(name)) || [];
-    return allSkills.map(({source}: { source: string}) => source);
+    // Check if skills with give names exist otherwise return empty array 
+    const allSkills = skills.filter(
+        ({ name }: { name: string }) => {
+            return urlSkills.includes(name)
+        }) || [];
+    // Return only the sources of the skills 
+    return allSkills.map(({ source }: { source: string }) => source);
 }

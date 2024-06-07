@@ -5,11 +5,12 @@ import { drawLines } from "./utils/functions";
 import configs from "../../../../../configs/skills";
 import { getScreenSize } from "../../../../globals/functions/getScreenSize";
 import type { ConnectionsProps } from "../../../../types/skills";
+import type { ScreenSize } from "../../../../types/global";
 
 const { breakpoints } = { ...configs};
 
 const Connections = ({ width, height, dimesions }: ConnectionsProps) => {
-    const [screenSize, setScreenSize] = useState<string>("veryLarge");
+    const [screenSize, setScreenSize] = useState<ScreenSize>("veryLarge");
     const canvasRef = useRef<HTMLCanvasElement>(null);    
 
     useEffect(() => {
@@ -18,7 +19,7 @@ const Connections = ({ width, height, dimesions }: ConnectionsProps) => {
         canvas.width = width;
         canvas.height = height;
         const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
-        drawLines(dimesions, ctx, screenSize);
+        drawLines(ctx, dimesions, screenSize);
 
         // Get new screen size by the breakpoint 
         const newScreenSize = getScreenSize(window.innerWidth, breakpoints);

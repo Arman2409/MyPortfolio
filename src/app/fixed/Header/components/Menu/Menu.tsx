@@ -15,10 +15,13 @@ const Menu = () => {
    const [items, setItems] = useState<MenuItem[]>([]);
    const menuCanvas = useRef<HTMLCanvasElement>(null);
 
-   const revertMenuStatus = useCallback(() => setMenuStatus(current => !current), [setMenuStatus])
+   const revertMenuStatus = useCallback(() => {
+      setMenuStatus(current => !current)
+   }, [setMenuStatus])
 
    const clickItem = useCallback((event: MouseEvent, scrollTo: number) => {
       event.stopPropagation();
+      // Close the menu 
       setMenuStatus(false);
       window.scrollTo({
          top: scrollTo,
@@ -30,12 +33,14 @@ const Menu = () => {
       const windowWidth = window.innerWidth;
       const itemLocations: Point[] = [];
       const itemsLength = menuItems.length;
+      // Calculate the height for each menu item 
       const contHeight = itemsLength * menuItemHeight + (itemsLength - 1) * menuItemHeight * 0.25;
-      const topAndBottom = (windowHeight - contHeight) / 2;
+      const topOrBottom = (windowHeight - contHeight) / 2;
       setItems(menuItems.map((item: MenuItem) => {
          const { x, y, order } = { ...item };
+         const newY = topOrBottom + (menuItemHeight * order) + (order - 1) * 0.25 * menuItemHeight;
          const itemLocation = {
-            y: y ? y : topAndBottom + (menuItemHeight * order) + (order - 1) * 0.25 * menuItemHeight,
+            y: y ? y : newY,
             x: x ? x : windowWidth / 2,
          }
          itemLocations.push(itemLocation);
@@ -44,12 +49,13 @@ const Menu = () => {
             ...itemLocation
          }
       }))
+      let drawInterval;
       if (menuStatus) {
          const menuCanvas = document.getElementById("menu_canvas") as HTMLCanvasElement;
          menuCanvas.width = windowWidth;
          menuCanvas.height = windowHeight;
          const context = menuCanvas.getContext("2d") as CanvasRenderingContext2D;
-         drawConnections(
+         drawInterval = drawConnections(
             menuItemHeight,
             windowWidth,
             windowHeight,
@@ -59,6 +65,7 @@ const Menu = () => {
             itemLocations,
             context);
       }
+      return drawInterval && clearInterval(drawInterval);
    }, [menuStatus, setItems])
 
    return (

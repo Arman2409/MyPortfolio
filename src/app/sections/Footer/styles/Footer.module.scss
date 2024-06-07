@@ -4,9 +4,9 @@
 .footer_main {
     @extend .centered;
 
-    flex-direction: column;
     height: 50px;
     width: 100%;
+    flex-direction: column;
     color: $color4;
 }
 

@@ -20,10 +20,9 @@ const Slider = () => {
         const image = document.createElement("img");
         image.src = currentItem.img;
 
-        let imageTimeout;
         image.onload = () => {
             image.setAttribute("class", styles.slider_image);
-            imageTimeout = setTimeout(() => {
+            setTimeout(() => {
                 if (sliderImage.current) {
                     sliderImage.current.style.top = "100%";
                     sliderImage.current.style.left = "-100%";
@@ -37,8 +36,6 @@ const Slider = () => {
             }
             initializingImage.current = false;
         }
-
-        return clearTimeout(imageTimeout);
     }, [currentItem]);
 
     return (

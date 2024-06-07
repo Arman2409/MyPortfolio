@@ -3,9 +3,9 @@ import { FaCaretRight, FaGithub, FaLink } from "react-icons/fa";
 import { FaCaretLeft } from "react-icons/fa";
 
 import styles from "./styles/Controller.module.scss";
+import { takeToLink } from "../../../../../../globals/functions/takeToLink";
 import Screen from "./components/Screen/Screen";
 import ControllerButton from "./components/ControllerButton/ControllerButton";
-import { takeToLink } from "../../../../../../globals/functions/takeToLink";
 import type { PortfolioItem, ControllerProps } from "../../../../../../types/projects";
 
 const Controller = ({ currentItem, portfolio, setCurrentItem }:ControllerProps) => {
@@ -14,13 +14,18 @@ const Controller = ({ currentItem, portfolio, setCurrentItem }:ControllerProps) 
 
     const handleItemChange = useCallback((direction: "left" | "right") => {
         const { order } = { ...currentItem };
-        if (order === undefined) console.error("Item not provided");
+        if (!Number(order)) {
+            return console.error("Current item or its order not provided");
+        };
+        // Get new order by the direction
         let newOrder = direction === "left" ? order - 1 : order + 1;
         const itemsCount = portfolio.length;
         if (newOrder === 0) newOrder = itemsCount;
         if (newOrder > itemsCount) newOrder = 1;
         const newItem = portfolio.find(({ order: itemOrder }: PortfolioItem) => itemOrder === newOrder);
-        if (!newItem) return;
+        if (!newItem) {
+            return console.error("Item with the order not found");
+        }
         setCurrentItem({ ...newItem });
     }, [currentItem, setCurrentItem]);
 

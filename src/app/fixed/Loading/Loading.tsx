@@ -2,13 +2,16 @@
 import { useEffect, useState } from "react";
 
 import styles from "./styles/Loading.module.scss";
+import { loadingDelay } from "../../../configs/loading";
 
 const Loading = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        setIsLoading(false);
-    }, [])
+        setTimeout(() => {
+            setIsLoading(false);
+        }, loadingDelay * 1000)
+    }, [setIsLoading])
 
     return (
         <>

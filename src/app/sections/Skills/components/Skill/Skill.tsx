@@ -3,15 +3,15 @@ import { useEffect, useState } from "react";
 import styles from "./styles/Skill.module.scss";
 import configs from "../../../../../configs/skills";
 import { getScreenSize } from "../../../../globals/functions/getScreenSize";
+import getSkillStyle from "./functions/getSkillStyle";
 import type { SkillProps } from "../../../../types/skills";
+import type { ScreenSize } from "../../../../types/global";
 
 let { skillSize, breakpoints } = { ...configs };
 
-const isSmallDimesion = (screen: string) => screen === "medium" || screen === "small" || screen === "verySmall";
-
 const Skill = ({ src, dimesion }: SkillProps) => {
-  const [screenSize, setScreenSize] = useState<string>("veryLarge");
   const { x, y } = { ...dimesion };
+  const [screenSize, setScreenSize] = useState<ScreenSize>("veryLarge");
 
   useEffect(() => {
     setScreenSize(getScreenSize(window.innerWidth, breakpoints));
@@ -29,10 +29,10 @@ const Skill = ({ src, dimesion }: SkillProps) => {
     <div
       className={styles.skill}
       style={{
-        width: isSmallDimesion(screenSize) ? skillSize / 2 : skillSize + "px",
-        height: isSmallDimesion(screenSize) ? skillSize / 2 : skillSize + "px",
-        top: y - (isSmallDimesion(screenSize) ? skillSize / 4 : skillSize / 2) + "px",
-        left: x - (isSmallDimesion(screenSize) ? skillSize / 4 : skillSize / 2) + "px"
+        width: getSkillStyle("width", screenSize, skillSize),
+        height: getSkillStyle("height", screenSize, skillSize),
+        top: getSkillStyle("top", screenSize, skillSize, y),
+        left: getSkillStyle("top", screenSize, skillSize, x)
       }}
     >
       <img

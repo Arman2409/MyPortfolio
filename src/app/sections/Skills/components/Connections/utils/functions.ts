@@ -1,10 +1,13 @@
 
 import configs from "../../../../../../configs/skills";
-import type { Point } from "../../../../../types/global";
+import type { Point, ScreenSize } from "../../../../../types/global";
 
 const { linesColor, linesWidth, circlesColor } = { ...configs }
 
-export const drawLines = (dimesions: Point[], ctx: CanvasRenderingContext2D, screenSize: string):void => {
+export const drawLines = (
+    ctx: CanvasRenderingContext2D, 
+    dimesions: Point[], 
+    screenSize: ScreenSize):void => {
     if (!Array.isArray(dimesions) || !dimesions.length) {
         console.error("Dimesions not provided");
         return;
