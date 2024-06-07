@@ -49,13 +49,13 @@ const Menu = () => {
             ...itemLocation
          }
       }))
-      let drawInterval;
       if (menuStatus) {
          const menuCanvas = document.getElementById("menu_canvas") as HTMLCanvasElement;
          menuCanvas.width = windowWidth;
          menuCanvas.height = windowHeight;
          const context = menuCanvas.getContext("2d") as CanvasRenderingContext2D;
-         drawInterval = drawConnections(
+         drawConnections(
+            context,
             menuItemHeight,
             windowWidth,
             windowHeight,
@@ -63,9 +63,8 @@ const Menu = () => {
             menuDrawInterval,
             menuLineColor,
             itemLocations,
-            context);
+         );
       }
-      return drawInterval && clearInterval(drawInterval);
    }, [menuStatus, setItems])
 
    return (
@@ -74,7 +73,7 @@ const Menu = () => {
             className={styles.menu_icon}
             onClick={revertMenuStatus}
             style={{
-               transform:  `rotate(${menuStatus ? -90 : 0}deg)`
+               transform: `rotate(${menuStatus ? -90 : 0}deg)`
             }}
          />
          {menuStatus && (
