@@ -16,6 +16,7 @@ const Languages = () => {
             <div className={styles.languages_cont}>
                 {languages.map((language: LanguageType) => {
                     const {name: languageName, percent}  = { ...language}
+                    
                     return (
                     <Language
                         key={languageName}

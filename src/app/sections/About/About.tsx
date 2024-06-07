@@ -9,21 +9,21 @@ import data from "../../../data/data.json";
 import configs from "../../../configs/about";
 import { getScreenSize } from "../../globals/functions/getScreenSize";
 import getTVVariants from "./utils/variants";
+import type { ScreenSize } from "../../types/global";
 
 const { about } = { ...data };
 const { tvTurnOnTime, typewriterSpeed, breakpoints } = { ...configs }
 
 const About = () => {
     const [switchedOn, setSwitchedOn] = useState<boolean | null>(null);
-    const [screenSize, setScreenSize] = useState<string>("veryLarge");
+    const [screenSize, setScreenSize] = useState<ScreenSize>("veryLarge");
     const [startTypewriter, setStartTypewriter] = useState<boolean>(false);
     const screenRef = useRef<HTMLDivElement|null>(null);
 
     const handleClickButton = useCallback(() => {
         if (switchedOn) {
             setSwitchedOn(false);
-            setStartTypewriter(false);
-            return;
+            return setStartTypewriter(false);
         }
         turnOn();
     }, [setSwitchedOn, switchedOn])

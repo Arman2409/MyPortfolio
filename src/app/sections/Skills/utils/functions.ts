@@ -4,12 +4,14 @@ const getRandomNumber = (min: number, max: number) => {
     return Math.random() * (max - min) + min;
 }
 
+const getRandomBoolean = () => Math.random() < 0.5;
+
 const chechkForCollides = (
     x: number,
     y: number,
     radius: number,
     arr: Point[],
-    repeated = 1): Function | { x: number, y: number } => {
+    repeated = 1): Function | Point | void => {
     repeated++;
     if (repeated >= 100) {
         console.error("Can't get needed dimesions, returning current dimesions");
@@ -19,33 +21,31 @@ const chechkForCollides = (
     }
     let hasCollides = false;
     arr.forEach((elem: { x: number, y: number }) => {
-        if ((Math.abs(elem.x - x) < radius) && (Math.abs(elem.y - y) < radius)) {
+        // Check for collides for each coordinate 
+        const hasCollidesInX = Math.abs(elem.x - x) < radius;
+        const hasCollidesInY = Math.abs(elem.y - y) < radius
+        if (hasCollidesInX && hasCollidesInY) {
             hasCollides = true;
         }
     });
     try {
+        // If there was a collision 
         if (hasCollides) {
-            var random_boolean_x = Math.random() < 0.5;
-            if (random_boolean_x) {
-                x = x + radius / 2;
-            } else {
-                x = x - radius / 2;
-            }
-            var random_boolean_y = Math.random() < 0.5;
-            if (random_boolean_y) {
-                y = y + radius / 2;
-            } else {
-                y = y - radius / 2;
-            }
+            // Add half of the radius for each dimesion to prevent collisions
+            var random_boolean_x = getRandomBoolean();
+            x = x + (random_boolean_x ? radius / 2 : -radius / 2);
+            var random_boolean_y = getRandomBoolean();
+            y = y + (random_boolean_y ? radius / 2 : -radius / 2);
             return chechkForCollides(x, y, radius, arr, repeated)
         } else
+            // If there are no collides, return the x and y 
             return {
                 x,
                 y
             }
     }
     catch (e) {
-        throw Error("Error occured while trying to get the coordinates");
+        console.error("Error occured while trying to get the coordinates");
     }
 }
 
@@ -56,11 +56,18 @@ const getRandomDims = (
     yLimitsMax: number,
     radius: number,
     dimsArr: Point[]): Function | Point => {
+    // Get new random coordinates 
     const dimesionX = getRandomNumber(xLimitsMin, xLimitsMax);
     const dimesionY = getRandomNumber(yLimitsMin, yLimitsMax);
     const { x, y } = chechkForCollides(dimesionX, dimesionY, radius, dimsArr) as Point;
     if (x < xLimitsMin || x > xLimitsMax || y < yLimitsMin || y > yLimitsMax) {
-        return getRandomDims(xLimitsMin, xLimitsMax, yLimitsMin, yLimitsMax, radius, dimsArr);
+        return getRandomDims(
+            xLimitsMin,
+            xLimitsMax,
+            yLimitsMin,
+            yLimitsMax,
+            radius,
+            dimsArr);
     }
     else {
         return ({ x, y });
@@ -78,7 +85,13 @@ export const getDimesions = (
     const yLimitsMax = yDimesion[1];
     const dimsArr = [];
     for (let i = 0; i < count; i++) {
-        let { x, y } = getRandomDims(xLimitsMin, xLimitsMax, yLimitsMin, yLimitsMax, radius, dimsArr) as Point;
+        let { x, y } = getRandomDims(
+            xLimitsMin,
+            xLimitsMax,
+            yLimitsMin,
+            yLimitsMax,
+            radius,
+            dimsArr) as Point;
         dimsArr.push({ x, y });
     }
     return dimsArr;

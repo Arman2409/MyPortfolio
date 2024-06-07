@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 
 import styles from "./styles/ScrollButtons.module.scss";
 import configs from "../../../configs/scrollButtons";
+import scrollListener from "./functions/scrollListener";
 
 const { scrollPoints, switchToSmallWidth } = { ...configs }
 
@@ -20,15 +21,10 @@ const ScrollButtons = () => {
     useEffect(() => {
         const currentPoints = window.innerWidth > switchToSmallWidth ? scrollPoints.large : scrollPoints.small;
         setPoints(currentPoints)
-        window.addEventListener("scroll", () => {
-            const scrolledY = window.scrollY;
-            currentPoints.forEach((point: number, index: number) => {
-                const nextPoint = currentPoints[index + 1];
-                if (point < scrolledY && (!nextPoint || nextPoint > scrolledY)) {
-                    setChosenPoint(point);
-                }
-            })
-        })
+        window.addEventListener("scroll", () => scrollListener(currentPoints, setChosenPoint));
+
+        // Delete the window listener 
+        return window.removeEventListener("scroll", () => scrollListener(currentPoints, setChosenPoint));
     }, [setChosenPoint, setPoints])
 
     return (

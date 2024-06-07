@@ -5,7 +5,7 @@ import type { ScreenProps } from "../../../../../../../../types/projects";
 
 const Screen = ({ currentItem }: ScreenProps) => {
     const { usedSkills, title, description } = { ...currentItem };
-    const urls = getUrls(usedSkills || []);
+    const urls = getUrls(usedSkills);
 
     return (
         <div className={styles.screen_main}>

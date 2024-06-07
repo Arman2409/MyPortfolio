@@ -9,7 +9,7 @@ import Skill from "./components/Skill/Skill";
 import Connections from "./components/Connections/Connections";
 import SectionTitle from "../../globals/components/SectionTitle/SectionTitle";
 import { getScreenSize } from "../../globals/functions/getScreenSize";
-import type { Point } from "../../types/global";
+import type { Point, ScreenSize } from "../../types/global";
 
 const { breakpoints, skillSize } = {...configs};
 let { skills } = { ...data };
@@ -17,11 +17,11 @@ let { skills } = { ...data };
 const Skills = () => {
     const [locations, setLocations] = useState<Point[]>([]);
     const [windowWidth, setWindowWidth] = useState<number>(0);
-    const [screenSize, setScreenSize] = useState<string>("veryLarge");
+    const [screenSize, setScreenSize] = useState<ScreenSize>("veryLarge");
 
-    const changeLocations = useCallback((screen: string) => {
+    const changeLocations = useCallback((screen: ScreenSize) => {
         const radius = screen === "medium" ||  screen === "small" ? skillSize / 2 : skillSize;
-        const count = screen === "verySmall" ? 4 : screen === "small" ? skills.length / 2 : skills.length;
+        const count = screen === "verySmall" ? 4 : screen === "small" ? skills.length * 0.75 : skills.length;
         setLocations(getDimesions([60, window.innerWidth - 60], [60, 540], radius, count));
     }, [setLocations])
 

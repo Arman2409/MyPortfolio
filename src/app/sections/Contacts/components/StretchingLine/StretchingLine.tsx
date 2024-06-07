@@ -2,8 +2,8 @@
 import { useEffect, useRef } from "react";
 
 import styles from "./styles/Stretching.module.scss";
-import { DrawLine } from "./utils/drawLine";
 import configs from "../../../../../configs/contacts";
+import { DrawLine } from "./utils/drawLine";
 import type { StretchingLineProps } from "../../../../types/contacts";
 
 const { edgeRadius, connectionWidth, connectionColor, edgeColor, lineWidth } = { ...configs }

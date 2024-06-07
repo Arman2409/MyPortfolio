@@ -9,7 +9,7 @@ const drawConnections = (
     drawIntervalAmount: number,
     menuLineColor: string,
     locations: Point[],
-    ctx: CanvasRenderingContext2D):void => {
+    ctx: CanvasRenderingContext2D) => {
     if (!Array.isArray(locations)) {
         console.error("Locations not provided");
         return;
@@ -36,12 +36,13 @@ const drawConnections = (
         y = y - elemHeight / 2;
         setTimeout(() => {
             drawFromPointToPoint(start, { x, y }, ctx);
+            setTimeout(() => {
+                drawFromPointToPoint(end, { x, y }, ctx);
+            }, drawIntervalAmount / 3);
         }, drawIntervalAmount / 3)
-        setTimeout(() => {
-            drawFromPointToPoint(end, { x, y }, ctx);
-        }, drawIntervalAmount / 3 * 2)
         i += 1;
     }, drawIntervalAmount)
+    return drawInterval;
 }
 
 export default drawConnections;
