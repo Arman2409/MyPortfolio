@@ -2,18 +2,19 @@ import { drawFromPointToPoint } from "../../../../../globals/functions/drawFromP
 import type { Point } from "../../../../../types/global";
 
 const drawConnections = (
+    ctx: CanvasRenderingContext2D,
     elemHeight: number,
     windowWidth: number,
     windowHeight: number,
     menuLineWidth: number,
     drawIntervalAmount: number,
     menuLineColor: string,
-    locations: Point[],
-    ctx: CanvasRenderingContext2D) => {
+    locations: Point[]) => {
     if (!Array.isArray(locations)) {
         console.error("Locations not provided");
         return;
     }
+
     const start = {
         x: 0,
         y: windowHeight / 2
@@ -42,7 +43,6 @@ const drawConnections = (
         }, drawIntervalAmount / 3)
         i += 1;
     }, drawIntervalAmount)
-    return drawInterval;
 }
 
 export default drawConnections;
