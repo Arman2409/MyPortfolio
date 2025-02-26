@@ -2,7 +2,7 @@ import styles from "./styles/Languages.module.scss";
 import data from "../../../../data/data.json";
 import Language from "./components/Language/Language";
 import SectionTitle from "../../globals/SectionTitle/SectionTitle";
-import type { Language as LanguageType } from "../../../_types/languages";
+import type { Language as LanguageType } from "../../../../types/languages";
 
 let { languages } = { ...data };
 

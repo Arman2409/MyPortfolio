@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 
 import styles from "./styles/Skill.module.scss";
 import configs from "../../../../../../configs/skills";
-import { getScreenSize } from "../../../../../_functions/getScreenSize";
+import { getScreenSize } from "../../../../../../helpers/getScreenSize";
 import getSkillStyle from "./functions/getSkillStyle";
-import type { SkillProps } from "../../../../../_types/skills";
-import type { ScreenSize } from "../../../../../_types/global";
+import type { SkillProps } from "../../../../../../types/skills";
+import type { ScreenSize } from "../../../../../../types/global";
 
 let { skillSize, breakpoints } = { ...configs };
 

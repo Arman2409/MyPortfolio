@@ -3,9 +3,9 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./styles/Connections.module.scss";
 import { drawLines } from "./utils/functions";
 import configs from "../../../../../../configs/skills";
-import { getScreenSize } from "../../../../../_functions/getScreenSize";
-import type { ConnectionsProps } from "../../../../../_types/skills";
-import type { ScreenSize } from "../../../../../_types/global";
+import { getScreenSize } from "../../../../../../helpers/getScreenSize";
+import type { ConnectionsProps } from "../../../../../../types/skills";
+import type { ScreenSize } from "../../../../../../types/global";
 
 const { breakpoints } = { ...configs};
 

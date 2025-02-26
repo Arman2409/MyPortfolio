@@ -8,8 +8,8 @@ import { getDimesions } from "./utils/functions";
 import Skill from "./components/Skill/Skill";
 import Connections from "./components/Connections/Connections";
 import SectionTitle from "../../globals/SectionTitle/SectionTitle";
-import { getScreenSize } from "../../../_functions/getScreenSize";
-import type { Point, ScreenSize } from "../../../_types/global";
+import { getScreenSize } from "../../../../helpers/getScreenSize";
+import type { Point, ScreenSize } from "../../../../types/global";
 
 const { breakpoints, skillSize } = {...configs};
 let { skills } = { ...data };

@@ -1,6 +1,6 @@
 import styles from "./styles/Language.module.scss";
 import configs from "../../../../../../configs/languages";
-import type { Language } from "../../../../../_types/languages";
+import type { Language } from "../../../../../../types/languages";
 
 const { percentColor } = { ...configs }
 

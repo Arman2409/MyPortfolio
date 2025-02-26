@@ -1,4 +1,4 @@
-import type { ScreenSize } from "../_types/global";
+import type { ScreenSize } from "../types/global";
 
 export const getScreenSize = (
     windowWidth: number, 

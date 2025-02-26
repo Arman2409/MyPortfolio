@@ -1,6 +1,6 @@
 
 import configs from "../../../../../../../configs/skills";
-import type { Point, ScreenSize } from "../../../../../../_types/global";
+import type { Point, ScreenSize } from "../../../../../../../types/global";
 
 const { linesColor, linesWidth, circlesColor } = { ...configs }
 

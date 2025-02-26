@@ -5,8 +5,8 @@ import { ImMenu } from "react-icons/im";
 import styles from "./styles/Menu.module.scss";
 import configs from "../../../../../../configs/header";
 import drawConnections from "./utils/drawConnections";
-import type { MenuItem } from "../../../../../_types/header";
-import type { Point } from "../../../../../_types/global";
+import type { MenuItem } from "../../../../../../types/header";
+import type { Point } from "../../../../../../types/global";
 
 const { menuItems, menuItemHeight, menuItemWidth, menuLineColor, menuDrawInterval, menuLineWidth, switchToSmallWidth } = { ...configs };
 

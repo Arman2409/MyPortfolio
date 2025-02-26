@@ -1,6 +1,6 @@
 import styles from "./styles/Screen.module.scss";
 import { getUrls } from "./utils/functions";
-import type { ScreenProps } from "../../../../../../../../../_types/projects";
+import type { ScreenProps } from "../../../../../../../../../../types/projects";
 
 
 const Screen = ({ currentItem }: ScreenProps) => {

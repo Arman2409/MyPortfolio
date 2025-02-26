@@ -1,6 +1,6 @@
 import type { Variants } from "framer-motion";
 
-import type { ScreenSize } from "../../../../_types/global";
+import type { ScreenSize } from "../../../../../types/global";
 
 const getTVVariants = (breakpoint:ScreenSize):Variants => ({
   switchedOn: {

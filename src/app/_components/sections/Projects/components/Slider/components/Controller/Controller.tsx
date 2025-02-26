@@ -3,10 +3,10 @@ import { FaCaretRight, FaGithub, FaLink } from "react-icons/fa";
 import { FaCaretLeft } from "react-icons/fa";
 
 import styles from "./styles/Controller.module.scss";
-import { takeToLink } from "../../../../../../../_functions/takeToLink";
+import { takeToLink } from "../../../../../../../../helpers/takeToLink";
 import Screen from "./components/Screen/Screen";
 import ControllerButton from "./components/ControllerButton/ControllerButton";
-import type { PortfolioItem, ControllerProps } from "../../../../../../../_types/projects";
+import type { PortfolioItem, ControllerProps } from "../../../../../../../../types/projects";
 
 const Controller = ({ currentItem, portfolio, setCurrentItem }:ControllerProps) => {
     const disableGithubLink = !currentItem.github;

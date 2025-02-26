@@ -1,4 +1,4 @@
-import type { ScreenSize } from "../../../../../../_types/global";
+import type { ScreenSize } from "../../../../../../../types/global";
 
 const isSmallDimesion = (screen: ScreenSize) => screen === "medium" || screen === "small" || screen === "verySmall";
 

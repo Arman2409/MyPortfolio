@@ -1,4 +1,4 @@
-import type { Point } from "../_types/global";
+import type { Point } from "../types/global";
 
 export const drawFromPointToPoint = (
     point1: Point, 

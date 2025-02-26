@@ -6,7 +6,7 @@ import configs from "../../../../configs/contacts";
 import data from "../../../../data/data.json";
 import Link from "./components/Link/Link";
 import StretchingLine from "./components/StretchingLine/StretchingLine";
-import type { Link as ContactType } from "../../../_types/contacts";
+import type { Link as ContactType } from "../../../../types/contacts";
 
 const { links } = { ...data };
 const { linesPlacements } = { ...configs }

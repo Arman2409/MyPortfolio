@@ -1,5 +1,5 @@
-import { drawFromPointToPoint } from "../../../../../../_functions/drawFromPointToPoint";
-import type { Point } from "../../../../../../_types/global";
+import { drawFromPointToPoint } from "../../../../../../../helpers/drawFromPointToPoint";
+import type { Point } from "../../../../../../../types/global";
 
 const drawConnections = (
     ctx: CanvasRenderingContext2D,

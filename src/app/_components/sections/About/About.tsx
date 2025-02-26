@@ -7,9 +7,9 @@ import { motion } from "framer-motion";
 import styles from "./styles/About.module.scss";
 import data from "../../../../data/data.json";
 import configs from "../../../../configs/about";
-import { getScreenSize } from "../../../_functions/getScreenSize";
+import { getScreenSize } from "../../../../helpers/getScreenSize";
 import getTVVariants from "./utils/variants";
-import type { ScreenSize } from "../../../_types/global";
+import type { ScreenSize } from "../../../../types/global";
 
 const { about } = { ...data };
 const { tvTurnOnTime, typewriterSpeed, breakpoints } = { ...configs }

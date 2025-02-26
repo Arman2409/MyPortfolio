@@ -1,4 +1,4 @@
-import type { Point } from "../../../../_types/global";
+import type { Point } from "../../../../../types/global";
 
 const getRandomNumber = (min: number, max: number) => {
     return Math.random() * (max - min) + min;

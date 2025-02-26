@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 
 import styles from "./styles/ControllerButton.module.scss";
 import { buttonStyles } from "./utils/utils";
-import type { ControllerButtonProps } from "../../../../../../../../../_types/projects";
+import type { ControllerButtonProps } from "../../../../../../../../../../types/projects";
 
 const ControllerButton = ({ icon, disabled = false, onClick }:ControllerButtonProps) => {
 

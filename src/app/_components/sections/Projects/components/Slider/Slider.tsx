@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./styles/Slider.module.scss";
 import Controller from "./components/Controller/Controller";
 import data from "../../../../../../data/data.json";
-import type { PortfolioItem } from "../../../../../_types/projects";
+import type { PortfolioItem } from "../../../../../../types/projects";
 
 const { projects } = { ...data };
 
