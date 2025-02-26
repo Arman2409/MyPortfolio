@@ -6,11 +6,9 @@
     width: 100%;
     position: fixed;
     height: $headerHeight;
-    background-color: $color3;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-image: url("/background.jpg");
     z-index: 4;
 }
 

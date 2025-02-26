@@ -11,7 +11,7 @@ import Loading from "./_components/fixed/Loading/Loading";
 
 const Home = () => {
   return (
-    <main id="main_container">
+    <main>
       {/* fixed components  */}
       <Loading />
       <Header />

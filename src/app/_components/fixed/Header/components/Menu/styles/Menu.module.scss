@@ -15,7 +15,7 @@
 
 .menu_icon {
     font-size: 40px;
-    color: $color4;
+    color: $skyblue;
     transition: 0.5s;
     cursor: pointer;
 
@@ -27,22 +27,22 @@
 .menu_demo {
     @extend .demo;
 
-    background-color: $color1;
+    background-color: $blue;
 }
 
 .menu_item {
     @extend .centered;
 
     position: absolute;
-    border: 1px solid $color4;
-    color: $color4;
-    background-color: $color2;
+    border: 1px solid $skyblue;
+    color: $skyblue;
+    background-color: $purple;
     font-size: 22px;
     transition: 0.5s;
     cursor: pointer;
 
     &:hover {
-        color: $color2;
-        background-color: $color4;
+        color: $purple;
+        background-color: $skyblue;
     }
 }

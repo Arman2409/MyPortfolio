@@ -11,9 +11,9 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    background-color: $color1;
+    background-color: $blue;
     z-index: 3;
-    box-shadow: 0px 0px 2px 2px $color4;
+    box-shadow: 0px 0px 2px 2px $skyblue;
 
 }
 
@@ -21,8 +21,8 @@
     width: 30px;
     border-radius: 50%;
     height: 20px;
-    background-color: $color4;
-    box-shadow: 0 5px $color3;
+    background-color: $skyblue;
+    box-shadow: 0 5px $blue_light;
     cursor: pointer;
 }
 
@@ -30,5 +30,5 @@
     @extend .scroll_button;
 
     background-color: green;
-    box-shadow: 0 2px $color3;
+    box-shadow: 0 2px $blue_light;
 }

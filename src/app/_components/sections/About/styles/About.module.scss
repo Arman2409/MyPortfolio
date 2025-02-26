@@ -1,6 +1,7 @@
 @import "../../../../../styles/colors.scss";
 @import "../../../../../styles/classes.scss";
 @import "../../../../../styles/dimesions.scss";
+@import "../../../../../styles/animations.scss";
 
 .about_cont {
     height: 715px;
@@ -41,13 +42,17 @@
 }
 
 .screen {
-    background-color: $color4;
+    background-color: $skyblue;
     margin-bottom: 20px;
     box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(237, 241, 255, 0);
+    background-image: url("/about/glitch.gif");
+    background-color: rgba($color: $blue, $alpha: 1);
+    opacity: 0.5;
+    background-blend-mode: multiply;
 }
 
 .switch_button {
-    color: $color3;
+    color: $blue_light;
     position: absolute;
     left: calc(50% - 7.5px);
     bottom: 10px;
@@ -69,8 +74,11 @@
     position: absolute;
     top: 15px;
     left: 25px;
-    color: $color2;
-    font-size: 24px;
+    color: $amber;
+    font-size: 30px;
+    padding: 10px;
+    animation: pulse 2s ease-in-out infinite alternate;
+
 
     @media screen and (max-width: 900px) {
         width: 550px;
@@ -80,5 +88,6 @@
     @media screen and (max-width: 600px) {
         width: 280px;
         font-size: 15px;
-    }
+    } 
 }
+
