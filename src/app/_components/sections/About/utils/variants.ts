@@ -4,8 +4,8 @@ import type { ScreenSize } from "../../../../../types/global";
 
 const getTVVariants = (breakpoint:ScreenSize):Variants => ({
   switchedOn: {
-     height: breakpoint === "small" ? "220px" : breakpoint === "medium" ? "360px" : "460px",
-     width: breakpoint === "small" ? "400px" :  breakpoint === "medium" ? "590px" : "780px",
+     height: breakpoint === "small" ? "285px" : breakpoint === "medium" ? "360px" : "460px",
+     width: breakpoint === "small" ? "300px" :  breakpoint === "medium" ? "590px" : "780px",
      transition: {
         duration: 0.25
      }

@@ -37,7 +37,8 @@
 
     @media screen and (max-width: 600px) {
         width: 320px;
-        height: 250px;
+        height: 320px;
+        padding: 5px;
     }
 }
 
@@ -88,6 +89,5 @@
     @media screen and (max-width: 600px) {
         width: 280px;
         font-size: 15px;
-    } 
+    }
 }
-
