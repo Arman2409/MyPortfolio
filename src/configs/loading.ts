@@ -1,1 +1,1 @@
-export const loadingDelay = 1;
+export const loadingDelay = 1.5;
