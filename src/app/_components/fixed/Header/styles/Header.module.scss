@@ -1,0 +1,34 @@
+@import "../../../../_styles/dimesions.scss";
+@import "../../../../_styles/colors.scss";
+@import "../../../../_styles/classes.scss";
+
+.header {
+    width: 100%;
+    position: fixed;
+    height: $headerHeight;
+    background-color: $color3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url("/background.jpg");
+    z-index: 4;
+}
+
+.logo_cont {
+    @extend .centered;
+
+    height: 100%;
+    width: 200px;
+
+    @media screen and (max-width:700px) {
+        width: 125px;
+        height: 80%;
+    }
+
+    cursor: pointer;
+
+    @media screen and (max-width:700px) {
+        width: 75px;
+        height: 80%;
+    }
+}

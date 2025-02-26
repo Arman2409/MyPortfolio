@@ -1,0 +1,33 @@
+@import "../../../../../../_styles/colors.scss";
+@import "../../../../../../_styles/classes.scss";
+
+.link {
+    @extend .centered;
+
+    width: 100px;
+    height: 100px;
+    font-size: 50px;
+    color: $color4;
+    margin: 25px;
+    background-color: $color2;
+    border: 1px solid $color4;
+    transition: 0.5s;
+    z-index: 1;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 0px 0px 25px 25px;
+
+        * {
+            box-shadow: 0px 0px 25px 25px $color3;
+        }
+    }
+
+    @media screen and (max-width: 700px) {
+        width: 75px;
+        height: 75px;
+        font-size: 30px;
+        margin: 10px;
+    }
+
+}
