@@ -5,7 +5,8 @@ const configs = {
     scrollPoints: {
         large: [0, 600, 1300, 2100],
         small: [0, 400, 1100, 1750]
-    }
+    },
+    hideBreakpoint: 600
 }
 
 export default configs;

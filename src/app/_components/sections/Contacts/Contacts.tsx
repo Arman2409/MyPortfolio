@@ -13,7 +13,7 @@ const { links } = { ...data };
 const { linesPlacements } = { ...configs }
 
 const Contacts = () => {
-    const [showLines, setShowLines] = useState<boolean>(false)
+    const [showLines, setShowLines] = useState<boolean>(false);
 
     useEffect(() => {
         if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight) {
