@@ -72,6 +72,18 @@
         {
             "name": "NPM",
             "source": "/skills/npm.webp"
+        },
+        {
+            "name": "Stripe",
+            "source": "/skills/stripe.webp"
+        },
+        {
+            "name": "Go",
+            "source": "/skills/go.png"
+        },
+        {
+            "name": "Gin",
+            "source": "/skills/gin.png"
         }
     ],
     "languages": [

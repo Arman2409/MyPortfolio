@@ -7,9 +7,9 @@
     width: 100px;
     height: 100px;
     font-size: 50px;
-    color: $skyblue;
+    color: $amber;
     margin: 25px;
-    background-color: $purple;
+    background-color: $blue;
     border: 1px solid $skyblue;
     transition: 0.5s;
     z-index: 1;
@@ -17,10 +17,6 @@
 
     &:hover {
         box-shadow: 0px 0px 25px 25px;
-
-        * {
-            box-shadow: 0px 0px 25px 25px $blue_light;
-        }
     }
 
     @media screen and (max-width: 700px) {

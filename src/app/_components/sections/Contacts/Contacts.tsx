@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import styles from "./styles/Contacts.module.scss";
 import configs from "../../../../configs/contacts";
 import data from "../../../../data/data.json";
+import SectionTitle from "../../globals/SectionTitle/SectionTitle";
 import Link from "./components/Link/Link";
 import StretchingLine from "./components/StretchingLine/StretchingLine";
 import type { Link as ContactType } from "../../../../types/contacts";
@@ -29,16 +30,19 @@ const Contacts = () => {
 
     return (
         <div className={styles.contacts_main}>
-            {showLines && linesPlacements.map((placement: number) => (
-                <StretchingLine key={placement} right={placement} />
-            ))}
-            {links.map(({ link, name }: ContactType) => (
-                <Link
-                    link={link}
-                    name={name}
-                    key={name}
-                />
-            ))}
+            <SectionTitle  title="Social Links"/>
+            <div className={styles.contacts_content}>
+                {showLines && linesPlacements.map((placement: number) => (
+                    <StretchingLine key={placement} right={placement} />
+                ))}
+                {links.map(({ link, name }: ContactType) => (
+                    <Link
+                        link={link}
+                        name={name}
+                        key={name}
+                    />
+                ))}
+            </div>
         </div>
     )
 }
