@@ -5,7 +5,7 @@ import styles from "./styles/ScrollButtons.module.scss";
 import configs from "../../../../configs/scrollButtons";
 import scrollListener from "./functions/scrollListener";
 
-const { scrollPoints, switchToSmallWidth, hideBreakpoint } = { ...configs }
+const { scrollPoints, switchToSmallWidth, hideBreakpoint } = { ...configs };
 
 const ScrollButtons = () => {
     const [chosenPoint, setChosenPoint] = useState<number>(0);
@@ -13,14 +13,14 @@ const ScrollButtons = () => {
     const [showButtons, setShowButtons] = useState<boolean>(true);
 
     const choose = useCallback((point: number) => {
-        setChosenPoint(point)
+        setChosenPoint(point);
         window.scrollTo({
             top: point
         });
     }, [setChosenPoint]);
 
     useEffect(() => {
-        if(window.innerWidth <= hideBreakpoint){
+        if (window.innerWidth <= hideBreakpoint) {
             setShowButtons(false);
         }
 
@@ -28,8 +28,8 @@ const ScrollButtons = () => {
         setPoints(currentPoints);
 
         window.addEventListener("scroll", () => scrollListener(currentPoints, setChosenPoint));
-        window.addEventListener("resize",() => {
-            if(window.innerWidth <= hideBreakpoint){
+        window.addEventListener("resize", () => {
+            if (window.innerWidth <= hideBreakpoint) {
                 setShowButtons(false);
             } else {
                 setShowButtons(true);
@@ -50,7 +50,7 @@ const ScrollButtons = () => {
             {points.map((point: number) => (
                 <div
                     key={point}
-                    className={chosenPoint !== point ? styles.scroll_button : styles.scroll_button_clicked}
+                    className={styles[chosenPoint !== point ? "scroll_button" : "scroll_button_clicked"]}
                     onClick={() => choose(point)}>
                 </div>
             ))}

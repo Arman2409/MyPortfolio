@@ -1,13 +1,17 @@
 @import "../../../../../../../../../../../styles/colors.scss";
+@import "../../../../../../../../../../../styles/animations.scss";
+@import "../../../../../../../../../../../styles/classes.scss";
 
 .screen_main {
+    @extend .background_glitch;
+
     width: 100%;
     height: 125px;
-    background-color: skyblue;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    animation: pulse 2s ease-in-out infinite alternate;
 
     @media screen and (max-width: 700px) {
         height: 100px;
@@ -21,10 +25,15 @@
 }
 
 .item_title {
-    color: $blue;
+    color: $amber;
 }
 
 .item_description {
-    color: $purple;
+    color: $skyblue;
     margin-bottom: 5px;
+}
+
+.loading {
+    color: $skyblue;
+    font-size: 45px;
 }

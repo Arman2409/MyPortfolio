@@ -1,0 +1,42 @@
+.glitch_line {
+    position: absolute;
+    opacity: 0.8; 
+    width: 100%;
+    height: 2px;
+    left: 0;
+    animation: glitch-line-anim 5s infinite linear;
+}
+
+@keyframes glitch-line-anim {
+    0% {
+        transform: scaleY(1); 
+        top: -10px;
+        height: 2px;
+    }
+    25% {
+        transform: scaleY(1.5); 
+        top: 25%;
+        height: 3px;
+    }
+    35% {
+        height: 6px;
+    }
+    50% {
+        transform: scaleY(0.5);
+        top: 50%;
+        height: 5px;
+    }
+    75% {
+        transform:  scaleY(1.8); 
+        top: 75%;
+        height: 9px;
+    }
+    85% {
+        height: 5px;
+    }
+    100% {
+        transform:  scaleY(1); 
+        top: 110%;
+        height: 2px;
+    }
+}

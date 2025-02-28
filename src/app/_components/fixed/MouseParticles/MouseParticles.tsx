@@ -40,6 +40,8 @@ const MouseParticles = () => {
         window.addEventListener("resize", () => {
             if (window.innerWidth <= hideBreakpoint) {
                 setShowParticles(false);
+            } else {
+                setShowParticles(true);
             }
         })
     }, [setShowParticles])

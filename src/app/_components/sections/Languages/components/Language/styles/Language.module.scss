@@ -9,10 +9,8 @@
     width: 200px;
     height: 200px;
     background-color: $purple;
-    color: $amber;
     margin: 25px;
-    font-size: 25px;
-    font-weight: 900;
+    overflow: hidden;
 
     @media screen and (max-width: 750px) {
         width: 150px;
@@ -36,4 +34,11 @@
         -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 12px), #000 calc(100% - 12px));
         mask: radial-gradient(farthest-side, #0000 calc(100% - 12px), #000 calc(100% - 12px));  
     }
+}
+
+.language_name {
+    font-size: 25px;
+    font-weight: 900;
+    color: $amber;
+    z-index: 10;
 }

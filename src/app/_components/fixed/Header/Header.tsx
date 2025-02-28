@@ -1,11 +1,10 @@
 "use client"
-import { useCallback } from "react";
 
 import styles from "./styles/Header.module.scss";
 import Menu from "./components/Menu/Menu";
 
 const Header = () => {
-    const clickLogo = useCallback(() => window.scrollTo({top: 0}), []);
+    const clickLogo = () => window.scrollTo({ top: 0 });
 
     return (
         <div

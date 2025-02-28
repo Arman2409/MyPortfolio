@@ -18,19 +18,20 @@ const About = () => {
     const [switchedOn, setSwitchedOn] = useState<boolean | null>(null);
     const [screenSize, setScreenSize] = useState<ScreenSize>("veryLarge");
     const [startTypewriter, setStartTypewriter] = useState<boolean>(false);
-    const screenRef = useRef<HTMLDivElement|null>(null);
+    const screenRef = useRef<HTMLDivElement | null>(null);
 
     const handleClickButton = useCallback(() => {
         if (switchedOn) {
             setSwitchedOn(false);
             return setStartTypewriter(false);
         }
+        
         turnOn();
     }, [setSwitchedOn, switchedOn])
 
     const turnOn = useCallback(() => {
         setSwitchedOn(true);
-        setTimeout(() => setStartTypewriter(true), 1000)
+        setTimeout(() => setStartTypewriter(true), 1000);
     }, [setSwitchedOn, setStartTypewriter])
 
     useEffect(() => {
@@ -39,11 +40,13 @@ const About = () => {
 
     useEffect(() => {
         // Change the screen size by the breakpoint 
-        setScreenSize(getScreenSize(window.innerWidth, breakpoints))
+        setScreenSize(getScreenSize(window.innerWidth, breakpoints));
+
         window.addEventListener("resize", () => {
-            setScreenSize(getScreenSize(window.innerWidth, breakpoints))
+            setScreenSize(getScreenSize(window.innerWidth, breakpoints));
         })
-    }, [])
+
+    }, [setScreenSize])
 
 
     return (

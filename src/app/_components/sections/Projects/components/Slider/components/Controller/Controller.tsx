@@ -8,7 +8,12 @@ import Screen from "./components/Screen/Screen";
 import ControllerButton from "./components/ControllerButton/ControllerButton";
 import type { PortfolioItem, ControllerProps } from "../../../../../../../../types/projects";
 
-const Controller = ({ currentItem, portfolio, setCurrentItem }:ControllerProps) => {
+const Controller = ({
+    currentItem,
+    portfolio,
+    loading,
+    setCurrentItem
+}: ControllerProps) => {
     const disableGithubLink = !currentItem.github;
     const disableSiteLink = !currentItem.link;
 
@@ -33,7 +38,8 @@ const Controller = ({ currentItem, portfolio, setCurrentItem }:ControllerProps) 
 
     return (
         <div className={styles.controller_main}>
-            <Screen currentItem={currentItem} />
+            <Screen loading={loading} currentItem={currentItem} />
+
             <div className={styles.buttons_cont}>
                 <ControllerButton
                     icon={<FaCaretLeft />}

@@ -5,19 +5,16 @@
     height: 210px;
     padding: 5px;
     background-color: $blue;
-    border: 3px solid $purple;
-
-    @media screen and (max-width: 1100px) {
-        position: absolute;
-        top: 75px;
-        left: 5%;
-    }
+    border: 3px solid $amber;
+    position: absolute;
+    bottom: 25px;
+    left: 5%;
+    z-index: 10;
 
     @media screen and (max-width: 700px) {
         width: 300px;
         height: 160px;
-        top: 100px;
-        left: 0%;
+        bottom: 50px;
     }
 }
 

@@ -8,35 +8,45 @@ import drawConnections from "./utils/drawConnections";
 import type { MenuItem } from "../../../../../../types/header";
 import type { Point } from "../../../../../../types/global";
 
-const { menuItems, menuItemHeight, menuItemWidth, menuLineColor, menuDrawInterval, menuLineWidth, switchToSmallWidth } = { ...configs };
+const { menuItems,
+   menuItemHeight,
+   menuItemWidth,
+   menuLineColor,
+   menuDrawInterval,
+   menuLineWidth,
+   switchToSmallWidth } = { ...configs };
 
 const Menu = () => {
-   const [menuStatus, setMenuStatus] = useState<boolean>(false);
+   const [menuOpen, setMenuOpen] = useState<boolean>(false);
    const [items, setItems] = useState<MenuItem[]>([]);
    const menuCanvas = useRef<HTMLCanvasElement>(null);
 
-   const revertMenuStatus = useCallback(() => {
-      setMenuStatus(current => !current)
-   }, [setMenuStatus])
+   const revertmenuOpen = useCallback(() => {
+      setMenuOpen(current => !current)
+   }, [setMenuOpen])
 
    const clickItem = useCallback((event: MouseEvent, scrollTo: number) => {
       event.stopPropagation();
+
       // Close the menu 
-      setMenuStatus(false);
+      setMenuOpen(false);
       window.scrollTo({
          top: scrollTo,
       });
-   }, [setMenuStatus, menuStatus])
+
+   }, [setMenuOpen, menuOpen])
 
    useEffect(() => {
       const windowHeight = window.innerHeight;
       const windowWidth = window.innerWidth;
       const itemLocations: Point[] = [];
       const itemsLength = menuItems.length;
+      
       // Calculate the height for each menu item 
       const contHeight = itemsLength * menuItemHeight + (itemsLength - 1) * menuItemHeight * 0.25;
       const topOrBottom = (windowHeight - contHeight) / 2;
-      setItems(menuItems.map((item: MenuItem) => {
+
+      const itemsSortedWithHeight = menuItems.map((item: MenuItem) => {
          const { x, y, order } = { ...item };
          const newY = topOrBottom + (menuItemHeight * order) + (order - 1) * 0.25 * menuItemHeight;
          const itemLocation = {
@@ -48,8 +58,11 @@ const Menu = () => {
             ...item,
             ...itemLocation
          }
-      }))
-      if (menuStatus) {
+      })
+
+      setItems(itemsSortedWithHeight);
+
+      if (menuOpen) {
          const menuCanvas = document.getElementById("menu_canvas") as HTMLCanvasElement;
          menuCanvas.width = windowWidth;
          menuCanvas.height = windowHeight;
@@ -65,21 +78,21 @@ const Menu = () => {
             itemLocations,
          );
       }
-   }, [menuStatus, setItems])
+   }, [menuOpen, setItems])
 
    return (
       <div className={styles.menu_cont}>
          <ImMenu
             className={styles.menu_icon}
-            onClick={revertMenuStatus}
+            onClick={revertmenuOpen}
             style={{
-               transform: `rotate(${menuStatus ? -90 : 0}deg)`
+               transform: `rotate(${menuOpen ? -90 : 0}deg)`
             }}
          />
-         {menuStatus && (
+         {menuOpen && (
             <div
                className={styles.menu_demo}
-               onClick={revertMenuStatus}>
+               onClick={revertmenuOpen}>
                <canvas ref={menuCanvas} id="menu_canvas" />
                {items.map(({ scrollTo, order, title, x = 100, y = 100 }: MenuItem) => (
                   <div

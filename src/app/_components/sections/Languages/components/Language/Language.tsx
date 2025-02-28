@@ -1,6 +1,7 @@
 import styles from "./styles/Language.module.scss";
 import configs from "../../../../../../configs/languages";
 import type { Language } from "../../../../../../types/languages";
+import GlitchEffect from "@/app/_components/globals/GlitchEffect/GlitchEffect";
 
 const { percentColor } = { ...configs }
 
@@ -14,7 +15,10 @@ const Language = ({ name, percent }: Language) => (
                 background: `conic-gradient(${percentColor} calc(${percent}%), #0000 0)`,
             }}
         />
-        {name}
+        <p className={styles.language_name}>
+            {name}
+        </p>
+
     </div>
 )
 
