@@ -35,7 +35,7 @@ const Slider = () => {
                 image.style.top = "0px";
                 image.style.left = "0px";
                 sliderImage.current = image;
-            }, 5000);
+            }, 150);
             
             if (sliderCont.current) {
                 sliderCont.current.prepend(image)
