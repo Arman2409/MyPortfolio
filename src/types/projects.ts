@@ -1,4 +1,4 @@
-export type PortfolioItem = {
+export interface PortfolioItem {
     order: number
     img: string
     title: string
@@ -18,11 +18,13 @@ export interface ControllerButtonProps {
 }
 
 export interface ScreenProps {
-    currentItem: PortfolioItem
+    currentItem: PortfolioItem,
+    loading: boolean
 }
 
 export interface ControllerProps {
     currentItem: PortfolioItem,
     portfolio: PortfolioItem[],
+    loading: boolean,
     setCurrentItem: Function
 }
