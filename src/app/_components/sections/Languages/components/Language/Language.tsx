@@ -1,7 +1,6 @@
 import styles from "./styles/Language.module.scss";
 import configs from "../../../../../../configs/languages";
 import type { Language } from "../../../../../../types/languages";
-import GlitchEffect from "@/app/_components/globals/GlitchEffect/GlitchEffect";
 
 const { percentColor } = { ...configs }
 

@@ -10,11 +10,12 @@ const drawConnections = (
     drawIntervalAmount: number,
     menuLineColor: string,
     locations: Point[]) => {
+
     if (!Array.isArray(locations)) {
         console.error("Locations not provided");
         return;
     }
-
+   
     const start = {
         x: 0,
         y: windowHeight / 2

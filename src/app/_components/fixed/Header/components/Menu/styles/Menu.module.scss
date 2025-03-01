@@ -27,6 +27,7 @@
 .menu_demo {
     @extend .demo;
 
+    z-index: 20;
     background-color: $blue;
 }
 
