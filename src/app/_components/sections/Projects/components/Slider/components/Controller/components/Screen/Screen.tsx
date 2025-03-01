@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 import styles from "./styles/Screen.module.scss";
 import { getUrls } from "./utils/functions";
@@ -51,9 +52,10 @@ const Screen = ({
                 </p>
                 <div className={styles.skills_cont}>
                     {urls.map((url: string) => (
-                        <img
+                        <Image
                             key={url}
                             src={url}
+                            alt="Skill Used"
                             className={styles.screen_skill}
                         />
                     ))}

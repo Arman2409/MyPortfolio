@@ -17,7 +17,6 @@ const Language = ({ name, percent }: Language) => (
         <p className={styles.language_name}>
             {name}
         </p>
-
     </div>
 )
 
