@@ -1,6 +1,6 @@
 @import "../../../../../styles/colors.scss";
 @import "../../../../../styles/classes.scss";
-@import "../../../../../styles/dimesions.scss";
+@import "../../../../../styles/dimensions.scss";
 @import "../../../../../styles/animations.scss";
 
 .about_cont {
@@ -9,7 +9,7 @@
     padding-top: calc($headerHeight + 85px);
     display: flex;
     justify-content: center;
-    margin-bottom: 25px;
+    margin-bottom: 50px;
 
     @media screen and (max-width: 900px) {
         height: 650px;

@@ -1,4 +1,4 @@
-@import "../../../../../styles/dimesions.scss";
+@import "../../../../../styles/dimensions.scss";
 @import "../../../../../styles/colors.scss";
 @import "../../../../../styles/classes.scss";
 
@@ -10,6 +10,13 @@
     justify-content: space-between;
     align-items: center;
     z-index: 4;
+    background-color: transparent;
+    transition: 1s;
+}
+
+.header_scrolled {
+    height: $headerHeightScrolled;
+    background-color: rgba($color:$blue, $alpha: 0.5);
 }
 
 .logo_cont {

@@ -4,6 +4,7 @@ const configs = {
     menuLineColor: "#0B666A",
     menuLineWidth: 7.5,
     menuDrawInterval: 330,
+    headerStyleChangeScroll: 50,
     // this is the same also for scrollButtons
     switchToSmallWidth: 500,
     // changes in menuItems assumes changes also for scrollPoints in scroll buttons config
@@ -20,7 +21,7 @@ const configs = {
         title: "Technical Skills",
         scrollTo: {
             small: 400,
-            large: 600
+            large: 650
         },
     },
     {
@@ -28,7 +29,7 @@ const configs = {
         title: "Projects",
         scrollTo: {
             small: 1100,
-            large: 1300
+            large: 1400
         },
     },
     {
@@ -37,6 +38,14 @@ const configs = {
         scrollTo: {
             small: 1750,
             large: 2100
+        },
+    },
+    {
+        order: 5,
+        title: "Social Links",
+        scrollTo: {
+            small: 3000,
+            large: 3000
         },
     },
     ]

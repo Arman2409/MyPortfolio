@@ -17,25 +17,6 @@
     }
 }
 
-.slider_cont {
-    @extend .background_glitch;
-
-    height: 600px;
-    width: 90%;
-    display: flex;
-    position: relative;
-    overflow-x: hidden;
-    border: 10px solid $blue;
-    background-color: $purple;
-    overflow: hidden;
-    align-self: center;
-
-    @media screen and (max-width: 700px) {
-        height: 450px;
-        width: 100%;
-    }
-}
-
 .slider_content {
     @extend .background_glitch;
 
@@ -44,7 +25,7 @@
     display: flex;
     position: relative;
     overflow-x: hidden;
-    border: 10px solid $skyblue;
+    border: 10px solid $blue;
     background-color: $purple;
     overflow: hidden;
     align-self: center;
