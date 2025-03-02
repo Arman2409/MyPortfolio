@@ -32,13 +32,15 @@ const Controller = ({
             return console.error("Item with the order not found");
         }
         setCurrentItem({ ...newItem });
-    }, [currentItem, setCurrentItem]);
+    }, [portfolio, currentItem, setCurrentItem]);
 
     const goToLink = useCallback(takeToLink, []);
 
     return (
         <div className={styles.controller_main}>
-            <Screen loading={loading} currentItem={currentItem} />
+            <Screen 
+            loading={loading} 
+            currentItem={currentItem} />
 
             <div className={styles.buttons_cont}>
                 <ControllerButton

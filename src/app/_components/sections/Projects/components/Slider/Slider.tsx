@@ -2,10 +2,10 @@
 import { useEffect, useRef, useState } from "react";
 
 import styles from "./styles/Slider.module.scss";
-import Controller from "./components/Controller/Controller";
 import data from "../../../../../../data/data.json";
+import GlitchEffect from "../../../../../_components/globals/GlitchEffect/GlitchEffect";
+import Controller from "./components/Controller/Controller";
 import type { PortfolioItem } from "../../../../../../types/projects";
-import GlitchEffect from "@/app/_components/globals/GlitchEffect/GlitchEffect";
 
 const { projects } = { ...data };
 
@@ -17,7 +17,6 @@ const Slider = () => {
     const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
-        // return;
         if (initializingImage.current) return;
         initializingImage.current = true;
         setLoading(true);

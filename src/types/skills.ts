@@ -8,5 +8,5 @@ export interface SkillProps {
 export interface ConnectionsProps {
     width: number
     height: number
-    dimesions: Point[]
+    dimensions: Point[]
 }

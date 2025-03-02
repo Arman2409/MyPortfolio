@@ -1,5 +1,4 @@
 const configs = {
-    // this is the same also for scrollButtons
     switchToSmallWidth: 500,
     // Changes in scrollPoints assumes changes also for menuItems in header config
     scrollPoints: {

@@ -55,6 +55,8 @@ const Screen = ({
                         <Image
                             key={url}
                             src={url}
+                            width={40}
+                            height={40}
                             alt="Skill Used"
                             className={styles.screen_skill}
                         />
