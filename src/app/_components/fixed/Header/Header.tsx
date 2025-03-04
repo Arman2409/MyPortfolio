@@ -22,6 +22,13 @@ const Header = () => {
                 }
             }
         });
+        if (headerRef.current) {
+            if (window.scrollY > 50) {
+                headerRef.current.classList.add(styles.header_scrolled);
+            } else {
+                headerRef.current.classList.remove(styles.header_scrolled);
+            }
+        }
     }, [])
 
     return (
