@@ -37,15 +37,15 @@ const Skills = () => {
     }, [screenSize, setLocations, setWindowWidth, changeLocations])
 
     useEffect(() => {
-        window.addEventListener("resize", () => {
-            setWindowWidth(document.getElementById("skills_main")?.offsetWidth as number);
-            // Get new screen size by breakpoint 
-            const newScreenSize = getScreenSize(window.innerWidth, breakpoints);
+        // window.addEventListener("resize", () => {
+        //     setWindowWidth(document.getElementById("skills_main")?.offsetWidth as number);
+        //     // Get new screen size by breakpoint 
+        //     const newScreenSize = getScreenSize(window.innerWidth, breakpoints);
 
-            // Get new locations for the points by the screen size 
-            changeLocations(newScreenSize);
-            setScreenSize(newScreenSize)
-        })
+        //     // Get new locations for the points by the screen size 
+        //     changeLocations(newScreenSize);
+        //     setScreenSize(newScreenSize)
+        // })
     }, [screenSize, setLocations, setWindowWidth, changeLocations])
 
     return (
