@@ -5,7 +5,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "list": "chmod +rwx ./tools/list_structure.sh && ./tools/list_structure.sh ."
   },
   "dependencies": {
     "framer-motion": "^10.16.16",
