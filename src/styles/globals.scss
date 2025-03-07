@@ -37,12 +37,10 @@ a {
 
 main {
   position: relative;
-  /* overflow: hidden; */ /* Consider refining this */
   background-image: url("/background.webp");
   background-repeat: no-repeat;
-  background-size: cover; /* or contain */
-  /* background-attachment: fixed; */ /* Removed */
+  background-size: cover; 
   background-color: rgba($color: $purple, $alpha: 0.8) ; 
   background-blend-mode: multiply; 
-  min-height: 100%; /* or 100vh */
+  min-height: 100%;
 }
