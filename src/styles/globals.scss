@@ -30,8 +30,6 @@ body {
   }
 }
 
-
-
 a {
   color: inherit;
   text-decoration: none;
@@ -39,11 +37,12 @@ a {
 
 main {
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */ /* Consider refining this */
   background-image: url("/background.webp");
   background-repeat: no-repeat;
-  background-size: 100vw 100vh;
-  background-attachment: fixed;
+  background-size: cover; /* or contain */
+  /* background-attachment: fixed; */ /* Removed */
   background-color: rgba($color: $purple, $alpha: 0.8) ; 
   background-blend-mode: multiply; 
+  min-height: 100%; /* or 100vh */
 }
