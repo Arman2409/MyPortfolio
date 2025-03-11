@@ -14,7 +14,7 @@ const configs = {
     switchToSmallWidth: 500,
     startConnectionsScrollPoints: {
         small: 200,
-        large: 200,
+        large: 150,
     }
 }
 
