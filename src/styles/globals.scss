@@ -39,7 +39,7 @@ main {
   position: relative;
   background-image: url("/background.webp");
   background-repeat: repeat-y;
-  background-size: 100% 100%;
+  background-size: cover;
   background-attachment: fixed; 
   background-color: rgba($color: $purple, $alpha: 0.8) ; 
   background-blend-mode: multiply; 
