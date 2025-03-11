@@ -38,8 +38,9 @@ a {
 main {
   position: relative;
   background-image: url("/background.webp");
-  background-repeat: no-repeat;
-  background-size: cover; 
+  background-repeat: repeat-y;
+  background-size: 100% 100%;
+  background-attachment: fixed; 
   background-color: rgba($color: $purple, $alpha: 0.8) ; 
   background-blend-mode: multiply; 
   min-height: 100%;
