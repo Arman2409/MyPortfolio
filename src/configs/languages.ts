@@ -1,5 +1,7 @@
+import colors from "../styles/colors.module.scss";
+
 const configs = {
-    percentColor: "#97FEED"
+    percentColor: colors.skyblue
 }
 
 export default configs;

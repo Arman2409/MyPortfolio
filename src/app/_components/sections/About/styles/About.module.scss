@@ -1,7 +1,8 @@
-@import "../../../../../styles/colors.scss";
+@import "../../../../../styles/colors.module.scss";
 @import "../../../../../styles/classes.scss";
 @import "../../../../../styles/dimensions.scss";
 @import "../../../../../styles/animations.scss";
+@import "../../../../../styles/shadows.scss";
 
 .about_cont {
     height: 715px;
@@ -46,7 +47,7 @@
     @extend .background_glitch;
 
     margin-bottom: 20px;
-    box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(237, 241, 255, 0);
+    box-shadow: $screen_shadow;
     opacity: 0.5;
 
 }

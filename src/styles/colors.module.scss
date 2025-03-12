@@ -1,0 +1,18 @@
+$blue: #071952;
+$blue_light: #8bbfb0;
+$purple: #7b0893;
+$skyblue: #97FEED;
+$amber: #FFBF00;
+$black: #0000;
+
+$menu_line_color: #0B666A; 
+
+:export {
+    blue: $blue;
+    blueLight: $blue_light;
+    purple: $purple;
+    skyblue: $skyblue;
+    amber: $amber;
+    black: $black;
+    menuLineColor :$menu_line_color
+}

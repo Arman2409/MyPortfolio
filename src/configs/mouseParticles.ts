@@ -1,6 +1,8 @@
+import colors from "../styles/colors.module.scss";
+
 const configs = {
     canvasSize: 100,
-    particlesColor: "#97FEED",
+    particlesColor: colors.skyblue,
     particlesMinSpeed: 0.05,
     particlesQuantity: 15,
     particleSize: 2,

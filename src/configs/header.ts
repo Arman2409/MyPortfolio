@@ -1,7 +1,9 @@
+import colors from "../styles/colors.module.scss";
+
 const configs = {
     menuItemWidth: 250,
     menuItemHeight: 80,
-    menuLineColor: "#0B666A",
+    menuLineColor: colors.menuLineColor,
     menuLineWidth: 7.5,
     menuDrawInterval: 330,
     headerStyleChangeScroll: 50,

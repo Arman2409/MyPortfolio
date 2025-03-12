@@ -1,0 +1,11 @@
+$screen_shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(237, 241, 255, 0);
+
+.percent_mask {
+    -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 22px), #000 calc(100% - 22px));
+    mask: radial-gradient(farthest-side, #0000 calc(100% - 22px), #000 calc(100% - 22px));
+
+    @media screen and (max-width: 750px) {
+        -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 12px), #000 calc(100% - 12px));
+        mask: radial-gradient(farthest-side, #0000 calc(100% - 12px), #000 calc(100% - 12px));  
+    }
+}

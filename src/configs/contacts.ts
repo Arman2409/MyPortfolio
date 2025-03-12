@@ -1,9 +1,11 @@
+import colors from "../styles/colors.module.scss";
+
 const configs = {
     connectionWidth: 90,
     edgeRadius: 10,
     lineWidth: 5,
-    connectionColor: "#8bbfb0",
-    edgeColor: "#071952",
+    connectionColor: colors.blueLight,
+    edgeColor: colors.blue,
     linesPlacements: [70, 40, 50]
 }
 

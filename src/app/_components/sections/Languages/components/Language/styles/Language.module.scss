@@ -1,5 +1,6 @@
-@import "../../../../../../../styles/colors.scss";
+@import "../../../../../../../styles/colors.module.scss";
 @import "../../../../../../../styles/classes.scss";
+@import "../../../../../../../styles/shadows.scss";
 
 .language {
     @extend .centered;
@@ -27,13 +28,8 @@
     top: 0;
     left: 0;
     inset: 0;
-    -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 22px), #000 calc(100% - 22px));
-    mask: radial-gradient(farthest-side, #0000 calc(100% - 22px), #000 calc(100% - 22px));
 
-    @media screen and (max-width: 750px) {
-        -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 12px), #000 calc(100% - 12px));
-        mask: radial-gradient(farthest-side, #0000 calc(100% - 12px), #000 calc(100% - 12px));  
-    }
+    @extend .percent_mask;
 }
 
 .language_name {
