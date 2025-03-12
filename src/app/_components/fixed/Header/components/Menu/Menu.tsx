@@ -34,7 +34,7 @@ const Menu = () => {
          top: scrollTo,
       });
 
-   }, [setMenuOpen, menuOpen])
+   }, [setMenuOpen])
 
    useEffect(() => {
       const windowHeight = window.innerHeight;

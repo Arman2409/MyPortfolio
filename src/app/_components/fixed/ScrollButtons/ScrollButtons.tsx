@@ -47,6 +47,7 @@ const ScrollButtons = () => {
                 height: points.length * 40 + "px",
                 display: showButtons ? "flex" : "none",
             }}>
+                
             {points.map((point: number) => (
                 <div
                     key={point}

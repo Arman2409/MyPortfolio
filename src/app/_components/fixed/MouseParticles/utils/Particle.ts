@@ -10,13 +10,14 @@ export class Particle {
     centerY: number = 0;
     
     private angleChange: number = 0;
-
     private readonly ctx: CanvasRenderingContext2D;
+
     constructor(
         ctx: CanvasRenderingContext2D,
         particleSize: number,
         color: string,
         minSpeed: number) {
+
         this.ctx = ctx;
         this.particleSize = particleSize;
         this.centerX = ctx.canvas.width / 2;
@@ -30,13 +31,17 @@ export class Particle {
         ctx.fillStyle = color;
         ctx.fill();
         ctx.stroke();
+
     }
 
     private getNewPoint = (ctx: CanvasRenderingContext2D): Point => {
         const { centerX, centerY, particleSize, calculateDistance, getNewPoint } = { ...this };
+
         const newX = Math.round(Math.random() * centerX * 2);
         const newY = Math.round(Math.random() * centerY * 2);
+
         const distance = calculateDistance(newX, newY, centerX, centerY);
+
         if (distance > centerX - particleSize || distance < centerX / 2) {
             return getNewPoint(ctx);
         }
@@ -54,8 +59,10 @@ export class Particle {
         const newAngle = angle + angleChange;
         this.angle = newAngle;
         const distance = calculateDistance(x, y, centerX, centerY);
+        
         const particleX = centerX + distance * Math.cos(newAngle);
         const particleY = centerY + distance * Math.sin(newAngle);
+
         ctx.beginPath();
         ctx.arc(particleX, particleY, particleSize, 0, Math.PI * 2);
         ctx.fill();

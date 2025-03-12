@@ -29,6 +29,7 @@ const MouseParticles = () => {
         const halfCanvasSize = canvasSize / 2;
         if (particlesCont.current) {
             particlesCont.current.style.top = -halfCanvasSize + "px";
+
             window.addEventListener("mousemove", ({ clientX, clientY }: MouseEvent) => {
                 if (particlesCont.current) {
                     particlesCont.current.style.top = clientY - halfCanvasSize + "px";
@@ -37,6 +38,7 @@ const MouseParticles = () => {
             })
         }
         window.addEventListener("click", () => addParticles(context, particles));
+        
         window.addEventListener("resize", () => {
             if (window.innerWidth <= hideBreakpoint) {
                 setShowParticles(false);

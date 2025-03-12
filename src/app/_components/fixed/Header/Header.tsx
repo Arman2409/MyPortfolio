@@ -15,7 +15,7 @@ const Header = () => {
     useEffect(() => {
         window.addEventListener('scroll', () => {
             if (headerRef.current) {
-                if (window.scrollY > 50) {
+                if (window.scrollY > headerStyleChangeScroll) {
                     headerRef.current.classList.add(styles.header_scrolled);
                 } else {
                     headerRef.current.classList.remove(styles.header_scrolled);
@@ -23,7 +23,7 @@ const Header = () => {
             }
         });
         if (headerRef.current) {
-            if (window.scrollY > 50) {
+            if (window.scrollY > headerStyleChangeScroll) {
                 headerRef.current.classList.add(styles.header_scrolled);
             } else {
                 headerRef.current.classList.remove(styles.header_scrolled);

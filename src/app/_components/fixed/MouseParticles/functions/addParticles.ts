@@ -1,11 +1,16 @@
 import configs from "../../../../../configs/mouseParticles";
 import { Particle } from "../utils/Particle";
 
-const { particlesColor, particlesMinSpeed, particlesQuantity, particleSize } = { ...configs };
+const {
+    particlesColor,
+    particlesMinSpeed,
+    particlesQuantity,
+    particleSize } = { ...configs };
 
-const addParticles = ( 
+const addParticles = (
     context: CanvasRenderingContext2D,
-    particles: Particle[],) => {
+    particles: Particle[]
+) => {
     // Get random quantity for the particles 
     const particlesCount = Math.round(Math.random() * particlesQuantity);
 

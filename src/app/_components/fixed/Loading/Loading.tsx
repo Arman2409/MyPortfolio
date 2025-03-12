@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 import styles from "./styles/Loading.module.scss";
 import { loadingDelay } from "../../../../configs/loading";
@@ -17,11 +18,12 @@ const Loading = () => {
         <>
             {isLoading && <div
                 className={styles.loading}>
-                <img
-                    className={styles.loading_image}
+                <Image
+                    width={300}
+                    height={300}
                     alt="Loading..."
-                    src="./loading.gif">
-                </img>
+                    src="./loading.gif"
+                />
             </div>}
         </>
     )
