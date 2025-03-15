@@ -22,7 +22,7 @@ const Loading = () => {
                     width={300}
                     height={300}
                     alt="Loading..."
-                    src="./loading.gif"
+                    src="/loading.gif"
                 />
             </div>}
         </>
