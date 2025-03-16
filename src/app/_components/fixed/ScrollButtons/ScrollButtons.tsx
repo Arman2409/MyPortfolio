@@ -27,6 +27,7 @@ const ScrollButtons = () => {
         const currentPoints = window.innerWidth > switchToSmallWidth ? scrollPoints.large : scrollPoints.small;
         setPoints(currentPoints);
 
+        scrollListener(currentPoints, setChosenPoint);
         window.addEventListener("scroll", () => scrollListener(currentPoints, setChosenPoint));
         window.addEventListener("resize", () => {
             if (window.innerWidth <= hideBreakpoint) {

@@ -20,8 +20,6 @@ const Screen = ({
             setPointsCount(1);
             updateInterval = setInterval(() => {
                 setPointsCount(curr => {
-                    console.log(curr);
-
                     if (curr < 4) {
                         return curr + 1;
                     } else {
