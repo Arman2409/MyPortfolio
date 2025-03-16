@@ -16,8 +16,6 @@ const Connections = ({ width, height, dimensions }: ConnectionsProps) => {
     const abortDrawingRef = useRef(false); // Add abortDrawingRef
 
     useEffect(() => {
-        console.log({drawConnectionsStatus});
-        
         const canvas = canvasRef.current;
         if (!canvas || drawConnectionsStatus !== "draw") return;
 
