@@ -1,5 +1,5 @@
 "use client"
-import { useCallback, useEffect, useRef, useState } from "react";
+import { MouseEvent, useCallback, useEffect, useRef, useState } from "react";
 import { ImMenu } from "react-icons/im";
 
 import styles from "./styles/Menu.module.scss";
@@ -98,7 +98,7 @@ const Menu = () => {
                   <div
                      key={order}
                      className={styles.menu_item}
-                     onClick={(event: any) => clickItem(event, window.innerWidth > switchToSmallWidth ? scrollTo.large : scrollTo.small)}
+                     onClick={(event: MouseEvent) => clickItem(event, window.innerWidth > switchToSmallWidth ? scrollTo.large : scrollTo.small)}
                      style={{
                         width: menuItemWidth + "px",
                         height: menuItemHeight + "px",

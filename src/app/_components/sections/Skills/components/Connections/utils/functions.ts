@@ -1,4 +1,5 @@
 
+import { Ref } from "react";
 import configs from "../../../../../../../configs/skills";
 import type { Point, ScreenSize } from "../../../../../../../types/global";
 
@@ -8,11 +9,11 @@ async function drawVerticalLinesRecursively(
     ctx: CanvasRenderingContext2D,
     dimensions: Point[],
     currentEnd: Point,
-    abortRef: any,
+    abortRef: { current: HTMLElement },
     index: number = 0,
 ) {
     if (index < dimensions.length) {
-        if (abortRef.current) return;
+        if (abortRef?.current) return;
 
         const dimension = dimensions[index];
         const { x, y } = { ...currentEnd };
@@ -42,7 +43,8 @@ export const drawLines = async (
     ctx: CanvasRenderingContext2D,
     dimesions: Point[],
     screenSize: ScreenSize,
-    abortRef: any): Promise<void> => {
+    abortRef: { current: HTMLElement }
+): Promise<void> => {
 
     if (!Array.isArray(dimesions) || !dimesions.length) {
         console.error("Dimesions not provided");

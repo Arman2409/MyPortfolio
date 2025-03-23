@@ -1,7 +1,9 @@
-export const debounce = <T extends (...args: any[]) => any>(
+export const debounce = <T extends (...args: unknown[]) => unknown>(
     func: T,
     delay: number
-): ((this: ThisParameterType<T>, ...args: Parameters<T>) => void) => {
+): (
+    (this: ThisParameterType<T>, ...args: Parameters<T>) => void
+) => {
     let timeoutId: ReturnType<typeof setTimeout> | undefined;
 
     return function (this: ThisParameterType<T>, ...args: Parameters<T>): void {
