@@ -3,7 +3,7 @@ import styles from "./styles/Connections.module.scss";
 import { drawLines } from "./utils/functions";
 import configs from "../../../../../../configs/skills";
 import { debounce } from "../../../../../../helpers/debounce";
-import { getScreenSize } from "../../../../../../helpers/getScreenSize";
+import { getScreenSize } from "../../../../../../helpers/sizes";
 import type { ConnectionsProps } from "../../../../../../types/skills";
 import type { ScreenSize } from "../../../../../../types/global";
 

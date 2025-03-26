@@ -22,15 +22,19 @@ const Controller = ({
         if (!Number(order)) {
             return console.error("Current item or its order not provided");
         };
+
         // Get new order by the direction
         let newOrder = direction === "left" ? order - 1 : order + 1;
         const itemsCount = portfolio.length;
+
         if (newOrder === 0) newOrder = itemsCount;
         if (newOrder > itemsCount) newOrder = 1;
+
         const newItem = portfolio.find(({ order: itemOrder }: PortfolioItem) => itemOrder === newOrder);
         if (!newItem) {
             return console.error("Item with the order not found");
         }
+        
         setCurrentItem({ ...newItem });
     }, [portfolio, currentItem, setCurrentItem]);
 

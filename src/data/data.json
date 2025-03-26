@@ -103,38 +103,45 @@
     "projects": [
         {
             "order": 1,
+            "img": "/projects/deStress.png",
+            "title": "Destress",
+            "description": "Antistress Games Compilation",
+            "usedSkills": [
+                "TypeScript",
+                "HTML Canvas",
+                "SCSS"
+            ],
+            "github": "https://github.com/Arman2409/DeStress",
+            "link": "https://destress-app.netlify.app/"
+        },
+        {
+            "order": 2,
             "img": "/projects/pointscape.png",
             "title": "Pointscape",
-            "description": "npm package of 2D functions",
-            "usedSkills": ["TypeScript", "NPM", "Node.js", "Jest"],
+            "description": "NPM package of 2D functions",
+            "usedSkills": [
+                "TypeScript",
+                "NPM",
+                "Node.js",
+                "Jest"
+            ],
             "link": "https://www.npmjs.com/package/pointscape",
             "github": "https://github.com/Arman2409/pointscape"
         },
         {
-            "order": 2,
-            "img": "/projects/svg-colorizer.png",
-            "title": "SVG colorizer",
-            "description": "npm package for SVG colorization",
-            "usedSkills": ["TypeScript", "NPM", "Node.js", "Jest"],
-            "link": "https://www.npmjs.com/package/svg-colorizer",
-            "github": "https://github.com/Arman2409/svg-colorizer"
-        },
-        {
             "order": 3,
-            "img": "/projects/dataFalcon.png",
-            "title": "DataFalcon",
-            "description": "web crawler",
-            "usedSkills": ["TypeScript","Next.js", "Nest.js", "MongoDB", "Redux"],
-            "github": "https://github.com/Arman2409/DataFalcon"
-        },
-        {
-            "order": 4,
-            "img": "/projects/deStress.png",
-            "title": "Destress",
-            "description": "antistress games compilation",
-            "usedSkills": ["TypeScript", "HTML Canvas", "SCSS"],
-            "github": "https://github.com/Arman2409/DeStress",
-            "link": "https://destress-app.netlify.app/"
+            "img": "/projects/svg-colorizer.png",
+            "title": "Nest.js Readme",
+            "description": "NPM package for README files",
+            "usedSkills": [
+                "TypeScript",
+                "NPM",
+                "Node.js",
+                "Jest",
+                "Nest.js"
+            ],
+            "link": "https://www.npmjs.com/package/nestjs-readme",
+            "github": "https://github.com/Arman2409/nestjs-readme"
         }
     ],
     "links": [

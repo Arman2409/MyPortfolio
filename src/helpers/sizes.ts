@@ -23,3 +23,5 @@ export const getScreenSize = (
     
     return chosenPoint as ScreenSize;
 }
+
+export const isOnBottom = () => window.innerHeight + Math.round(window.scrollY) >= document.body.offsetHeight;

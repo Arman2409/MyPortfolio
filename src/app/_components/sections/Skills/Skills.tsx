@@ -4,11 +4,11 @@ import { useCallback, useEffect, useState } from "react";
 import styles from "./styles/Skills.module.scss";
 import data from "../../../../data/data.json";
 import configs from "../../../../configs/skills";
+import { getScreenSize } from "../../../../helpers/sizes";
+import SectionTitle from "../../globals/SectionTitle/SectionTitle";
 import { getDimesions } from "./utils/functions";
 import Skill from "./components/Skill/Skill";
 import Connections from "./components/Connections/Connections";
-import SectionTitle from "../../globals/SectionTitle/SectionTitle";
-import { getScreenSize } from "../../../../helpers/getScreenSize";
 import type { Point, ScreenSize } from "../../../../types/global";
 
 const { breakpoints, skillSize } = { ...configs };

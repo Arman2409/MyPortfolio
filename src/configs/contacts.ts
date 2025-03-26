@@ -6,6 +6,7 @@ const configs = {
     lineWidth: 5,
     connectionColor: colors.blueLight,
     edgeColor: colors.blue,
+    hideBreakpoint: 600,
     linesPlacements: [70, 40, 50]
 }
 

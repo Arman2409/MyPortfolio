@@ -15,6 +15,7 @@ const StretchingLine = ({ right }: StretchingLineProps) => {
         if (!stretchingCanvas.current) return;
         stretchingCanvas.current.width = 100;
         stretchingCanvas.current.height = document.documentElement.scrollHeight;
+        
         const context = stretchingCanvas.current.getContext("2d") as CanvasRenderingContext2D;
         new DrawLine(
             connectionWidth,

@@ -1,19 +1,20 @@
 @import "../../../../../../../../../styles/colors.module.scss";
 
 .controller_main {
-    width: 400px;
+    width: 500px;
     height: 210px;
     padding: 5px;
     background-color: $blue;
     border: 3px solid $amber;
     position: absolute;
     bottom: 25px;
-    left: 5%;
+    left: calc(50% - 250px);
 
     @media screen and (max-width: 700px) {
         width: 300px;
         height: 160px;
         bottom: 50px;
+        font-size: 14px;
         left: calc(50% - 150px);
     }
 }

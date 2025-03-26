@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import styles from "./styles/About.module.scss";
 import data from "../../../../data/data.json";
 import configs from "../../../../configs/about";
-import { getScreenSize } from "../../../../helpers/getScreenSize";
+import { getScreenSize } from "../../../../helpers/sizes";
 import getTVVariants from "./utils/variants";
 import type { ScreenSize } from "../../../../types/global";
 
