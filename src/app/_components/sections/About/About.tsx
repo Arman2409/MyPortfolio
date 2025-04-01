@@ -20,6 +20,11 @@ const About = () => {
     const [startTypewriter, setStartTypewriter] = useState<boolean>(false);
     const screenRef = useRef<HTMLDivElement | null>(null);
 
+    const turnOn = useCallback(() => {
+        setSwitchedOn(true);
+        setTimeout(() => setStartTypewriter(true), 1000);
+    }, [setSwitchedOn, setStartTypewriter])
+
     const handleClickButton = useCallback(() => {
         if (switchedOn) {
             setSwitchedOn(false);
@@ -27,16 +32,11 @@ const About = () => {
         }
         
         turnOn();
-    }, [setSwitchedOn, switchedOn])
-
-    const turnOn = useCallback(() => {
-        setSwitchedOn(true);
-        setTimeout(() => setStartTypewriter(true), 1000);
-    }, [setSwitchedOn, setStartTypewriter])
+    }, [setSwitchedOn, switchedOn, turnOn])
 
     useEffect(() => {
         setTimeout(() => turnOn(), tvTurnOnTime * 500);
-    }, [setSwitchedOn, setStartTypewriter])
+    }, [setSwitchedOn, setStartTypewriter, turnOn])
 
     useEffect(() => {
         // Change the screen size by the breakpoint 

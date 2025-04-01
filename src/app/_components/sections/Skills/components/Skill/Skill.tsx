@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 import styles from "./styles/Skill.module.scss";
 import configs from "../../../../../../configs/skills";
@@ -35,7 +36,10 @@ const Skill = ({ src, dimesion }: SkillProps) => {
         left: getSkillStyle("top", screenSize, skillSize, x)
       }}
     >
-      <img
+      <Image
+        alt="My Skill"
+        width={75}
+        height={75}
         className={styles.skill_image}
         src={src} />
     </div >

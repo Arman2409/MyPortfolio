@@ -31,7 +31,7 @@ const Connections = ({ width, height, dimensions }: ConnectionsProps) => {
 
         // Modify drawLines to check abortDrawingRef
         const drawLinesWithAbort = async () => {
-            await drawLines(ctx, dimensions, currentScreenSize, abortDrawingRef);
+            await drawLines(ctx, dimensions, currentScreenSize, abortDrawingRef as unknown as { current: HTMLElement});
         }
 
         drawLinesWithAbort();
@@ -84,7 +84,7 @@ const Connections = ({ width, height, dimensions }: ConnectionsProps) => {
             window.removeEventListener("scroll", debouncedScroll);
             window.removeEventListener("resize", debouncedResize);
         };
-    }, []);
+    }, [ drawConnectionsStatus ]);
 
     return (
         <div className={styles.connections_main}>

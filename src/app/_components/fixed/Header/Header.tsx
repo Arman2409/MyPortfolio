@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 import styles from "./styles/Header.module.scss";
 import configs from "../../../../configs/header";
@@ -37,7 +38,10 @@ const Header = () => {
             className={styles.header}>
             <div
                 className={styles.logo_cont}  >
-                <img
+                <Image 
+                    width={110}
+                    height={75}
+                    alt="logo"
                     src="/logo.png"
                     onClick={clickLogo} />
             </div>
