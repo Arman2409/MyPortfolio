@@ -1,5 +1,5 @@
 {
-    "about": "Hi, I'm a Full Stack developer with 2.5 years of experience. I specialize in JavaScript and TypeScript and have advanced skills in Go. I develop dynamic UIs using React.js and Next.js, and I build server-side applications with Node.js, Nest.js, Express.js, and Gin. My expertise includes creating admin panels, landing pages, payment services, and user management systems. I am passionate about continuous learning and staying ahead in the tech world.",
+    "about": "I am a backend developer with 3+ years of experience. Throughout my career, I have implemented various real-time product solutions and resolved complex system-level issues. I have experience building different kinds of backend systems, primarily using Node.js, along with several months of experience in Go. I am proficient in modern architectures—including serverless, microservices, and monolithic systems. I am a dedicated learner who constantly explores new technologies to improve my craft and deliver better results.",
     "skills": [
         {
             "name": "SCSS",
@@ -89,33 +89,20 @@
     "languages": [
         {
             "name": "English",
-            "percent": 60
+            "percent": 65
         },
         {
             "name": "Russian",
-            "percent": 50
+            "percent": 55
         },
         {
             "name": "Armenian",
-            "percent": 85
+            "percent": 90
         }
     ],
     "projects": [
         {
             "order": 1,
-            "img": "/projects/deStress.png",
-            "title": "Destress",
-            "description": "Antistress Games Compilation",
-            "usedSkills": [
-                "TypeScript",
-                "HTML Canvas",
-                "SCSS"
-            ],
-            "github": "https://github.com/Arman2409/DeStress",
-            "link": "https://destress-app.netlify.app/"
-        },
-        {
-            "order": 2,
             "img": "/projects/pointscape.png",
             "title": "Pointscape",
             "description": "NPM package of 2D functions",
@@ -129,7 +116,7 @@
             "github": "https://github.com/Arman2409/pointscape"
         },
         {
-            "order": 3,
+            "order": 2,
             "img": "/projects/svg-colorizer.png",
             "title": "Nest.js Readme",
             "description": "NPM package for README files",
@@ -142,6 +129,19 @@
             ],
             "link": "https://www.npmjs.com/package/nestjs-readme",
             "github": "https://github.com/Arman2409/nestjs-readme"
+        },
+                {
+            "order": 3,
+            "img": "/projects/deStress.png",
+            "title": "Destress",
+            "description": "Antistress Games Compilation",
+            "usedSkills": [
+                "TypeScript",
+                "HTML Canvas",
+                "SCSS"
+            ],
+            "github": "https://github.com/Arman2409/DeStress",
+            "link": "https://destress-app.netlify.app/"
         }
     ],
     "links": [
