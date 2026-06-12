@@ -15,7 +15,7 @@ const GlitchEffect = ({
                     key={value}
                     className={styles.glitch_line}
                     style={{
-                        animationDelay: value + Math.floor(Math.random()) + "s",
+                        animationDelay: value + "s",
                         backgroundColor: lineColor,
                     }}
                 ></div>

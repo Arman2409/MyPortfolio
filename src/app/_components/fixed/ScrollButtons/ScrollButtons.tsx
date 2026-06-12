@@ -27,18 +27,23 @@ const ScrollButtons = () => {
         const currentPoints = window.innerWidth > switchToSmallWidth ? scrollPoints.large : scrollPoints.small;
         setPoints(currentPoints);
 
-        scrollListener(currentPoints, setChosenPoint);
-        window.addEventListener("scroll", () => scrollListener(currentPoints, setChosenPoint));
-        window.addEventListener("resize", () => {
+        const handleScroll = () => scrollListener(currentPoints, setChosenPoint);
+        const handleResize = () => {
             if (window.innerWidth <= hideBreakpoint) {
                 setShowButtons(false);
             } else {
                 setShowButtons(true);
             }
-        })
+        };
 
-        // Delete the window listener 
-        return window.removeEventListener("scroll", () => scrollListener(currentPoints, setChosenPoint));
+        scrollListener(currentPoints, setChosenPoint);
+        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("resize", handleResize)
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("resize", handleResize);
+        };
     }, [setChosenPoint, setPoints])
 
     return (

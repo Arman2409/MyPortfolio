@@ -15,10 +15,14 @@ const Skill = ({ src, dimesion }: SkillProps) => {
   const [screenSize, setScreenSize] = useState<ScreenSize>("veryLarge");
 
   useEffect(() => {
-    setScreenSize(getScreenSize(window.innerWidth, breakpoints));
-    window.addEventListener("resize", () => {
+    const handleResize = () => {
       setScreenSize(getScreenSize(window.innerWidth, breakpoints))
-    });
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, [setScreenSize])
 
   if (!src) {
@@ -33,7 +37,7 @@ const Skill = ({ src, dimesion }: SkillProps) => {
         width: getSkillStyle("width", screenSize, skillSize),
         height: getSkillStyle("height", screenSize, skillSize),
         top: getSkillStyle("top", screenSize, skillSize, y),
-        left: getSkillStyle("top", screenSize, skillSize, x)
+        left: getSkillStyle("left", screenSize, skillSize, x)
       }}
     >
       <Image

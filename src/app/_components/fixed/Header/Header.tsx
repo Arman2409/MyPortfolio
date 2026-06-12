@@ -14,7 +14,7 @@ const Header = () => {
     const clickLogo = () => window.scrollTo({ top: 0 });
 
     useEffect(() => {
-        window.addEventListener('scroll', () => {
+        const handleScroll = () => {
             if (headerRef.current) {
                 if (window.scrollY > headerStyleChangeScroll) {
                     headerRef.current.classList.add(styles.header_scrolled);
@@ -22,14 +22,12 @@ const Header = () => {
                     headerRef.current.classList.remove(styles.header_scrolled);
                 }
             }
-        });
-        if (headerRef.current) {
-            if (window.scrollY > headerStyleChangeScroll) {
-                headerRef.current.classList.add(styles.header_scrolled);
-            } else {
-                headerRef.current.classList.remove(styles.header_scrolled);
-            }
-        }
+        };
+
+        handleScroll();
+        window.addEventListener('scroll', handleScroll);
+
+        return () => window.removeEventListener('scroll', handleScroll);
     }, [])
 
     return (

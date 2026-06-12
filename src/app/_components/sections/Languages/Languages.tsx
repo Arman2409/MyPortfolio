@@ -7,14 +7,14 @@ import type { Language as LanguageType } from "../../../../types/languages";
 let { languages } = { ...data };
 
 const Languages = () => {
-    languages = languages.sort(({ percent: prevPercent }: LanguageType,
+    const sortedLanguages = [...languages].sort(({ percent: prevPercent }: LanguageType,
         { percent: nextPercent }: LanguageType) => nextPercent - prevPercent);
 
     return (
         <div className={styles.languages}>
             <SectionTitle title="Languages" />
             <div className={styles.languages_cont}>
-                {languages.map(({ name: languageName, percent }: LanguageType) => (
+                {sortedLanguages.map(({ name: languageName, percent }: LanguageType) => (
                         <Language
                             key={languageName}
                             name={languageName}

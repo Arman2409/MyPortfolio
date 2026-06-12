@@ -24,28 +24,46 @@ const MouseParticles = () => {
         const context = particlesCanvas.current.getContext("2d") as CanvasRenderingContext2D;
 
         addParticles(context, particles);
-        animateParticles(context, particles, canvasSize);
+        let shouldStopAnimation = false;
+        const animationFrame = animateParticles(
+            context,
+            particles,
+            canvasSize,
+            () => shouldStopAnimation
+        );
 
         const halfCanvasSize = canvasSize / 2;
-        if (particlesCont.current) {
-            particlesCont.current.style.top = -halfCanvasSize + "px";
-
-            window.addEventListener("mousemove", ({ clientX, clientY }: MouseEvent) => {
-                if (particlesCont.current) {
-                    particlesCont.current.style.top = clientY - halfCanvasSize + "px";
-                    particlesCont.current.style.left = clientX - halfCanvasSize + "px";
-                }
-            })
-        }
-        window.addEventListener("click", () => addParticles(context, particles));
-        
-        window.addEventListener("resize", () => {
+        const handleMouseMove = ({ clientX, clientY }: MouseEvent) => {
+            if (particlesCont.current) {
+                particlesCont.current.style.top = clientY - halfCanvasSize + "px";
+                particlesCont.current.style.left = clientX - halfCanvasSize + "px";
+            }
+        };
+        const handleClick = () => addParticles(context, particles);
+        const handleResize = () => {
             if (window.innerWidth <= hideBreakpoint) {
                 setShowParticles(false);
             } else {
                 setShowParticles(true);
             }
-        })
+        };
+
+        if (particlesCont.current) {
+            particlesCont.current.style.top = -halfCanvasSize + "px";
+
+            window.addEventListener("mousemove", handleMouseMove)
+        }
+        window.addEventListener("click", handleClick);
+        
+        window.addEventListener("resize", handleResize)
+
+        return () => {
+            shouldStopAnimation = true;
+            cancelAnimationFrame(animationFrame);
+            window.removeEventListener("mousemove", handleMouseMove);
+            window.removeEventListener("click", handleClick);
+            window.removeEventListener("resize", handleResize);
+        };
     }, [setShowParticles])
 
     return (

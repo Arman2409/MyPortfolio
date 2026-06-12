@@ -18,17 +18,18 @@ const Contacts = () => {
 
     useEffect(() => {
         const isMobile = window.innerWidth < hideBreakpoint;
-
-        if (isOnBottom() && !isMobile) {
-            setShowLines(true);
-        }
-        
-        window.addEventListener("scroll", () => {
+        const handleScroll = () => {
             // Check if the user has reached the bottom of the page 
             if (isOnBottom() && !isMobile) {
                 setShowLines(true);
             }
-        })
+        };
+
+        handleScroll();
+        
+        window.addEventListener("scroll", handleScroll)
+
+        return () => window.removeEventListener("scroll", handleScroll);
     }, [setShowLines])
 
     return (

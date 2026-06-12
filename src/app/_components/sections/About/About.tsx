@@ -35,17 +35,21 @@ const About = () => {
     }, [setSwitchedOn, switchedOn, turnOn])
 
     useEffect(() => {
-        setTimeout(() => turnOn(), tvTurnOnTime * 500);
-    }, [setSwitchedOn, setStartTypewriter, turnOn])
+        const turnOnTimer = setTimeout(() => turnOn(), tvTurnOnTime * 500);
+
+        return () => clearTimeout(turnOnTimer);
+    }, [turnOn])
 
     useEffect(() => {
         // Change the screen size by the breakpoint 
-        setScreenSize(getScreenSize(window.innerWidth, breakpoints));
-
-        window.addEventListener("resize", () => {
+        const handleResize = () => {
             setScreenSize(getScreenSize(window.innerWidth, breakpoints));
-        })
+        };
 
+        handleResize();
+        window.addEventListener("resize", handleResize)
+
+        return () => window.removeEventListener("resize", handleResize);
     }, [setScreenSize])
 
 
